@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Detalhes do Produto | Sintetizza Eventos</title>
+  <meta name="description" content="Especificações técnicas, dimensões e solicitação de locação de infraestrutura para eventos na Sintetizza.">
+  
+  <!-- Fontes Google -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Estilos Modulares CSS -->
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <div id="site-header-container"></div>
+
+  <!-- Banner da Página com Breadcrumb -->
+  <section class="page-banner" style="padding: calc(var(--space-3xl) + 10px) 0 var(--space-2xl) 0;">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="index.html">Início</a>
+        <span>/</span>
+        <a href="produtos.html">Produtos & Soluções</a>
+        <span>/</span>
+        <span id="detail-breadcrumb-product" style="color: var(--color-text-light);">Detalhes</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Conteúdo Principal do Detalhe do Produto -->
+  <section class="section section-white">
+    <div class="container" id="product-detail-root">
+      <!-- Injetado dinamicamente via js/main.js -> initProductDetailPage() -->
+      <div style="text-align: center; padding: 60px 0; color: var(--color-text-secondary);">
+        Carregando detalhes técnicos do equipamento...
+      </div>
+    </div>
+  </section>
+
+  <!-- Produtos Relacionados -->
+  <section class="section section-light">
+    <div class="container">
+      <div class="section-header text-left" style="margin-bottom: var(--space-xl);">
+        <span class="section-subtitle">Soluções Complementares</span>
+        <h2 class="section-title">Itens Frequentemente Alugados Juntos</h2>
+      </div>
+
+      <div class="grid grid-3" id="related-products-grid"></div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <div id="site-footer-container"></div>
+
+  <!-- Scripts -->
+  <script src="js/data.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/components.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
