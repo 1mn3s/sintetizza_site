@@ -3,8 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Solicitar Orçamento | Sintetizza Eventos</title>
-  <meta name="description" content="Solicitação de orçamento online para estruturas, áudio, iluminação e climatização.">
+  <title>Montar Orçamento Online | Sintetizza Eventos</title>
+  <meta name="description" content="Monte seu orçamento online de palcos, iluminação, som line array, painéis de LED e geradores para eventos em Sorocaba e região.">
+  <link rel="icon" type="image/png" href="assets/images/favicon.png">
   
   <!-- Fontes Google -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -30,9 +31,9 @@
         <span>/</span>
         <span>Solicitar Orçamento</span>
       </div>
-      <h1 class="page-banner-title">Solicitação de Orçamento</h1>
+      <h1 class="page-banner-title">Solicitação de Orçamento Técnico</h1>
       <p class="page-banner-desc">
-        Revise sua lista de equipamentos, preencha os dados do evento e envie para nossa equipe técnica.
+        Revise os equipamentos selecionados, informe os dados operacionais do seu evento e gere sua proposta técnica imediatamente.
       </p>
     </div>
   </section>
@@ -44,32 +45,33 @@
 
         <!-- Formulário -->
         <div class="quote-card">
-          <div style="margin-bottom: 20px; border-bottom: 1px solid var(--color-border-light); padding-bottom: 12px;">
-            <h2 style="font-size: 1.35rem;">Dados do Solicitante e do Evento</h2>
+          <div style="margin-bottom: 24px; border-bottom: 1px solid var(--color-border-light); padding-bottom: 14px;">
+            <h2 style="font-size: 1.4rem; color: var(--color-slate-950); font-weight: 800;">Dados do Solicitante e do Evento</h2>
+            <p style="color: var(--color-slate-500); font-size: 0.9rem; margin-top: 4px;">Preencha os campos abaixo para dimensionamento de carga e equipe.</p>
           </div>
 
           <form id="quote-request-form">
             <!-- Dados de Contato -->
             <div class="grid grid-2" style="gap: 16px; margin-bottom: 16px;">
               <div class="form-group">
-                <label class="form-label" for="clientName">Nome Completo <span class="required">*</span></label>
-                <input type="text" id="clientName" name="clientName" class="form-control" placeholder="Seu nome" required>
+                <label class="form-label" for="clientName">Nome Completo do Responsável <span class="required">*</span></label>
+                <input type="text" id="clientName" name="clientName" class="form-control" placeholder="Seu nome completo" required>
               </div>
 
               <div class="form-group">
-                <label class="form-label" for="clientCompany">Empresa / Produtora</label>
-                <input type="text" id="clientCompany" name="clientCompany" class="form-control" placeholder="Nome da empresa (opcional)">
+                <label class="form-label" for="clientCompany">Empresa / Produtora / Agência</label>
+                <input type="text" id="clientCompany" name="clientCompany" class="form-control" placeholder="Razão social ou nome fantasia (opcional)">
               </div>
             </div>
 
             <div class="grid grid-2" style="gap: 16px; margin-bottom: 20px;">
               <div class="form-group">
-                <label class="form-label" for="clientEmail">E-mail <span class="required">*</span></label>
+                <label class="form-label" for="clientEmail">E-mail Corporativo <span class="required">*</span></label>
                 <input type="email" id="clientEmail" name="clientEmail" class="form-control" placeholder="seuemail@empresa.com" required>
               </div>
 
               <div class="form-group">
-                <label class="form-label" for="clientPhone">WhatsApp / Telefone <span class="required">*</span></label>
+                <label class="form-label" for="clientPhone">WhatsApp / Telefone com DDD <span class="required">*</span></label>
                 <input type="tel" id="clientPhone" name="clientPhone" class="form-control" placeholder="(15) 99999-9999" required>
               </div>
             </div>
@@ -77,43 +79,44 @@
             <!-- Dados do Evento -->
             <div class="grid grid-2" style="gap: 16px; margin-bottom: 16px;">
               <div class="form-group">
-                <label class="form-label" for="eventType">Tipo de Evento <span class="required">*</span></label>
+                <label class="form-label" for="eventType">Segmento do Evento <span class="required">*</span></label>
                 <select id="eventType" name="eventType" class="form-control" required>
-                  <option value="Corporativo / Congresso">Corporativo / Congresso</option>
-                  <option value="Feira / Estande">Feira / Estande</option>
-                  <option value="Show / Festival">Show / Festival</option>
-                  <option value="Casamento / Social">Casamento / Social</option>
-                  <option value="Evento Esportivo">Evento Esportivo</option>
-                  <option value="Outro">Outro Segmento</option>
+                  <option value="Corporativo / Congresso">Corporativo / Convenção / Congresso</option>
+                  <option value="Feira / Estande Comercial">Feira Comercial / Stand Octanorm</option>
+                  <option value="Show / Festival / Concerto">Show Musical / Grande Festival</option>
+                  <option value="Evento Governamental / Prefeitura">Órgão Público / Prefeitura</option>
+                  <option value="Casamento / Social / Formatura">Casamento / Formatura / Social</option>
+                  <option value="Evento Esportivo / Circuito">Competição / Evento Esportivo</option>
+                  <option value="Outro Segmento">Outro Segmento</option>
                 </select>
               </div>
 
               <div class="form-group">
-                <label class="form-label" for="eventDate">Data Prevista</label>
+                <label class="form-label" for="eventDate">Data Prevista do Evento</label>
                 <input type="date" id="eventDate" name="eventDate" class="form-control">
               </div>
             </div>
 
             <div class="grid grid-2" style="gap: 16px; margin-bottom: 20px;">
               <div class="form-group">
-                <label class="form-label" for="eventCity">Cidade / Local <span class="required">*</span></label>
-                <input type="text" id="eventCity" name="eventCity" class="form-control" placeholder="Ex: Sorocaba - SP" required>
+                <label class="form-label" for="eventCity">Cidade e Local de Realização <span class="required">*</span></label>
+                <input type="text" id="eventCity" name="eventCity" class="form-control" placeholder="Ex: Sorocaba - SP (Pavilhão de Exposições)" required>
               </div>
 
               <div class="form-group">
-                <label class="form-label" for="eventAudience">Público Estimado</label>
-                <input type="text" id="eventAudience" name="eventAudience" class="form-control" placeholder="Ex: 500 pessoas">
+                <label class="form-label" for="eventAudience">Estimativa de Público / Metragem</label>
+                <input type="text" id="eventAudience" name="eventAudience" class="form-control" placeholder="Ex: 800 pessoas ou 500m²">
               </div>
             </div>
 
             <div class="form-group">
-              <label class="form-label" for="observations">Observações Técnicas</label>
-              <textarea id="observations" name="observations" class="form-control" placeholder="Detalhes adicionais, horários de montagem, exigências técnicas..."></textarea>
+              <label class="form-label" for="observations">Observações Técnicas / Exigências do Local</label>
+              <textarea id="observations" name="observations" class="form-control" placeholder="Descreva exigências de pé-direito, horários de acesso para montagem, tensão elétrica do local, laudos específicos..."></textarea>
             </div>
 
-            <div style="margin-top: 20px;">
+            <div style="margin-top: 24px;">
               <button type="submit" class="btn btn-primary btn-block btn-lg">
-                <span>Enviar Orçamento no WhatsApp / E-mail</span>
+                <span>Gerar e Enviar Orçamento Técnico</span>
               </button>
             </div>
           </form>
@@ -124,19 +127,20 @@
           <div class="quote-card" style="margin-bottom: var(--space-lg);">
             <div class="flex items-center justify-between" style="margin-bottom: 16px; border-bottom: 1px solid var(--color-border-light); padding-bottom: 12px;">
               <div>
-                <h3 style="font-size: 1.15rem;">Itens Selecionados</h3>
+                <h3 style="font-size: 1.15rem; color: var(--color-slate-950); font-weight: 800;">Itens Selecionados</h3>
               </div>
               <span class="badge badge-brand" id="quote-total-items-badge">0 itens</span>
             </div>
 
             <!-- Vazio -->
-            <div id="quote-empty-state" style="display: none; text-align: center; padding: 24px 10px;">
-              <h4 style="margin-bottom: 6px; font-size: 1rem;">Lista vazia</h4>
-              <p style="font-size: 0.85rem; color: var(--color-text-secondary); margin-bottom: 14px;">
-                Adicione equipamentos do catálogo à sua lista.
+            <div id="quote-empty-state" style="display: none; text-align: center; padding: 28px 10px;">
+              <div style="font-size: 2rem; margin-bottom: 8px;">📦</div>
+              <h4 style="margin-bottom: 6px; font-size: 1.05rem; color: var(--color-slate-950);">Sua lista está vazia</h4>
+              <p style="font-size: 0.88rem; color: var(--color-slate-500); margin-bottom: 16px;">
+                Navegue pelo catálogo e adicione os palcos, painéis de LED, tendas e geradores necessários.
               </p>
               <a href="produtos.html" class="btn btn-outline btn-sm btn-block">
-                Explorar Catálogo
+                Explorar Catálogo Completo
               </a>
             </div>
 
@@ -146,15 +150,15 @@
 
               <div class="flex gap-sm" style="margin-top: 14px;">
                 <button type="button" class="btn btn-outline btn-sm" id="btn-add-custom-item" style="flex: 1;">
-                  Item Personalizado
+                  + Outro Equipamento
                 </button>
                 <a href="produtos.html" class="btn btn-dark btn-sm" style="flex: 1;">
-                  Mais Itens
+                  + Do Catálogo
                 </a>
               </div>
 
-              <div style="text-align: right; margin-top: 10px;">
-                <button type="button" onclick="handleClearQuote()" style="background: none; border: none; color: var(--color-danger); font-size: 0.8rem; cursor: pointer; text-decoration: underline;">
+              <div style="text-align: right; margin-top: 12px;">
+                <button type="button" onclick="handleClearQuote()" style="background: none; border: none; color: var(--color-danger); font-size: 0.82rem; cursor: pointer; text-decoration: underline;">
                   Limpar todos os itens
                 </button>
               </div>
@@ -163,13 +167,14 @@
 
           <!-- Informações de Segurança -->
           <div class="quote-highlight-box">
-            <h4 style="color: var(--color-brand-primary); margin-bottom: 8px; font-size: 1rem;">
+            <h4 style="margin-bottom: 8px; font-size: 1rem; color: var(--color-brand-dark);">
               Garantias Sintetizza
             </h4>
-            <ul style="display: flex; flex-direction: column; gap: 6px; font-size: 0.85rem; color: var(--color-text-secondary);">
-              <li>• ART inclusa em todas as montagens</li>
-              <li>• Equipe homologada NR-10 e NR-35</li>
-              <li>• Plantão 24h durante o evento</li>
+            <ul style="display: flex; flex-direction: column; gap: 8px; font-size: 0.88rem; color: var(--color-slate-700);">
+              <li>✓ <strong>ART/CREA:</strong> Responsabilidade técnica inclusa</li>
+              <li>✓ <strong>NR-10 & NR-35:</strong> Equipes 100% certificadas</li>
+              <li>✓ <strong>Plantão 24h:</strong> Suporte técnico durante o evento</li>
+              <li>✓ <strong>Logística Própria:</strong> Montagem antecipada</li>
             </ul>
           </div>
         </div>
@@ -189,3 +194,4 @@
   <script src="js/main.js"></script>
 </body>
 </html>
+

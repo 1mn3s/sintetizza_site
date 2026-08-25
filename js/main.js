@@ -1,6 +1,6 @@
 /**
  * =============================================================================
- * SINTETIZZA - SCRIPT PRINCIPAL (TEMA CLARO & AZUL SUAVE)
+ * SINTETIZZA - SCRIPT PRINCIPAL (PROFISSIONAL & CORPORATIVO)
  * =============================================================================
  */
 
@@ -23,16 +23,48 @@ document.addEventListener("DOMContentLoaded", () => {
   initContactPage();
 });
 
-// 1. Home
+// 1. Página Inicial (Home)
 function initHomePage() {
   const featuredGrid = document.getElementById("home-featured-products-grid");
-  if (!featuredGrid) return;
+  if (featuredGrid) {
+    const featured = PRODUCTS.filter(p => p.isFeatured).slice(0, 6);
+    featuredGrid.innerHTML = featured.map(p => createProductCardHTML(p)).join("");
+  }
 
-  const featured = PRODUCTS.filter(p => p.isFeatured).slice(0, 6);
-  featuredGrid.innerHTML = featured.map(p => createProductCardHTML(p)).join("");
+  // Hero Spotlight Card Dinâmico
+  const heroSpotlight = document.getElementById("hero-spotlight-container");
+  if (heroSpotlight) {
+    const spotlightItem = PRODUCTS[0]; // Box Truss Palco ou Painel de LED
+    const isAdded = QuoteCart.hasItem(spotlightItem.id);
+    const imgSrc = spotlightItem.image || "assets/images/original/principal-novo-2.png";
+
+    heroSpotlight.innerHTML = `
+      <div style="margin-bottom: 12px; display: flex; align-items: center; justify-content: space-between;">
+        <span class="badge badge-brand">Equipamento em Destaque</span>
+        <span style="color: var(--color-slate-400); font-size: 0.85rem; font-weight: 600;">Sorocaba e Região SP</span>
+      </div>
+      <div class="hero-card-image-wrap">
+        <img src="${imgSrc}" alt="${spotlightItem.name}" loading="lazy">
+      </div>
+      <h3 style="color: var(--color-white); font-size: 1.2rem; margin-bottom: 6px; font-weight: 800;">
+        ${spotlightItem.name}
+      </h3>
+      <p style="color: var(--color-slate-300); font-size: 0.88rem; margin-bottom: 16px; line-height: 1.5;">
+        ${spotlightItem.shortDesc}
+      </p>
+      <div class="flex gap-sm">
+        <button class="btn btn-primary btn-sm flex-grow ${isAdded ? 'added' : ''}" onclick="handleToggleQuote('${spotlightItem.id}', this)">
+          ${isAdded ? '✓ No Orçamento' : '+ Adicionar ao Orçamento'}
+        </button>
+        <a href="produto-detalhe.html?id=${spotlightItem.id}" class="btn btn-outline-white btn-sm">
+          Ver Ficha
+        </a>
+      </div>
+    `;
+  }
 }
 
-// 2. Produtos
+// 2. Catálogo de Produtos
 function initProductsPage() {
   const catalogGrid = document.getElementById("catalog-products-grid");
   const filterTabsContainer = document.getElementById("category-filter-tabs");
@@ -94,15 +126,17 @@ function initProductsPage() {
 
     const countLabel = document.getElementById("catalog-results-count");
     if (countLabel) {
-      countLabel.textContent = `${list.length} item(s) encontrado(s)`;
+      countLabel.textContent = `${list.length} equipamento(s) disponível(is)`;
     }
 
     if (list.length === 0) {
       catalogGrid.innerHTML = `
         <div class="empty-catalog-state">
-          <h3>Nenhum item encontrado</h3>
-          <p style="color: var(--color-text-secondary); margin-bottom: 16px;">Tente outra busca ou solicite um item personalizado.</p>
-          <a href="orcamento.html" class="btn btn-outline">Solicitar Orçamento Personalizado</a>
+          <h3 style="font-size: 1.3rem; margin-bottom: 8px;">Nenhum equipamento encontrado</h3>
+          <p style="color: var(--color-slate-600); margin-bottom: 20px;">
+            Não encontrou o que procura? Montamos projetos personalizados sob medida.
+          </p>
+          <a href="orcamento.html" class="btn btn-primary">Solicitar Orçamento Personalizado</a>
         </div>
       `;
       return;
@@ -114,7 +148,7 @@ function initProductsPage() {
   applyCatalogFilters();
 }
 
-// 3. Detalhe do Produto
+// 3. Ficha Técnica / Detalhe do Produto
 function initProductDetailPage() {
   const detailContainer = document.getElementById("product-detail-root");
   if (!detailContainer) return;
@@ -125,44 +159,48 @@ function initProductDetailPage() {
   const product = getProductById(productId) || PRODUCTS[0];
   if (!product) return;
 
-  document.title = `${product.name} | Sintetizza`;
+  document.title = `${product.name} | Sintetizza Eventos`;
 
   const breadcrumbProduct = document.getElementById("detail-breadcrumb-product");
   if (breadcrumbProduct) breadcrumbProduct.textContent = product.name;
 
   const isAdded = QuoteCart.hasItem(product.id);
+  const imgSrc = product.image || product.fallbackImage || "assets/images/original/principal-novo-2.png";
+  const fallbackSrc = product.fallbackImage || "assets/images/original/principal-novo-2.png";
 
   detailContainer.innerHTML = `
     <div class="product-detail-grid">
-      <!-- Galeria com Espaço Vazio para Imagem -->
-      <div class="product-gallery" style="min-height: 360px; display: flex; align-items: center; justify-content: center; background: var(--color-surface-alt);">
-        <div class="image-placeholder" style="min-height: 300px; border: none; background: transparent;">
-          <span style="font-size: 1rem; font-weight: 700; color: var(--color-text-primary);">[ Espaço para Imagem do Equipamento ]</span>
-          <span class="image-placeholder-label">800 x 600px</span>
-        </div>
+      
+      <!-- Galeria com Imagem Real -->
+      <div class="product-gallery">
+        <img src="${imgSrc}" 
+             alt="${product.name}" 
+             id="detail-main-image"
+             onerror="if (this.src !== '${fallbackSrc}') { this.src = '${fallbackSrc}'; }">
+        <span class="badge badge-brand" style="position: absolute; top: 16px; left: 16px;">${product.categoryLabel}</span>
       </div>
 
       <!-- Informações do Produto -->
       <div class="product-detail-info">
         <div>
-          <span class="badge badge-brand" style="margin-bottom: 10px;">${product.categoryLabel}</span>
-          <h1 style="font-size: clamp(1.6rem, 2.5vw, 2.2rem); margin-bottom: 10px;">${product.name}</h1>
-          <p style="font-size: 1rem; color: var(--color-text-secondary); line-height: 1.6;">
+          <span class="section-subtitle">${product.categoryLabel}</span>
+          <h1 style="font-size: clamp(1.8rem, 3vw, 2.4rem); margin-bottom: 12px; color: var(--color-slate-950);">${product.name}</h1>
+          <p style="font-size: 1.05rem; color: var(--color-slate-600); line-height: 1.65;">
             ${product.fullDesc || product.shortDesc}
           </p>
         </div>
 
         <!-- Especificações -->
         <div>
-          <h3 style="font-size: 1.1rem; margin-bottom: 10px; border-bottom: 2px solid var(--color-brand-primary); display: inline-block; padding-bottom: 4px;">
-            Especificações
+          <h3 style="font-size: 1.15rem; margin-bottom: 12px; color: var(--color-slate-950); border-bottom: 2px solid var(--color-brand); display: inline-block; padding-bottom: 4px;">
+            Especificações Técnicas
           </h3>
           <table class="detail-specs-table">
             <tbody>
               ${product.specs.map(s => `
                 <tr>
                   <td>${s.label}</td>
-                  <td><strong>${s.value}</strong></td>
+                  <td>${s.value}</td>
                 </tr>
               `).join("")}
             </tbody>
@@ -170,12 +208,12 @@ function initProductDetailPage() {
         </div>
 
         <!-- O que está incluso -->
-        <div>
-          <h4 style="font-size: 1rem; margin-bottom: 8px;">Itens Inclusos:</h4>
-          <ul style="display: flex; flex-direction: column; gap: 6px;">
+        <div style="background: var(--color-slate-50); padding: 18px; border-radius: var(--radius-md); border: 1px solid var(--color-border-light);">
+          <h4 style="font-size: 1rem; margin-bottom: 10px; color: var(--color-slate-950);">Itens Inclusos na Locação:</h4>
+          <ul style="display: flex; flex-direction: column; gap: 8px;">
             ${product.features.map(f => `
-              <li style="display: flex; align-items: center; gap: 8px; font-size: 0.9rem;">
-                <span style="color: var(--color-brand-primary);">•</span>
+              <li style="display: flex; align-items: center; gap: 10px; font-size: 0.92rem; color: var(--color-slate-700);">
+                <span style="color: var(--color-brand); font-weight: 800; font-size: 1.1rem;">✓</span>
                 <span>${f}</span>
               </li>
             `).join("")}
@@ -185,23 +223,25 @@ function initProductDetailPage() {
         <!-- Ação de Orçamento -->
         <div class="quote-action-box">
           <div class="flex items-center justify-between">
-            <span style="font-weight: 700; color: var(--color-text-primary);">Quantidade:</span>
+            <span style="font-weight: 800; color: var(--color-slate-950); font-size: 1rem;">Quantidade Necessária:</span>
             <div class="quote-qty-controls">
-              <button type="button" class="qty-btn" id="detail-qty-minus">-</button>
+              <button type="button" class="qty-btn" id="detail-qty-minus" aria-label="Diminuir">-</button>
               <span class="qty-display" id="detail-qty-value">1</span>
-              <button type="button" class="qty-btn" id="detail-qty-plus">+</button>
+              <button type="button" class="qty-btn" id="detail-qty-plus" aria-label="Aumentar">+</button>
             </div>
           </div>
 
           <div class="flex flex-col gap-sm">
             <button class="btn btn-primary btn-block btn-lg" id="detail-btn-add-quote">
-              ${isAdded ? '✓ No Orçamento (Adicionar Mais)' : '+ Adicionar ao Orçamento'}
+              ${isAdded ? '✓ No Orçamento (Adicionar Mais)' : '+ Adicionar à Lista de Orçamento'}
             </button>
-            <a href="orcamento.html" class="btn btn-outline btn-block">
-              Ver Lista de Orçamento
+            
+            <a href="https://wa.me/${SINTETIZZA_CONFIG.whatsappNumber}?text=Ol%C3%A1%2C+gostaria+de+consultar+a+disponibilidade+de%3A+${encodeURIComponent(product.name)}" target="_blank" class="btn btn-whatsapp btn-block">
+              Tirar Dúvida no WhatsApp
             </a>
           </div>
         </div>
+
       </div>
     </div>
   `;
@@ -227,7 +267,7 @@ function initProductDetailPage() {
 
     btnAdd.addEventListener("click", () => {
       QuoteCart.addItem(product.id, currentQty);
-      showToast(`+${currentQty}x adicionado ao orçamento!`, "success");
+      showToast(`+${currentQty}x "${product.name}" adicionado ao orçamento!`, "success");
       btnAdd.innerHTML = "✓ Adicionado! Adicionar Mais";
     });
   }
@@ -243,7 +283,7 @@ function initProductDetailPage() {
   }
 }
 
-// 4. Contato
+// 4. Página de Contato
 function initContactPage() {
   const form = document.getElementById("contact-message-form");
   if (!form) return;
@@ -262,11 +302,11 @@ function initContactPage() {
     }
 
     const whatsappText = encodeURIComponent(
-      `Olá Sintetizza!\n` +
-      `Nome: ${name}\n` +
-      `E-mail: ${email}\n` +
-      `Telefone: ${phone || 'Não informado'}\n\n` +
-      `Mensagem:\n${message}`
+      `*MENSAGEM DE CONTATO - SITE SINTETIZZA*\n\n` +
+      `*Nome:* ${name}\n` +
+      `*E-mail:* ${email}\n` +
+      `*Telefone:* ${phone || 'Não informado'}\n\n` +
+      `*Mensagem:*\n${message}`
     );
 
     const waUrl = `https://wa.me/${SINTETIZZA_CONFIG.whatsappNumber}?text=${whatsappText}`;
@@ -275,3 +315,4 @@ function initContactPage() {
     form.reset();
   });
 }
+
