@@ -1,9 +1,10 @@
 /**
- * Sintetizza Eventos - Script Principal e Inicializador das Páginas
+ * =============================================================================
+ * SINTETIZZA - SCRIPT PRINCIPAL (TEMA CLARO & AZUL SUAVE)
+ * =============================================================================
  */
 
 document.addEventListener("DOMContentLoaded", () => {
-  // Identifica a página atual
   const path = window.location.pathname;
   let activePage = "home";
 
@@ -12,21 +13,17 @@ document.addEventListener("DOMContentLoaded", () => {
   else if (path.includes("orcamento")) activePage = "orcamento";
   else if (path.includes("contato")) activePage = "contato";
 
-  // Injeta Header e Footer
   renderHeader(activePage);
   renderFooter();
   renderFloatingQuoteButton();
 
-  // Inicializadores específicos de cada página
   initHomePage();
   initProductsPage();
   initProductDetailPage();
   initContactPage();
 });
 
-/* -------------------------------------------------------------
- * 1. INICIALIZAÇÃO DA PÁGINA INICIAL (HOME)
- * ------------------------------------------------------------- */
+// 1. Home
 function initHomePage() {
   const featuredGrid = document.getElementById("home-featured-products-grid");
   if (!featuredGrid) return;
@@ -35,9 +32,7 @@ function initHomePage() {
   featuredGrid.innerHTML = featured.map(p => createProductCardHTML(p)).join("");
 }
 
-/* -------------------------------------------------------------
- * 2. INICIALIZAÇÃO DA PÁGINA DE PRODUTOS / SOLUÇÕES
- * ------------------------------------------------------------- */
+// 2. Produtos
 function initProductsPage() {
   const catalogGrid = document.getElementById("catalog-products-grid");
   const filterTabsContainer = document.getElementById("category-filter-tabs");
@@ -45,25 +40,21 @@ function initProductsPage() {
   
   if (!catalogGrid) return;
 
-  // Lê categoria inicial da URL (ex: produtos.html?cat=estruturas)
   const urlParams = new URLSearchParams(window.location.search);
   let currentCategory = urlParams.get("cat") || "all";
   let currentSearch = "";
 
-  // Renderiza pills de categorias
   if (filterTabsContainer) {
     filterTabsContainer.innerHTML = CATEGORIES.map(cat => {
       const count = cat.id === "all" ? PRODUCTS.length : PRODUCTS.filter(p => p.category === cat.id).length;
       return `
         <button class="filter-pill ${cat.id === currentCategory ? 'active' : ''}" data-category="${cat.id}">
-          <span>${cat.icon}</span>
           <span>${cat.name}</span>
           <span class="filter-pill-count">${count}</span>
         </button>
       `;
     }).join("");
 
-    // Adiciona listener para troca de categoria
     filterTabsContainer.addEventListener("click", (e) => {
       const pill = e.target.closest(".filter-pill");
       if (!pill) return;
@@ -76,7 +67,6 @@ function initProductsPage() {
     });
   }
 
-  // Listener para busca em tempo real
   if (searchInput) {
     searchInput.addEventListener("input", (e) => {
       currentSearch = e.target.value;
@@ -84,7 +74,6 @@ function initProductsPage() {
     });
   }
 
-  // Função para filtrar e renderizar o grid
   function applyCatalogFilters() {
     let list = PRODUCTS;
 
@@ -98,22 +87,22 @@ function initProductsPage() {
         p.name.toLowerCase().includes(q) ||
         p.shortDesc.toLowerCase().includes(q) ||
         p.categoryLabel.toLowerCase().includes(q) ||
-        (p.features && p.features.some(f => f.toLowerCase().includes(q)))
+        (p.features && p.features.some(f => f.toLowerCase().includes(q))) ||
+        (p.specs && p.specs.some(s => s.value.toLowerCase().includes(q)))
       );
     }
 
     const countLabel = document.getElementById("catalog-results-count");
     if (countLabel) {
-      countLabel.textContent = `Mostrando ${list.length} solução(ões)`;
+      countLabel.textContent = `${list.length} item(s) encontrado(s)`;
     }
 
     if (list.length === 0) {
       catalogGrid.innerHTML = `
         <div class="empty-catalog-state">
-          <div style="font-size: 3rem; margin-bottom: 16px;">🔍</div>
-          <h3>Nenhum produto encontrado</h3>
-          <p style="color: var(--color-text-secondary); margin-bottom: 20px;">Tente buscar por outro termo ou selecione outra categoria.</p>
-          <a href="orcamento.html" class="btn btn-outline">Solicitar Estrutura Sob Medida</a>
+          <h3>Nenhum item encontrado</h3>
+          <p style="color: var(--color-text-secondary); margin-bottom: 16px;">Tente outra busca ou solicite um item personalizado.</p>
+          <a href="orcamento.html" class="btn btn-outline">Solicitar Orçamento Personalizado</a>
         </div>
       `;
       return;
@@ -122,13 +111,10 @@ function initProductsPage() {
     catalogGrid.innerHTML = list.map(p => createProductCardHTML(p)).join("");
   }
 
-  // Execução inicial
   applyCatalogFilters();
 }
 
-/* -------------------------------------------------------------
- * 3. INICIALIZAÇÃO DA PÁGINA DE DETALHE DO PRODUTO
- * ------------------------------------------------------------- */
+// 3. Detalhe do Produto
 function initProductDetailPage() {
   const detailContainer = document.getElementById("product-detail-root");
   if (!detailContainer) return;
@@ -139,10 +125,8 @@ function initProductDetailPage() {
   const product = getProductById(productId) || PRODUCTS[0];
   if (!product) return;
 
-  // Atualiza título da página
-  document.title = `${product.name} | Sintetizza Eventos`;
+  document.title = `${product.name} | Sintetizza`;
 
-  // Renderiza breadcrumb
   const breadcrumbProduct = document.getElementById("detail-breadcrumb-product");
   if (breadcrumbProduct) breadcrumbProduct.textContent = product.name;
 
@@ -150,25 +134,28 @@ function initProductDetailPage() {
 
   detailContainer.innerHTML = `
     <div class="product-detail-grid">
-      <!-- Galeria / Imagem Principal -->
-      <div class="product-gallery">
-        <img src="${product.image}" alt="${product.name}" class="product-gallery-main">
+      <!-- Galeria com Espaço Vazio para Imagem -->
+      <div class="product-gallery" style="min-height: 360px; display: flex; align-items: center; justify-content: center; background: var(--color-surface-alt);">
+        <div class="image-placeholder" style="min-height: 300px; border: none; background: transparent;">
+          <span style="font-size: 1rem; font-weight: 700; color: var(--color-text-primary);">[ Espaço para Imagem do Equipamento ]</span>
+          <span class="image-placeholder-label">800 x 600px</span>
+        </div>
       </div>
 
-      <!-- Informações Detalhadas & Ações -->
+      <!-- Informações do Produto -->
       <div class="product-detail-info">
         <div>
-          <span class="badge badge-brand" style="margin-bottom: 12px;">${product.categoryLabel}</span>
-          <h1 style="font-size: clamp(1.8rem, 3vw, 2.5rem); margin-bottom: 12px;">${product.name}</h1>
-          <p style="font-size: 1.1rem; color: var(--color-text-secondary); line-height: 1.6;">
+          <span class="badge badge-brand" style="margin-bottom: 10px;">${product.categoryLabel}</span>
+          <h1 style="font-size: clamp(1.6rem, 2.5vw, 2.2rem); margin-bottom: 10px;">${product.name}</h1>
+          <p style="font-size: 1rem; color: var(--color-text-secondary); line-height: 1.6;">
             ${product.fullDesc || product.shortDesc}
           </p>
         </div>
 
-        <!-- Especificações Técnicas -->
+        <!-- Especificações -->
         <div>
-          <h3 style="font-size: 1.2rem; margin-bottom: 12px; border-bottom: 2px solid var(--color-brand-primary); display: inline-block; padding-bottom: 4px;">
-            Especificações de Engenharia
+          <h3 style="font-size: 1.1rem; margin-bottom: 10px; border-bottom: 2px solid var(--color-brand-primary); display: inline-block; padding-bottom: 4px;">
+            Especificações
           </h3>
           <table class="detail-specs-table">
             <tbody>
@@ -182,23 +169,23 @@ function initProductDetailPage() {
           </table>
         </div>
 
-        <!-- Diferenciais Inclusos -->
+        <!-- O que está incluso -->
         <div>
-          <h4 style="font-size: 1.1rem; margin-bottom: 10px;">O que está incluso nesta solução:</h4>
-          <ul style="display: flex; flex-direction: column; gap: 8px;">
+          <h4 style="font-size: 1rem; margin-bottom: 8px;">Itens Inclusos:</h4>
+          <ul style="display: flex; flex-direction: column; gap: 6px;">
             ${product.features.map(f => `
-              <li style="display: flex; align-items: center; gap: 10px; font-size: 0.95rem;">
-                <span style="color: var(--color-success); font-weight: bold;">✔</span>
+              <li style="display: flex; align-items: center; gap: 8px; font-size: 0.9rem;">
+                <span style="color: var(--color-brand-primary);">•</span>
                 <span>${f}</span>
               </li>
             `).join("")}
           </ul>
         </div>
 
-        <!-- Card de Adição ao Orçamento -->
+        <!-- Ação de Orçamento -->
         <div class="quote-action-box">
           <div class="flex items-center justify-between">
-            <span style="font-weight: 700; color: var(--color-text-primary);">Configurar Quantidade:</span>
+            <span style="font-weight: 700; color: var(--color-text-primary);">Quantidade:</span>
             <div class="quote-qty-controls">
               <button type="button" class="qty-btn" id="detail-qty-minus">-</button>
               <span class="qty-display" id="detail-qty-value">1</span>
@@ -208,10 +195,10 @@ function initProductDetailPage() {
 
           <div class="flex flex-col gap-sm">
             <button class="btn btn-primary btn-block btn-lg" id="detail-btn-add-quote">
-              ${isAdded ? '✓ Adicionar Mais ao Orçamento' : '+ Adicionar ao Meu Orçamento'}
+              ${isAdded ? '✓ No Orçamento (Adicionar Mais)' : '+ Adicionar ao Orçamento'}
             </button>
             <a href="orcamento.html" class="btn btn-outline btn-block">
-              Ver Minha Lista de Orçamento
+              Ver Lista de Orçamento
             </a>
           </div>
         </div>
@@ -219,7 +206,6 @@ function initProductDetailPage() {
     </div>
   `;
 
-  // Lógica do controle de quantidade do detalhe
   let currentQty = 1;
   const qtyDisplay = document.getElementById("detail-qty-value");
   const btnMinus = document.getElementById("detail-qty-minus");
@@ -241,12 +227,11 @@ function initProductDetailPage() {
 
     btnAdd.addEventListener("click", () => {
       QuoteCart.addItem(product.id, currentQty);
-      showToast(`+${currentQty}x "${product.name}" adicionado ao seu orçamento!`, "success");
+      showToast(`+${currentQty}x adicionado ao orçamento!`, "success");
       btnAdd.innerHTML = "✓ Adicionado! Adicionar Mais";
     });
   }
 
-  // Renderiza produtos relacionados
   const relatedGrid = document.getElementById("related-products-grid");
   if (relatedGrid) {
     const related = PRODUCTS.filter(p => p.id !== product.id && p.category === product.category).slice(0, 3);
@@ -258,9 +243,7 @@ function initProductDetailPage() {
   }
 }
 
-/* -------------------------------------------------------------
- * 4. INICIALIZAÇÃO DA PÁGINA DE CONTATO
- * ------------------------------------------------------------- */
+// 4. Contato
 function initContactPage() {
   const form = document.getElementById("contact-message-form");
   if (!form) return;
@@ -274,23 +257,21 @@ function initContactPage() {
     const message = form.message.value.trim();
 
     if (!name || !email || !message) {
-      alert("Por favor, preencha todos os campos obrigatórios.");
+      alert("Por favor, preencha os campos obrigatórios.");
       return;
     }
 
     const whatsappText = encodeURIComponent(
-      `Olá Sintetizza Eventos!\n\n` +
-      `Me chamo *${name}*\n` +
+      `Olá Sintetizza!\n` +
+      `Nome: ${name}\n` +
       `E-mail: ${email}\n` +
       `Telefone: ${phone || 'Não informado'}\n\n` +
       `Mensagem:\n${message}`
     );
 
     const waUrl = `https://wa.me/${SINTETIZZA_CONFIG.whatsappNumber}?text=${whatsappText}`;
-    
-    // Abre WhatsApp ou exibe mensagem de sucesso
     window.open(waUrl, "_blank");
-    showToast("Mensagem pronta para envio no WhatsApp!", "success");
+    showToast("Mensagem aberta no WhatsApp!", "success");
     form.reset();
   });
 }

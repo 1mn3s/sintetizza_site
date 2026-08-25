@@ -1,32 +1,28 @@
 /**
- * Sintetizza Eventos - Gerenciador de Lista de Orçamento (Quote / Cart Manager)
+ * =============================================================================
+ * SINTETIZZA - GERENCIADOR DE ORÇAMENTO (CART / QUOTE)
+ * =============================================================================
  */
 
 const QuoteCart = {
   STORAGE_KEY: "sintetizza_quote_items",
 
-  // Carrega itens do localStorage
   getRawItems() {
     try {
       const data = localStorage.getItem(this.STORAGE_KEY);
       return data ? JSON.parse(data) : [];
     } catch (e) {
-      console.error("Erro ao ler carrinho de orçamento:", e);
       return [];
     }
   },
 
-  // Salva no localStorage e notifica ouvintes
   saveItems(items) {
     try {
       localStorage.setItem(this.STORAGE_KEY, JSON.stringify(items));
       this.dispatchUpdateEvent();
-    } catch (e) {
-      console.error("Erro ao salvar itens no localStorage:", e);
-    }
+    } catch (e) {}
   },
 
-  // Retorna itens hidratados com detalhes do produto
   getItems() {
     const raw = this.getRawItems();
     return raw.map(item => {
@@ -37,8 +33,7 @@ const QuoteCart = {
           categoryLabel: "Item Personalizado",
           quantity: item.quantity || 1,
           notes: item.notes || "",
-          isCustom: true,
-          image: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=400&q=80"
+          isCustom: true
         };
       }
       const product = getProductById(item.id);
@@ -48,8 +43,7 @@ const QuoteCart = {
           name: item.name || "Item Selecionado",
           categoryLabel: "Geral",
           quantity: item.quantity || 1,
-          notes: item.notes || "",
-          image: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=400&q=80"
+          notes: item.notes || ""
         };
       }
       return {
@@ -60,19 +54,16 @@ const QuoteCart = {
     });
   },
 
-  // Total de itens distintos ou soma de quantidades
   getItemCount() {
     const items = this.getRawItems();
     return items.reduce((acc, item) => acc + (Number(item.quantity) || 1), 0);
   },
 
-  // Verifica se produto já está na lista
   hasItem(productId) {
     const items = this.getRawItems();
     return items.some(item => item.id === productId);
   },
 
-  // Adiciona produto
   addItem(productId, quantity = 1, notes = "") {
     const items = this.getRawItems();
     const existingIndex = items.findIndex(item => item.id === productId);
@@ -95,7 +86,6 @@ const QuoteCart = {
     return true;
   },
 
-  // Adiciona item customizado
   addCustomItem(name, notes = "", quantity = 1) {
     if (!name || !name.trim()) return false;
     const items = this.getRawItems();
@@ -111,7 +101,6 @@ const QuoteCart = {
     return true;
   },
 
-  // Atualiza quantidade
   updateQuantity(productId, quantity) {
     const qty = parseInt(quantity, 10);
     if (qty <= 0) {
@@ -125,20 +114,17 @@ const QuoteCart = {
     }
   },
 
-  // Remove produto
   removeItem(productId) {
     let items = this.getRawItems();
     items = items.filter(item => item.id !== productId);
     this.saveItems(items);
   },
 
-  // Limpa tudo
   clear() {
     localStorage.removeItem(this.STORAGE_KEY);
     this.dispatchUpdateEvent();
   },
 
-  // Dispara evento customizado no window
   dispatchUpdateEvent() {
     const event = new CustomEvent("quoteUpdated", {
       detail: {

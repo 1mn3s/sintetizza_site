@@ -1,215 +1,266 @@
 /**
- * Sintetizza Eventos - Base de Dados de Produtos, Soluções e Configurações
+ * =============================================================================
+ * SINTETIZZA - BASE DE DADOS WIREFRAME (LEVE & SEM EMOJIS)
+ * =============================================================================
  */
 
 const SINTETIZZA_CONFIG = {
   companyName: "Sintetizza Eventos",
   companyShortName: "Sintetizza",
-  tagline: "Engenharia, Estruturas e Tecnologia para Grandes Eventos",
-  email: "contato@sintetizzaeventos.com.br",
-  emailQuotes: "orcamentos@sintetizzaeventos.com.br",
-  phone: "(11) 98765-4321",
-  whatsappNumber: "5511987654321", // Formato internacional sem caracteres especiais
-  whatsappDisplay: "(11) 98765-4321",
-  address: "Av. Industrial dos Eventos, 1500 - Galpão 04, São Paulo - SP",
-  serviceHours: "Segunda a Sexta: 08h às 18h | Plantão Operacional 24h",
-  instagram: "@sintetizzaeventos",
-  linkedin: "company/sintetizza-eventos"
+  tagline: "Estruturas, Som, Luz, Vídeo e Climatização para Eventos",
+  email: "sintetizzalocacoes@gmail.com",
+  emailQuotes: "sintetizzalocacoes@gmail.com",
+  phone: "(15) 99835-3108",
+  whatsappNumber: "5515998353108",
+  whatsappDisplay: "(15) 99835-3108",
+  address: "Sorocaba e Região - SP",
+  serviceHours: "Seg a Sex: 08h às 18h | Plantão 24h",
+  instagram: "@sintetizza_locacoes",
+  instagramUrl: "https://www.instagram.com/sintetizza_locacoes/"
 };
 
 const CATEGORIES = [
-  { id: "all", name: "Todos os Produtos", icon: "📦" },
-  { id: "estruturas", name: "Estruturas & Palcos", icon: "🏗️" },
-  { id: "coberturas", name: "Tendas & Coberturas", icon: "🎪" },
-  { id: "audio", name: "Sonorização Profissional", icon: "🔊" },
-  { id: "iluminacao", name: "Iluminação & Efeitos", icon: "💡" },
-  { id: "audiovisual", name: "Painéis de LED & Vídeo", icon: "🖥️" },
-  { id: "energia", name: "Geradores & Energia", icon: "⚡" },
-  { id: "operacao", name: "Equipe & Logística", icon: "👷" }
+  { id: "all", name: "Todos os Itens" },
+  { id: "estruturas", name: "Palcos & Box Truss" },
+  { id: "coberturas", name: "Tendas & Galpões" },
+  { id: "audio", name: "Sonorização & Áudio" },
+  { id: "iluminacao", name: "Iluminação & Cênica" },
+  { id: "audiovisual", name: "Painéis de LED & Vídeo" },
+  { id: "climatizacao", name: "Climatização" },
+  { id: "energia", name: "Geradores & Energia" },
+  { id: "stands", name: "Stands & Mobiliário" },
+  { id: "operacao", name: "Equipe & Laudos ART" }
 ];
 
 const PRODUCTS = [
   {
-    id: "palco-box-truss-q30",
-    name: "Palco com Cobertura Box Truss Q30 / Q50",
+    id: "box-truss-palco-q30",
+    name: "Palco Box Truss Q30 / Q50",
     category: "estruturas",
-    categoryLabel: "Estruturas & Palcos",
-    shortDesc: "Estrutura em alumínio de alta resistência com piso em compensado naval antiderrapante e ART inclusa.",
-    fullDesc: "Sistema modular completo de palco e cobertura estrutural em alumínio liga estrutural (Box Truss Q30 e Q50). Desenvolvido para atender desde apresentações corporativas, festivais até grandes shows, garantindo segurança com laudos técnicos e ART assinada por engenheiro responsável.",
-    image: "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=800&q=80",
+    categoryLabel: "Palcos & Box Truss",
+    shortDesc: "Estrutura de alumínio modular para palcos e suporte técnico.",
+    fullDesc: "Palco modular e cobertura em Box Truss Q30/Q50 com piso naval antiderrapante e ART.",
     specs: [
       { label: "Material", value: "Alumínio Estrutural Q30 / Q50" },
-      { label: "Capacidade de Carga", value: "Até 1.500 kg por vão" },
-      { label: "Piso", value: "Compensado naval 18mm antiderrapante e anti-chamas" },
-      { label: "Pé Direito", value: "4m a 8m regulável" },
-      { label: "Documentação", value: "ART de montagem e laudos técnicos inclusos" }
+      { label: "Piso", value: "Compensado naval antiderrapante" },
+      { label: "Laudo", value: "ART / CREA inclusa" }
     ],
     features: [
-      "Montagem rápida e modular adaptável a qualquer terreno",
-      "Guarda-corpos de segurança e escadas normatizadas",
-      "Lona antichamas vulcanizada com tratamento anti-UV",
-      "Equipe de rigger e montagem especializada"
-    ],
-    isFeatured: true,
-    badge: "Mais Solicitado"
-  },
-  {
-    id: "tenda-piramidal-galvanizada",
-    name: "Tenda Piramidal Reforçada 10x10m / 5x5m",
-    category: "coberturas",
-    categoryLabel: "Tendas & Coberturas",
-    shortDesc: "Tendas estruturadas em aço zincado com lona PVC blackout impermeável e calhas de escoamento.",
-    fullDesc: "Solução ideal para feiras, casamentos ao ar livre, áreas de credenciamento, praças de alimentação e eventos corporativos. Oferece proteção solar total com isolamento térmico por lona blackout e sistema de união modular com calhas galvanizadas.",
-    image: "https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?auto=format&fit=crop&w=800&q=80",
-    specs: [
-      { label: "Tamanhos Disponíveis", value: "5x5m, 10x10m e projetos sob medida" },
-      { label: "Estrutura", value: "Aço carbono galvanizado a fogo" },
-      { label: "Lona", value: "PVC vinílica Blackout (antichamas, antimofo e anti-UV)" },
-      { label: "Fixação", value: "Estacas de solo ou contrapesos de concreto" }
-    ],
-    features: [
-      "Acoplamento contínuo sem goteiras com calhas embutidas",
-      "Opção de fechamento lateral transparente ou branco",
-      "Instalação rápida com equipe certificada NR-35"
+      "Montagem modular configurável",
+      "Escadas e guarda-corpos normatizados",
+      "Equipe técnica especializada"
     ],
     isFeatured: true,
     badge: "Destaque"
   },
   {
-    id: "sistema-som-line-array",
-    name: "Sistema de Som Line Array & Subwoofers",
-    category: "audio",
-    categoryLabel: "Sonorização Profissional",
-    shortDesc: "Sonorização de alta definição para auditórios, convenções, bandas e eventos corporativos.",
-    fullDesc: "Sistema acústico de precisão projetado com simuladores de pressão sonora (SPL) para cobertura homogênea e inteligibilidade de fala cristalina. Acompanha processamento digital DSP, amplificadores classe D e mesa digital de alta performance.",
-    image: "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=800&q=80",
+    id: "gradil-metal-fechamento",
+    name: "Gradil de Metal & Fechamentos",
+    category: "estruturas",
+    categoryLabel: "Palcos & Box Truss",
+    shortDesc: "Módulos de contenção e organizadores de fluxo de público.",
+    fullDesc: "Grades de aço galvanizado para contenção, áreas VIP e direcionamento de fluxo.",
     specs: [
-      { label: "Cobertura", value: "Eventos de 100 a 10.000 pessoas" },
-      { label: "Mesa de Som", value: "Digital 32/64 canais com controle wireless por tablet" },
-      { label: "Subwoofers", value: "High-power 18\" e 21\" com resposta estendida" },
-      { label: "Microfonia", value: "Sistemas sem fio digitais UHF com scan automático" }
+      { label: "Material", value: "Aço galvanizado" },
+      { label: "Medidas", value: "2,00m x 1,20m" },
+      { label: "Encaixe", value: "Pino de engate rápido" }
     ],
     features: [
-      "Operador de áudio e técnico de PA/Monitor inclusos",
-      "Processamento digital anti-feedback e equalização de sala",
-      "Microfones de lapela, auricular e bastão profissional"
+      "Alta estabilidade e segurança",
+      "Instalação e alinhamento rápido"
     ],
-    isFeatured: true,
-    badge: "Alta Fidelidade"
+    isFeatured: false,
+    badge: "Segurança"
   },
   {
-    id: "painel-led-alta-definicao",
-    name: "Painel de LED P3.9 Outdoor / Indoor",
+    id: "tenda-piramidal-reforcada",
+    name: "Tenda Piramidal 10x10m / 5x5m",
+    category: "coberturas",
+    categoryLabel: "Tendas & Galpões",
+    shortDesc: "Cobertura modular em lona PVC blackout antichamas.",
+    fullDesc: "Tendas estruturadas em aço zincado com lona impermeável e proteção UV.",
+    specs: [
+      { label: "Tamanhos", value: "3x3m, 5x5m, 8x8m e 10x10m" },
+      { label: "Estrutura", value: "Aço galvanizado" },
+      { label: "Lona", value: "PVC Blackout antichamas" }
+    ],
+    features: [
+      "Proteção solar e pluvial total",
+      "Fechamentos laterais opcionais",
+      "Montagem rápida NR-35"
+    ],
+    isFeatured: true,
+    badge: "Destaque"
+  },
+  {
+    id: "galpao-estruturado-temporario",
+    name: "Galpão Estruturado Duas Águas",
+    category: "coberturas",
+    categoryLabel: "Tendas & Galpões",
+    shortDesc: "Galpão temporário de grande vão livre sem colunas centrais.",
+    fullDesc: "Estrutura para feiras, convenções e armazenagem com vão de 10m a 30m.",
+    specs: [
+      { label: "Vão Livre", value: "10m a 30m" },
+      { label: "Pé Direito", value: "4m a 6m" },
+      { label: "Norma", value: "NBR 6123 ventos" }
+    ],
+    features: [
+      "100% de área útil interna",
+      "Compatível com climatização"
+    ],
+    isFeatured: false,
+    badge: "Grandes Áreas"
+  },
+  {
+    id: "som-line-array-profissional",
+    name: "Sistema de Som Line Array",
+    category: "audio",
+    categoryLabel: "Sonorização & Áudio",
+    shortDesc: "Sonorização de alta fidelidade e pressão sonora homogênea.",
+    fullDesc: "Sistemas line array, subwoofers, mesa digital e microfonia sem fio UHF.",
+    specs: [
+      { label: "Capacidade", value: "Eventos de 50 a 10.000 pessoas" },
+      { label: "Mesa", value: "Digital 16/32/64 canais" },
+      { label: "Microfonia", value: "UHF sem fio com scan digital" }
+    ],
+    features: [
+      "Técnico e operador de som inclusos",
+      "Processamento DSP anti-microfonia"
+    ],
+    isFeatured: true,
+    badge: "Áudio"
+  },
+  {
+    id: "iluminacao-cenica-moving-led",
+    name: "Iluminação Cênica & Moving Heads",
+    category: "iluminacao",
+    categoryLabel: "Iluminação & Cênica",
+    shortDesc: "Refletores LED, moving heads Beam/Spot e efeitos cênicos.",
+    fullDesc: "Kits de iluminação DMX com refletores RGBW, luz focal e efeitos de palco.",
+    specs: [
+      { label: "Equipamentos", value: "Moving Beam 230W, Par LED 18x18W" },
+      { label: "Controle", value: "Mesa DMX profissional" },
+      { label: "Efeitos", value: "Haze cênico e Sparkular" }
+    ],
+    features: [
+      "Iluminação focal para palestrantes",
+      "Criação de cenários de luz dinâmicos"
+    ],
+    isFeatured: true,
+    badge: "Luz"
+  },
+  {
+    id: "painel-led-p39-outdoor-indoor",
+    name: "Painel de LED P3.9 Alta Resolução",
     category: "audiovisual",
     categoryLabel: "Painéis de LED & Vídeo",
-    shortDesc: "Alta taxa de atualização e brilho intenso visível sob luz solar direta para palcos e estandes.",
-    fullDesc: "Módulos de painel de LED com pitch 3.9mm para alta resolução, taxa de atualização de 3840Hz (livre de flickering em transmissões ao vivo ou fotos) e processadora de vídeo profissional com suporte a múltiplas entradas (HDMI, SDI, DP).",
-    image: "https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?auto=format&fit=crop&w=800&q=80",
+    shortDesc: "Telas de alto brilho para ambientes externos e internos.",
+    fullDesc: "Módulos de painel de LED P3.9 com processadora de vídeo 4K e switcher.",
     specs: [
       { label: "Pixel Pitch", value: "3.91 mm" },
-      { label: "Brilho", value: "Até 5.000 nits (Outdoor) / 1.200 nits (Indoor)" },
-      { label: "Taxa de Atualização", value: "3840 Hz (Anti-flicker para câmeras)" },
-      { label: "Processadora", value: "Novastar / Colorlight com switcher de vídeo" }
+      { label: "Frequência", value: "3840 Hz (Anti-flicker)" },
+      { label: "Brilho", value: "Outdoor / Indoor" }
     ],
     features: [
-      "Transmissão simultânea de slides, vídeos 4K e câmeras ao vivo",
-      "Montagem suspensa (fly) ou com suporte de solo rígido",
-      "Operador de vídeo e VJ durante todo o evento"
+      "Transmissão de slides, vídeos e câmeras",
+      "Montagem em solo ou suspensa"
     ],
     isFeatured: true,
-    badge: "Tecnologia Visual"
+    badge: "Vídeo"
   },
   {
-    id: "iluminacao-cenica-moving-heads",
-    name: "Iluminação Cênica, Moving Heads & Efeitos",
-    category: "iluminacao",
-    categoryLabel: "Iluminação & Efeitos",
-    shortDesc: "Kits de iluminação DMX com moving heads Beam/Spot, refletores LED RGBW e máquina de haze.",
-    fullDesc: "Projeto luminotécnico dinâmico capaz de transformar qualquer ambiente. Inclui mapa de luz personalizado, refletores de ribalta para ambientação, iluminação focal para palestrantes e efeitos de pista de dança sincronizados via mesa DMX.",
-    image: "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=800&q=80",
+    id: "projetores-alta-potencia-telas",
+    name: "Projetores & Telas de Projeção",
+    category: "audiovisual",
+    categoryLabel: "Painéis de LED & Vídeo",
+    shortDesc: "Projetores multimídia laser de alta potência e telas tensionadas.",
+    fullDesc: "Equipamentos de projeção para auditórios, salas corporativas e workshops.",
     specs: [
-      { label: "Equipamentos", value: "Moving Heads 7R/Beam 230W, Par LED 18x18W RGBWA+UV" },
-      { label: "Controle", value: "Console DMX GrandMA onPC / Avolites" },
-      { label: "Efeitos", value: "Haze cênico fino, fumaça baixa e faíscas frias (Sparkular)" },
-      { label: "Iluminação de Foco", value: "Elipsoidais e Fresnéis LED 3200K/5600K" }
+      { label: "Potência", value: "5.000 a 10.000 ANSI Lúmens" },
+      { label: "Telas", value: "100\" a 300\" tensionadas" }
     ],
     features: [
-      "Iluminação cênica de destaque para fotos e filmagens",
-      "Criação de cenários de luz dinâmicos por momento do cronograma",
-      "Light Designer e técnico de operação dedicados"
+      "Monitores de retorno para palco",
+      "Cabeamento HDMI/SDI de longa distância"
     ],
     isFeatured: false,
-    badge: "Cênica & Show"
+    badge: "Projeção"
   },
   {
-    id: "gerador-energia-silenciado",
-    name: "Gerador de Energia Silenciado 50kVA a 250kVA",
+    id: "climatizadores-evaporativos-industriais",
+    name: "Climatizadores Evaporativos",
+    category: "climatizacao",
+    categoryLabel: "Climatização",
+    shortDesc: "Redução de temperatura e renovação contínua de ar.",
+    fullDesc: "Climatizadores ecológicos de alta vazão para tendas, galpões e eventos abertos.",
+    specs: [
+      { label: "Vazão", value: "18.000 a 30.000 m³/h" },
+      { label: "Cobertura", value: "150 a 300 m² cada" }
+    ],
+    features: [
+      "Renovação de ar 100% fresco",
+      "Baixo consumo e ruído silencioso"
+    ],
+    isFeatured: false,
+    badge: "Climatização"
+  },
+  {
+    id: "gerador-silenciado-grupos",
+    name: "Gerador de Energia Silenciado",
     category: "energia",
     categoryLabel: "Geradores & Energia",
-    shortDesc: "Autonomia energética ininterrupta com cabos trifásicos, quadro de transferência e combustível.",
-    fullDesc: "Garantia de fornecimento elétrico estável e redundante para que seu evento nunca pare. Geradores cabinados de baixíssimo ruído acústico, ideais para áreas urbanas e eventos de alto padrão, acompanhados de operador de máquinas e cabos dimensionados.",
-    image: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80",
+    shortDesc: "Fornecimento elétrico contínuo com quadros e operador.",
+    fullDesc: "Grupos geradores cabinados super silenciados de 55kVA a 350kVA com cabos e QTA.",
     specs: [
-      { label: "Potências", value: "50kVA, 80kVA, 150kVA, 250kVA" },
-      { label: "Nível de Ruído", value: "Super silenciado (65dB a 7 metros)" },
-      { label: "Distribuição", value: "Main Power trifásico com saídas Steck e borneira" },
-      { label: "Combustível", value: "Diesel S10 de alta eficiência com autonomia estendida" }
+      { label: "Potências", value: "55kVA a 350kVA" },
+      { label: "Ruído", value: "Super Silenciado (65 dB)" },
+      { label: "Saídas", value: "127V / 220V / 380V Trifásico" }
     ],
     features: [
-      "Operador técnico presente durante todo o período de uso",
-      "Passa-cabos de borracha antiderrapante de alta proteção",
-      "Quadro de transferência e proteção contra surtos elétricos"
+      "Operador técnico durante todo o evento",
+      "Passa-cabos emborrachados inclusos"
     ],
     isFeatured: false,
-    badge: "Energia Segura"
+    badge: "Energia"
   },
   {
-    id: "operacao-logistica-equipe",
-    name: "Coordenação Operacional, Rigger & Montagem",
+    id: "stands-para-feiras-bancadas",
+    name: "Stands para Feiras & Mobiliário",
+    category: "stands",
+    categoryLabel: "Stands & Mobiliário",
+    shortDesc: "Montagem de estandes modulares, balcões e arquibancadas.",
+    fullDesc: "Divisórias modulares, testeiras, piso elevado com carpete e mobiliário de apoio.",
+    specs: [
+      { label: "Sistema", value: "Octanorm / Box Truss" },
+      { label: "Piso", value: "Tablado elevado com carpete" }
+    ],
+    features: [
+      "Projetos sob medida para feiras",
+      "Mobiliário básico incluso"
+    ],
+    isFeatured: false,
+    badge: "Stands"
+  },
+  {
+    id: "coordenacao-tecnica-art-alvara",
+    name: "Coordenação Técnica & Laudo ART",
     category: "operacao",
-    categoryLabel: "Equipe & Logística",
-    shortDesc: "Equipe técnica homologada com NR-35, NR-10 e coordenador de produção no local.",
-    fullDesc: "A execução perfeita do evento depende de pessoas experientes. A Sintetizza fornece coordenadores de montagem, técnicos especialistas em áudio, luz e vídeo, riggers e equipe de apoio com uniformização padrão e todos os EPIs exigidos pelas normas de segurança do trabalho.",
-    image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80",
+    categoryLabel: "Equipe & Laudos ART",
+    shortDesc: "Responsabilidade técnica com engenheiro habilitado CREA.",
+    fullDesc: "Emissão de ART, laudos de estabilidade, vistoria de bombeiros e equipe homologada.",
     specs: [
-      { label: "Normas", value: "NR-10 (Elétrica), NR-35 (Trabalho em Altura), PCMSO" },
-      { label: "Uniformização", value: "Padrão preto corporativo com identificação" },
-      { label: "Logística", value: "Frota própria de caminhões e vans operacionais" },
-      { label: "Acompanhamento", value: "Do briefing inicial ao desmonte completo" }
+      { label: "Normas", value: "NR-10, NR-35 e NBR 6123" },
+      { label: "Documentação", value: "ART / CREA oficial" }
     ],
     features: [
-      "Zero preocupação com mão de obra e segurança",
-      "Coordenação de cronograma de montagem e passagens de som",
-      "Comunicação via rádio integrada durante o evento"
+      "Acompanhamento técnico in loco",
+      "Equipe uniformizada com EPIs"
     ],
     isFeatured: false,
-    badge: "Suporte 360°"
-  },
-  {
-    id: "tenda-cristal-casamento",
-    name: "Tenda Cristal Panorâmica para Casamentos",
-    category: "coberturas",
-    categoryLabel: "Tendas & Coberturas",
-    shortDesc: "Cobertura 100% transparente premium para eventos sociais sofisticados e integração com a natureza.",
-    fullDesc: "Projetada para eventos elegantes como casamentos, recepções e jantares de gala. A lona cristal permite a visualização do céu e da paisagem natural durante o dia e ganha um efeito deslumbrante com a iluminação cênica noturna.",
-    image: "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=800&q=80",
-    specs: [
-      { label: "Acabamento", value: "Lona PVC Cristal 100% transparente anti-chamas" },
-      { label: "Estrutura", value: "Box Truss em alumínio polido ou aço branco" },
-      { label: "Pé Direito", value: "4m a 6m livre de colunas internas" },
-      { label: "Personalização", value: "Cortinados e rebaixamento de teto disponíveis" }
-    ],
-    features: [
-      "Integração visual com jardins e cenários abertos",
-      "Total proteção contra chuva e vento com calhas perimetrais",
-      "Harmonia perfeita com lustres e micro-lâmpadas (fairy lights)"
-    ],
-    isFeatured: false,
-    badge: "Luxo & Design"
+    badge: "Engenharia"
   }
 ];
 
-// Helper Functions
 function getProductById(id) {
   return PRODUCTS.find(p => p.id === id);
 }
@@ -226,6 +277,7 @@ function searchProducts(query) {
     p.name.toLowerCase().includes(q) ||
     p.shortDesc.toLowerCase().includes(q) ||
     p.categoryLabel.toLowerCase().includes(q) ||
-    (p.features && p.features.some(f => f.toLowerCase().includes(q)))
+    (p.features && p.features.some(f => f.toLowerCase().includes(q))) ||
+    (p.specs && p.specs.some(s => s.value.toLowerCase().includes(q)))
   );
 }

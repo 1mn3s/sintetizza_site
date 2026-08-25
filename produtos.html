@@ -3,15 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Produtos e Soluções | Sintetizza Eventos - Catálogo de Locação</title>
-  <meta name="description" content="Catálogo completo de palcos, tendas, som line array, iluminação cênica, painéis de LED e geradores para locação de eventos.">
+  <title>Produtos & Soluções | Sintetizza Eventos</title>
+  <meta name="description" content="Catálogo de equipamentos e estruturas para eventos.">
   
   <!-- Fontes Google -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   
-  <!-- Estilos Modulares CSS -->
+  <!-- Estilos CSS -->
   <link rel="stylesheet" href="css/variables.css">
   <link rel="stylesheet" href="css/global.css">
   <link rel="stylesheet" href="css/components.css">
@@ -30,9 +30,9 @@
         <span>/</span>
         <span>Produtos & Soluções</span>
       </div>
-      <h1 class="page-banner-title">Catálogo de Estruturas e Soluções</h1>
+      <h1 class="page-banner-title">Catálogo de Equipamentos</h1>
       <p class="page-banner-desc">
-        Explore nossos equipamentos e estruturas de alto desempenho. Adicione as soluções desejadas à sua lista para receber uma cotação personalizada.
+        Selecione os equipamentos necessários e adicione-os ao seu orçamento.
       </p>
     </div>
   </section>
@@ -41,34 +41,33 @@
   <section class="section section-light">
     <div class="container">
       
-      <!-- Barra de Ferramentas / Busca -->
+      <!-- Busca e Filtros -->
       <div class="catalog-toolbar">
         <div class="search-box">
-          <span class="search-icon">🔍</span>
-          <input type="text" id="catalog-search-input" placeholder="Buscar por palco, tenda, som, led, gerador...">
+          <input type="text" id="catalog-search-input" placeholder="Buscar por palco, tenda, som, led, gerador..." style="padding-left: 18px;">
         </div>
         <div id="catalog-results-count" style="font-weight: 700; color: var(--color-text-secondary); font-size: 0.95rem;">
           Carregando catálogo...
         </div>
       </div>
 
-      <!-- Filtros por Categoria (Pills renderizadas dinamicamente via JS) -->
+      <!-- Filtros por Categoria -->
       <div class="category-filter-bar" id="category-filter-tabs"></div>
 
-      <!-- Grid de Produtos Renderizado via JS -->
+      <!-- Grid de Produtos -->
       <div class="grid grid-3" id="catalog-products-grid"></div>
 
     </div>
   </section>
 
-  <!-- Banner Informativo de Projetos Especiais -->
+  <!-- Banner Projetos Sob Medida -->
   <section class="section section-dark">
     <div class="container">
       <div class="cta-banner" style="background: transparent; border: none; padding: 0;">
-        <span class="badge badge-brand" style="margin-bottom: 12px;">Não encontrou a metragem exata?</span>
-        <h2 style="color: var(--color-text-light); margin-bottom: 16px;">Desenvolvemos Projetos Especiais sob Medida</h2>
-        <p style="color: var(--color-text-light-muted); max-width: 600px; margin: 0 auto 24px auto;">
-          Nossa equipe de engenharia projeta layouts em 3D, cálculos estruturais e soluções customizadas para palcos atípicos, galpões temporários e montagens complexas.
+        <span class="badge badge-brand" style="margin-bottom: 10px;">Projetos Especiais</span>
+        <h2 style="margin-bottom: 10px;">Precisa de uma Estrutura Sob Medida?</h2>
+        <p style="max-width: 600px; margin: 0 auto 20px auto;">
+          Desenvolvemos layouts e soluções customizadas para palcos atípicos, galpões e eventos de grande porte.
         </p>
         <a href="orcamento.html" class="btn btn-primary btn-lg">
           <span>Solicitar Proposta Customizada</span>

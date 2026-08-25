@@ -3,15 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Solicitação de Orçamento | Sintetizza Eventos</title>
-  <meta name="description" content="Monte sua lista de estruturas, som, luz e vídeo e solicite seu orçamento formal sem compromisso com envio direto para nossa equipe.">
+  <title>Solicitar Orçamento | Sintetizza Eventos</title>
+  <meta name="description" content="Solicitação de orçamento online para estruturas, áudio, iluminação e climatização.">
   
   <!-- Fontes Google -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   
-  <!-- Estilos Modulares CSS -->
+  <!-- Estilos CSS -->
   <link rel="stylesheet" href="css/variables.css">
   <link rel="stylesheet" href="css/global.css">
   <link rel="stylesheet" href="css/components.css">
@@ -22,7 +22,7 @@
   <!-- Header -->
   <div id="site-header-container"></div>
 
-  <!-- Banner da Página -->
+  <!-- Banner -->
   <section class="page-banner">
     <div class="container">
       <div class="breadcrumb">
@@ -30,9 +30,9 @@
         <span>/</span>
         <span>Solicitar Orçamento</span>
       </div>
-      <h1 class="page-banner-title">Monte Seu Pacote e Solicite seu Orçamento</h1>
+      <h1 class="page-banner-title">Solicitação de Orçamento</h1>
       <p class="page-banner-desc">
-        Revise os itens selecionados, informe os dados operacionais do evento e receba nossa proposta técnica oficial em tempo recorde.
+        Revise sua lista de equipamentos, preencha os dados do evento e envie para nossa equipe técnica.
       </p>
     </div>
   </section>
@@ -42,137 +42,118 @@
     <div class="container">
       <div class="quote-layout">
 
-        <!-- Coluna Esquerda: Formulário de Informações do Cliente e Evento -->
+        <!-- Formulário -->
         <div class="quote-card">
-          <div style="margin-bottom: 24px; border-bottom: 1px solid var(--color-border-light); padding-bottom: 16px;">
-            <span class="badge badge-brand" style="margin-bottom: 8px;">Passo 2 de 2</span>
-            <h2 style="font-size: 1.5rem;">Dados do Cliente & Evento</h2>
-            <p style="color: var(--color-text-secondary); font-size: 0.95rem;">
-              Preencha os campos abaixo para que nossa equipe de engenharia dimensione o frete, montagem e equipe necessária.
-            </p>
+          <div style="margin-bottom: 20px; border-bottom: 1px solid var(--color-border-light); padding-bottom: 12px;">
+            <h2 style="font-size: 1.35rem;">Dados do Solicitante e do Evento</h2>
           </div>
 
           <form id="quote-request-form">
-            <!-- Dados do Solicitante -->
-            <h4 style="margin-bottom: 16px; color: var(--color-text-primary); font-size: 1.1rem; display: flex; align-items: center; gap: 8px;">
-              <span>👤</span> Informações de Contato
-            </h4>
-
+            <!-- Dados de Contato -->
             <div class="grid grid-2" style="gap: 16px; margin-bottom: 16px;">
               <div class="form-group">
                 <label class="form-label" for="clientName">Nome Completo <span class="required">*</span></label>
-                <input type="text" id="clientName" name="clientName" class="form-control" placeholder="Ex: Roberto Silva" required>
+                <input type="text" id="clientName" name="clientName" class="form-control" placeholder="Seu nome" required>
               </div>
 
               <div class="form-group">
-                <label class="form-label" for="clientCompany">Empresa / Agência / Produtora</label>
-                <input type="text" id="clientCompany" name="clientCompany" class="form-control" placeholder="Ex: Agência Criativa Ltda (ou Física)">
+                <label class="form-label" for="clientCompany">Empresa / Produtora</label>
+                <input type="text" id="clientCompany" name="clientCompany" class="form-control" placeholder="Nome da empresa (opcional)">
               </div>
             </div>
 
-            <div class="grid grid-2" style="gap: 16px; margin-bottom: 24px;">
+            <div class="grid grid-2" style="gap: 16px; margin-bottom: 20px;">
               <div class="form-group">
-                <label class="form-label" for="clientEmail">E-mail Corporativo / Principal <span class="required">*</span></label>
-                <input type="email" id="clientEmail" name="clientEmail" class="form-control" placeholder="seuemail@empresa.com.br" required>
+                <label class="form-label" for="clientEmail">E-mail <span class="required">*</span></label>
+                <input type="email" id="clientEmail" name="clientEmail" class="form-control" placeholder="seuemail@empresa.com" required>
               </div>
 
               <div class="form-group">
                 <label class="form-label" for="clientPhone">WhatsApp / Telefone <span class="required">*</span></label>
-                <input type="tel" id="clientPhone" name="clientPhone" class="form-control" placeholder="(11) 99999-9999" required>
+                <input type="tel" id="clientPhone" name="clientPhone" class="form-control" placeholder="(15) 99999-9999" required>
               </div>
             </div>
 
             <!-- Dados do Evento -->
-            <h4 style="margin-bottom: 16px; color: var(--color-text-primary); font-size: 1.1rem; display: flex; align-items: center; gap: 8px; border-top: 1px solid var(--color-border-light); padding-top: 20px;">
-              <span>📍</span> Localização & Detalhes do Evento
-            </h4>
-
             <div class="grid grid-2" style="gap: 16px; margin-bottom: 16px;">
               <div class="form-group">
                 <label class="form-label" for="eventType">Tipo de Evento <span class="required">*</span></label>
                 <select id="eventType" name="eventType" class="form-control" required>
-                  <option value="Corporativo / Congresso">Corporativo / Congresso / Convenção</option>
-                  <option value="Show / Festival Musical">Show / Festival Musical / Turnê</option>
-                  <option value="Feira / Exposição / Estande">Feira / Exposição / Estande</option>
-                  <option value="Casamento / Social Premium">Casamento / Social Premium</option>
-                  <option value="Evento Esportivo / Corrida">Evento Esportivo / Corrida</option>
-                  <option value="Formatura / Acadêmico">Formatura / Baile</option>
-                  <option value="Outro Segmento">Outro Segmento</option>
+                  <option value="Corporativo / Congresso">Corporativo / Congresso</option>
+                  <option value="Feira / Estande">Feira / Estande</option>
+                  <option value="Show / Festival">Show / Festival</option>
+                  <option value="Casamento / Social">Casamento / Social</option>
+                  <option value="Evento Esportivo">Evento Esportivo</option>
+                  <option value="Outro">Outro Segmento</option>
                 </select>
               </div>
 
               <div class="form-group">
-                <label class="form-label" for="eventDate">Data Prevista do Evento</label>
+                <label class="form-label" for="eventDate">Data Prevista</label>
                 <input type="date" id="eventDate" name="eventDate" class="form-control">
               </div>
             </div>
 
             <div class="grid grid-2" style="gap: 16px; margin-bottom: 20px;">
               <div class="form-group">
-                <label class="form-label" for="eventCity">Cidade e Estado (Local de Montagem) <span class="required">*</span></label>
-                <input type="text" id="eventCity" name="eventCity" class="form-control" placeholder="Ex: São Paulo - SP / Centro de Convenções" required>
+                <label class="form-label" for="eventCity">Cidade / Local <span class="required">*</span></label>
+                <input type="text" id="eventCity" name="eventCity" class="form-control" placeholder="Ex: Sorocaba - SP" required>
               </div>
 
               <div class="form-group">
-                <label class="form-label" for="eventAudience">Público Estimado (Pessoas)</label>
-                <input type="text" id="eventAudience" name="eventAudience" class="form-control" placeholder="Ex: 500 a 1.000 pessoas">
+                <label class="form-label" for="eventAudience">Público Estimado</label>
+                <input type="text" id="eventAudience" name="eventAudience" class="form-control" placeholder="Ex: 500 pessoas">
               </div>
             </div>
 
             <div class="form-group">
-              <label class="form-label" for="observations">Observações Especiais ou Exigências Técnicas</label>
-              <textarea id="observations" name="observations" class="form-control" placeholder="Ex: Horário restrito para carga/descarga, necessidade de gerador backup, pé direito mínimo de 6m..."></textarea>
-              <div class="form-hint">Descreva qualquer particularidade do local ou do cronograma de montagem.</div>
+              <label class="form-label" for="observations">Observações Técnicas</label>
+              <textarea id="observations" name="observations" class="form-control" placeholder="Detalhes adicionais, horários de montagem, exigências técnicas..."></textarea>
             </div>
 
-            <div style="margin-top: 24px;">
-              <button type="submit" class="btn btn-primary btn-block btn-lg" style="font-size: 1.15rem;">
-                <span>🚀 Concluir e Enviar Orçamento</span>
+            <div style="margin-top: 20px;">
+              <button type="submit" class="btn btn-primary btn-block btn-lg">
+                <span>Enviar Orçamento no WhatsApp / E-mail</span>
               </button>
             </div>
           </form>
         </div>
 
-        <!-- Coluna Direita: Resumo da Lista de Itens Selecionados -->
+        <!-- Sidebar Itens Selecionados -->
         <div class="quote-summary-sidebar">
-          
           <div class="quote-card" style="margin-bottom: var(--space-lg);">
             <div class="flex items-center justify-between" style="margin-bottom: 16px; border-bottom: 1px solid var(--color-border-light); padding-bottom: 12px;">
               <div>
-                <h3 style="font-size: 1.25rem;">Itens Selecionados</h3>
-                <span style="font-size: 0.85rem; color: var(--color-text-secondary);">Estruturas e Equipamentos</span>
+                <h3 style="font-size: 1.15rem;">Itens Selecionados</h3>
               </div>
               <span class="badge badge-brand" id="quote-total-items-badge">0 itens</span>
             </div>
 
-            <!-- Estado Vazio -->
-            <div id="quote-empty-state" style="display: none; text-align: center; padding: 30px 10px;">
-              <div style="font-size: 2.5rem; margin-bottom: 10px;">📦</div>
-              <h4 style="margin-bottom: 8px;">Sua lista está vazia</h4>
-              <p style="font-size: 0.9rem; color: var(--color-text-secondary); margin-bottom: 18px;">
-                Adicione palcos, tendas, som ou iluminação do nosso catálogo.
+            <!-- Vazio -->
+            <div id="quote-empty-state" style="display: none; text-align: center; padding: 24px 10px;">
+              <h4 style="margin-bottom: 6px; font-size: 1rem;">Lista vazia</h4>
+              <p style="font-size: 0.85rem; color: var(--color-text-secondary); margin-bottom: 14px;">
+                Adicione equipamentos do catálogo à sua lista.
               </p>
               <a href="produtos.html" class="btn btn-outline btn-sm btn-block">
-                + Explorar Catálogo de Produtos
+                Explorar Catálogo
               </a>
             </div>
 
-            <!-- Seção com Itens -->
+            <!-- Lista de Itens -->
             <div id="quote-items-section">
-              <div class="quote-items-container" id="quote-items-container">
-                <!-- Injetado via quote.js -->
-              </div>
+              <div class="quote-items-container" id="quote-items-container"></div>
 
-              <div class="flex gap-sm" style="margin-top: 16px;">
+              <div class="flex gap-sm" style="margin-top: 14px;">
                 <button type="button" class="btn btn-outline btn-sm" id="btn-add-custom-item" style="flex: 1;">
-                  ➕ Item Personalizado
+                  Item Personalizado
                 </button>
                 <a href="produtos.html" class="btn btn-dark btn-sm" style="flex: 1;">
-                  + Mais Produtos
+                  Mais Itens
                 </a>
               </div>
 
-              <div style="text-align: right; margin-top: 12px;">
+              <div style="text-align: right; margin-top: 10px;">
                 <button type="button" onclick="handleClearQuote()" style="background: none; border: none; color: var(--color-danger); font-size: 0.8rem; cursor: pointer; text-decoration: underline;">
                   Limpar todos os itens
                 </button>
@@ -180,19 +161,17 @@
             </div>
           </div>
 
-          <!-- Highlight Box de Segurança -->
+          <!-- Informações de Segurança -->
           <div class="quote-highlight-box">
-            <h4 style="color: var(--color-brand-primary); margin-bottom: 10px; font-size: 1.1rem; display: flex; align-items: center; gap: 8px;">
-              <span>🔒</span> Garantias Sintetizza
+            <h4 style="color: var(--color-brand-primary); margin-bottom: 8px; font-size: 1rem;">
+              Garantias Sintetizza
             </h4>
-            <ul style="display: flex; flex-direction: column; gap: 8px; font-size: 0.85rem; color: var(--color-text-light-muted);">
-              <li>• Proposta técnica detalhada sem custos adicionais</li>
-              <li>• ART inclusa em todas as estruturas montadas</li>
-              <li>• Plantão operacional 24h durante o evento</li>
-              <li>• Resposta rápida em até 2 horas úteis</li>
+            <ul style="display: flex; flex-direction: column; gap: 6px; font-size: 0.85rem; color: var(--color-text-secondary);">
+              <li>• ART inclusa em todas as montagens</li>
+              <li>• Equipe homologada NR-10 e NR-35</li>
+              <li>• Plantão 24h durante o evento</li>
             </ul>
           </div>
-
         </div>
 
       </div>

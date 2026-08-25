@@ -3,15 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Detalhes do Produto | Sintetizza Eventos</title>
-  <meta name="description" content="Especificações técnicas, dimensões e solicitação de locação de infraestrutura para eventos na Sintetizza.">
+  <title>Detalhes do Equipamento | Sintetizza Eventos</title>
+  <meta name="description" content="Ficha técnica e solicitação de orçamento de equipamentos para eventos.">
   
   <!-- Fontes Google -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   
-  <!-- Estilos Modulares CSS -->
+  <!-- Estilos CSS -->
   <link rel="stylesheet" href="css/variables.css">
   <link rel="stylesheet" href="css/global.css">
   <link rel="stylesheet" href="css/components.css">
@@ -22,7 +22,7 @@
   <!-- Header -->
   <div id="site-header-container"></div>
 
-  <!-- Banner da Página com Breadcrumb -->
+  <!-- Banner com Breadcrumb -->
   <section class="page-banner" style="padding: calc(var(--space-3xl) + 10px) 0 var(--space-2xl) 0;">
     <div class="container">
       <div class="breadcrumb">
@@ -30,17 +30,16 @@
         <span>/</span>
         <a href="produtos.html">Produtos & Soluções</a>
         <span>/</span>
-        <span id="detail-breadcrumb-product" style="color: var(--color-text-light);">Detalhes</span>
+        <span id="detail-breadcrumb-product" style="color: var(--color-text-primary); font-weight: 600;">Detalhes</span>
       </div>
     </div>
   </section>
 
-  <!-- Conteúdo Principal do Detalhe do Produto -->
+  <!-- Conteúdo Principal -->
   <section class="section section-white">
     <div class="container" id="product-detail-root">
-      <!-- Injetado dinamicamente via js/main.js -> initProductDetailPage() -->
       <div style="text-align: center; padding: 60px 0; color: var(--color-text-secondary);">
-        Carregando detalhes técnicos do equipamento...
+        Carregando detalhes técnicos...
       </div>
     </div>
   </section>
@@ -49,8 +48,8 @@
   <section class="section section-light">
     <div class="container">
       <div class="section-header text-left" style="margin-bottom: var(--space-xl);">
-        <span class="section-subtitle">Soluções Complementares</span>
-        <h2 class="section-title">Itens Frequentemente Alugados Juntos</h2>
+        <span class="section-subtitle">Complementares</span>
+        <h2 class="section-title">Itens Relacionados</h2>
       </div>
 
       <div class="grid grid-3" id="related-products-grid"></div>
