@@ -1,9 +1,11 @@
-/* Pages Stylesheet */
+/* =============================================================================
+ * SINTETIZZA - PAGES CSS (PÁGINAS ESPECÍFICAS & SEÇÕES PERSUASIVAS SEO)
+ * ============================================================================= */
 
 /* Page Banner / Header */
 .page-banner {
   background: linear-gradient(180deg, var(--color-brand-primary-light) 0%, var(--color-bg-light) 100%);
-  padding: calc(var(--space-3xl) + 10px) 0 var(--space-2xl) 0;
+  padding: calc(var(--space-2xl) + 10px) 0 var(--space-2xl) 0;
   border-bottom: 1px solid var(--color-border-light);
   text-align: center;
 }
@@ -37,7 +39,84 @@
   margin: 0 auto;
 }
 
-/* Home: Why Choose Us */
+/* Comparison Section (Por que escolher a Sintetizza) */
+.comparison-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-xl);
+}
+
+.comparison-card {
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl);
+  border: 1px solid var(--color-border-light);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.comparison-card.card-advantage {
+  background: #FFFFFF;
+  border: 2px solid var(--color-brand-primary);
+  box-shadow: var(--shadow-card);
+  position: relative;
+}
+
+.comparison-card.card-advantage::before {
+  content: 'Padrão de Qualidade Sintetizza';
+  position: absolute;
+  top: -12px;
+  left: 24px;
+  background: var(--color-brand-primary);
+  color: #0F172A;
+  font-size: 0.75rem;
+  font-weight: 800;
+  padding: 4px 12px;
+  border-radius: var(--radius-pill);
+  text-transform: uppercase;
+}
+
+.comparison-card.card-risk {
+  background: var(--color-surface-alt);
+  border: 1px solid var(--color-border-strong);
+}
+
+.comparison-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.comparison-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.95rem;
+}
+
+.comparison-item.advantage {
+  color: var(--color-text-primary);
+}
+
+.comparison-item.advantage .icon {
+  color: var(--color-success);
+  font-weight: 800;
+}
+
+.comparison-item.risk {
+  color: var(--color-text-secondary);
+}
+
+.comparison-item.risk .icon {
+  color: var(--color-danger);
+  font-weight: 800;
+}
+
+@media (max-width: 768px) {
+  .comparison-grid { grid-template-columns: 1fr; }
+}
+
+/* Home: Why Choose Us / Differentiators */
 .differentiator-card {
   background: var(--color-surface-light);
   border: 1px solid var(--color-border-light);
@@ -57,17 +136,17 @@
 
 .differentiator-card h3 {
   color: var(--color-text-primary);
-  font-size: 1.1rem;
+  font-size: 1.15rem;
   margin-bottom: 4px;
 }
 
 .differentiator-card p {
   color: var(--color-text-secondary);
-  font-size: 0.875rem;
+  font-size: 0.9rem;
   line-height: 1.5;
 }
 
-/* Home: Process Steps */
+/* Home: Process Steps (Como Funciona) */
 .process-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -94,13 +173,13 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 34px;
-  height: 34px;
+  width: 36px;
+  height: 36px;
   background-color: var(--color-brand-primary);
   color: #0F172A;
   border: 1px solid var(--color-brand-primary-hover);
   font-weight: 800;
-  font-size: 0.95rem;
+  font-size: 1rem;
   border-radius: var(--radius-pill);
   margin-bottom: var(--space-sm);
 }
@@ -125,7 +204,43 @@
   .process-grid { grid-template-columns: 1fr; }
 }
 
-/* Home: CTA Banner Section */
+/* Segments Grid */
+.segment-card {
+  background-color: var(--color-surface-light);
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--radius-md);
+  padding: var(--space-xl);
+  transition: all var(--transition-normal);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.segment-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--color-brand-primary);
+  box-shadow: var(--shadow-card);
+}
+
+.segment-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.segment-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-sm);
+  background-color: var(--color-brand-primary-light);
+  border: 1px solid var(--color-brand-primary-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+}
+
+/* CTA Banner Section */
 .cta-banner {
   background: linear-gradient(135deg, var(--color-brand-primary-light) 0%, var(--color-brand-primary-subtle) 100%);
   border: 1.5px solid var(--color-brand-primary-border);
@@ -191,7 +306,7 @@
 
 .search-box input {
   width: 100%;
-  padding: 10px 16px;
+  padding: 12px 18px;
   border-radius: var(--radius-pill);
   border: 1.5px solid var(--color-border-strong);
   font-size: 0.95rem;
@@ -338,8 +453,8 @@
 }
 
 .qty-btn {
-  width: 28px;
-  height: 28px;
+  width: 32px;
+  height: 32px;
   border-radius: var(--radius-xs);
   background: var(--color-surface-light);
   border: 1px solid var(--color-border-strong);
@@ -360,9 +475,9 @@
 
 .qty-display {
   font-weight: 700;
-  min-width: 20px;
+  min-width: 24px;
   text-align: center;
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   color: var(--color-text-primary);
 }
 
@@ -371,8 +486,8 @@
   border: none;
   color: var(--color-danger);
   cursor: pointer;
-  padding: 4px;
-  font-size: 1.2rem;
+  padding: 6px;
+  font-size: 1.3rem;
   line-height: 1;
 }
 
@@ -399,8 +514,8 @@
 .quote-highlight-box ul {
   display: flex;
   flex-direction: column;
-  gap: 4px;
-  font-size: 0.825rem;
+  gap: 6px;
+  font-size: 0.85rem;
   color: var(--color-text-secondary);
 }
 
@@ -440,6 +555,96 @@
   box-shadow: var(--shadow-card);
 }
 
+.contact-icon-box {
+  width: 40px;
+  height: 40px;
+  min-width: 40px;
+  background-color: var(--color-brand-primary-light);
+  border: 1px solid var(--color-brand-primary-border);
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+}
+
 @media (max-width: 900px) {
   .contact-grid { grid-template-columns: 1fr; }
 }
+
+/* Imagens Reais & Banners */
+.hero-image-cover {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: var(--radius-sm);
+  margin-bottom: 16px;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+}
+
+.segment-grid-card {
+  background: #FFFFFF;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border-light);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: all var(--transition-normal);
+  text-decoration: none;
+  box-shadow: var(--shadow-sm);
+}
+
+.segment-grid-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-card-hover);
+  border-color: var(--color-brand-primary);
+}
+
+.segment-card-image-wrap {
+  width: 100%;
+  height: 150px;
+  position: relative;
+  overflow: hidden;
+  background: #F8FAFC;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.segment-card-image-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-normal);
+}
+
+.segment-grid-card:hover .segment-card-image-wrap img {
+  transform: scale(1.08);
+}
+
+.segment-card-body {
+  padding: var(--space-md);
+}
+
+.segment-card-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin-bottom: 4px;
+}
+
+.segment-card-desc {
+  font-size: 0.85rem;
+  color: var(--color-text-secondary);
+  line-height: 1.4;
+}
+
+.about-real-img {
+  width: 100%;
+  height: 100%;
+  max-height: 380px;
+  object-fit: cover;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-card);
+}
+

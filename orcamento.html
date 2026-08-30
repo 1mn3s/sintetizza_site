@@ -3,10 +3,26 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Solicitar Orçamento | Sintetizza Eventos</title>
-  <meta name="description" content="Solicitação de orçamento online para estruturas, áudio, iluminação e climatização.">
+  <title>Solicitar Orçamento Online | Sintetizza Eventos</title>
+  <meta name="description" content="Monte seu orçamento online de palcos, tendas, som, iluminação, painel de LED e geradores. Receba a proposta técnica no WhatsApp em até 15 minutos.">
+  <meta name="keywords" content="orcamento estruturas eventos, aluguel palco preco, locacao tendas sorocaba orcamento, painel de led aluguel orcamento">
+  <link rel="canonical" href="https://www.sintetizza.com.br/orcamento.html">
   
-  <!-- Fontes Google -->
+  <!-- Favicon & Icons -->
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
+  <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+  <meta name="theme-color" content="#F1CF00">
+
+  <!-- OpenGraph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.sintetizza.com.br/orcamento.html">
+  <meta property="og:title" content="Solicitar Orçamento Online | Sintetizza Eventos">
+  <meta property="og:description" content="Monte sua lista de equipamentos e envie para nossa equipe técnica via WhatsApp ou e-mail.">
+  <meta property="og:image" content="https://www.sintetizza.com.br/assets/images/logo.png">
+
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -30,9 +46,9 @@
         <span>/</span>
         <span>Solicitar Orçamento</span>
       </div>
-      <h1 class="page-banner-title">Solicitação de Orçamento</h1>
+      <h1 class="page-banner-title">Solicitação de Orçamento Online</h1>
       <p class="page-banner-desc">
-        Revise sua lista de equipamentos, preencha os dados do evento e envie para nossa equipe técnica.
+        Revise os itens selecionados, informe os dados básicos do seu evento e envie diretamente para o atendimento técnico via WhatsApp ou e-mail.
       </p>
     </div>
   </section>
@@ -42,10 +58,12 @@
     <div class="container">
       <div class="quote-layout">
 
-        <!-- Formulário -->
+        <!-- Formulário de Dados -->
         <div class="quote-card">
-          <div style="margin-bottom: 20px; border-bottom: 1px solid var(--color-border-light); padding-bottom: 12px;">
-            <h2 style="font-size: 1.35rem;">Dados do Solicitante e do Evento</h2>
+          <div style="margin-bottom: 20px; border-bottom: 1px solid var(--color-border-light); padding-bottom: 14px;">
+            <span class="badge badge-brand" style="margin-bottom: 8px;">Atendimento Rápido</span>
+            <h2 style="font-size: 1.35rem;">Dados do Solicitante & Local do Evento</h2>
+            <p style="font-size: 0.875rem; color: var(--color-text-secondary); margin: 0;">Retorno comercial em até 15 minutos em horário comercial.</p>
           </div>
 
           <form id="quote-request-form">
@@ -53,24 +71,24 @@
             <div class="grid grid-2" style="gap: 16px; margin-bottom: 16px;">
               <div class="form-group">
                 <label class="form-label" for="clientName">Nome Completo <span class="required">*</span></label>
-                <input type="text" id="clientName" name="clientName" class="form-control" placeholder="Seu nome" required>
+                <input type="text" id="clientName" name="clientName" class="form-control" placeholder="Seu nome ou responsável" required autocomplete="name">
               </div>
 
               <div class="form-group">
                 <label class="form-label" for="clientCompany">Empresa / Produtora</label>
-                <input type="text" id="clientCompany" name="clientCompany" class="form-control" placeholder="Nome da empresa (opcional)">
+                <input type="text" id="clientCompany" name="clientCompany" class="form-control" placeholder="Nome da empresa ou agência (opcional)" autocomplete="organization">
               </div>
             </div>
 
-            <div class="grid grid-2" style="gap: 16px; margin-bottom: 20px;">
+            <div class="grid grid-2" style="gap: 16px; margin-bottom: 16px;">
               <div class="form-group">
-                <label class="form-label" for="clientEmail">E-mail <span class="required">*</span></label>
-                <input type="email" id="clientEmail" name="clientEmail" class="form-control" placeholder="seuemail@empresa.com" required>
+                <label class="form-label" for="clientEmail">E-mail Corporativo / Pessoal <span class="required">*</span></label>
+                <input type="email" id="clientEmail" name="clientEmail" class="form-control" placeholder="seuemail@empresa.com" required autocomplete="email">
               </div>
 
               <div class="form-group">
                 <label class="form-label" for="clientPhone">WhatsApp / Telefone <span class="required">*</span></label>
-                <input type="tel" id="clientPhone" name="clientPhone" class="form-control" placeholder="(15) 99999-9999" required>
+                <input type="tel" id="clientPhone" name="clientPhone" class="form-control" placeholder="(15) 99999-9999" required autocomplete="tel">
               </div>
             </div>
 
@@ -80,11 +98,11 @@
                 <label class="form-label" for="eventType">Tipo de Evento <span class="required">*</span></label>
                 <select id="eventType" name="eventType" class="form-control" required>
                   <option value="Corporativo / Congresso">Corporativo / Congresso</option>
-                  <option value="Feira / Estande">Feira / Estande</option>
-                  <option value="Show / Festival">Show / Festival</option>
+                  <option value="Feira / Estande / Exposição">Feira / Estande / Exposição</option>
+                  <option value="Show / Festival / Apresentação">Show / Festival / Apresentação</option>
                   <option value="Casamento / Social">Casamento / Social</option>
                   <option value="Evento Esportivo">Evento Esportivo</option>
-                  <option value="Outro">Outro Segmento</option>
+                  <option value="Outro Segmento">Outro Segmento</option>
                 </select>
               </div>
 
@@ -94,9 +112,9 @@
               </div>
             </div>
 
-            <div class="grid grid-2" style="gap: 16px; margin-bottom: 20px;">
+            <div class="grid grid-2" style="gap: 16px; margin-bottom: 16px;">
               <div class="form-group">
-                <label class="form-label" for="eventCity">Cidade / Local <span class="required">*</span></label>
+                <label class="form-label" for="eventCity">Cidade / Local do Evento <span class="required">*</span></label>
                 <input type="text" id="eventCity" name="eventCity" class="form-control" placeholder="Ex: Sorocaba - SP" required>
               </div>
 
@@ -107,19 +125,22 @@
             </div>
 
             <div class="form-group">
-              <label class="form-label" for="observations">Observações Técnicas</label>
-              <textarea id="observations" name="observations" class="form-control" placeholder="Detalhes adicionais, horários de montagem, exigências técnicas..."></textarea>
+              <label class="form-label" for="observations">Observações Técnicas ou Metragens</label>
+              <textarea id="observations" name="observations" class="form-control" placeholder="Descreva horários de montagem, exigências específicas ou medidas de palco/tenda..." rows="3"></textarea>
             </div>
 
-            <div style="margin-top: 20px;">
-              <button type="submit" class="btn btn-primary btn-block btn-lg">
-                <span>Enviar Orçamento no WhatsApp / E-mail</span>
+            <div style="margin-top: 24px;">
+              <button type="submit" class="btn btn-primary btn-block btn-lg" style="font-size: 1.1rem;">
+                <span>💬 Enviar Orçamento no WhatsApp & E-mail</span>
               </button>
+              <p style="font-size: 0.8rem; color: var(--color-text-secondary); text-align: center; margin-top: 8px;">
+                ✓ Seus dados são protegidos conforme a LGPD e utilizados apenas para a cotação.
+              </p>
             </div>
           </form>
         </div>
 
-        <!-- Sidebar Itens Selecionados -->
+        <!-- Sidebar com Itens Selecionados -->
         <div class="quote-summary-sidebar">
           <div class="quote-card" style="margin-bottom: var(--space-lg);">
             <div class="flex items-center justify-between" style="margin-bottom: 16px; border-bottom: 1px solid var(--color-border-light); padding-bottom: 12px;">
@@ -129,47 +150,54 @@
               <span class="badge badge-brand" id="quote-total-items-badge">0 itens</span>
             </div>
 
-            <!-- Vazio -->
+            <!-- Estado Vazio -->
             <div id="quote-empty-state" style="display: none; text-align: center; padding: 24px 10px;">
-              <h4 style="margin-bottom: 6px; font-size: 1rem;">Lista vazia</h4>
-              <p style="font-size: 0.85rem; color: var(--color-text-secondary); margin-bottom: 14px;">
-                Adicione equipamentos do catálogo à sua lista.
+              <div style="font-size: 2rem; margin-bottom: 8px;">📋</div>
+              <h4 style="margin-bottom: 6px; font-size: 1rem;">Nenhum item adicionado ainda</h4>
+              <p style="font-size: 0.85rem; color: var(--color-text-secondary); margin-bottom: 16px;">
+                Adicione equipamentos do catálogo ou crie um item personalizado.
               </p>
-              <a href="produtos.html" class="btn btn-outline btn-sm btn-block">
-                Explorar Catálogo
-              </a>
+              <div class="flex flex-col gap-sm">
+                <a href="produtos.html" class="btn btn-primary btn-sm btn-block">
+                  Explorar Catálogo
+                </a>
+                <button type="button" class="btn btn-dark btn-sm btn-block" id="btn-add-custom-item-empty" onclick="document.getElementById('btn-add-custom-item')?.click()">
+                  + Item Personalizado
+                </button>
+              </div>
             </div>
 
-            <!-- Lista de Itens -->
+            <!-- Lista de Itens Adicionados -->
             <div id="quote-items-section">
               <div class="quote-items-container" id="quote-items-container"></div>
 
               <div class="flex gap-sm" style="margin-top: 14px;">
                 <button type="button" class="btn btn-outline btn-sm" id="btn-add-custom-item" style="flex: 1;">
-                  Item Personalizado
+                  + Item Personalizado
                 </button>
                 <a href="produtos.html" class="btn btn-dark btn-sm" style="flex: 1;">
-                  Mais Itens
+                  + Mais Itens
                 </a>
               </div>
 
-              <div style="text-align: right; margin-top: 10px;">
-                <button type="button" onclick="handleClearQuote()" style="background: none; border: none; color: var(--color-danger); font-size: 0.8rem; cursor: pointer; text-decoration: underline;">
-                  Limpar todos os itens
+              <div style="text-align: right; margin-top: 12px;">
+                <button type="button" onclick="handleClearQuote()" style="background: none; border: none; color: var(--color-danger); font-size: 0.8rem; cursor: pointer; text-decoration: underline; font-weight: 600;">
+                  Limpar lista de itens
                 </button>
               </div>
             </div>
           </div>
 
-          <!-- Informações de Segurança -->
+          <!-- Informações de Confiança e Garantias -->
           <div class="quote-highlight-box">
-            <h4 style="color: var(--color-brand-primary); margin-bottom: 8px; font-size: 1rem;">
-              Garantias Sintetizza
+            <h4 style="color: #92400E; margin-bottom: 8px; font-size: 1rem; font-weight: 800;">
+              ✓ Garantias Sintetizza Inclusas
             </h4>
             <ul style="display: flex; flex-direction: column; gap: 6px; font-size: 0.85rem; color: var(--color-text-secondary);">
-              <li>• ART inclusa em todas as montagens</li>
-              <li>• Equipe homologada NR-10 e NR-35</li>
-              <li>• Plantão 24h durante o evento</li>
+              <li>• <strong>ART emitida por engenheiro</strong> habilitado pelo CREA</li>
+              <li>• <strong>Equipe 100% certificada</strong> em NR-10 e NR-35</li>
+              <li>• <strong>Plantão operacional 24h</strong> durante todo o evento</li>
+              <li>• <strong>Frota própria</strong> garantindo montagem antecipada</li>
             </ul>
           </div>
         </div>
@@ -182,10 +210,10 @@
   <div id="site-footer-container"></div>
 
   <!-- Scripts -->
-  <script src="js/data.js"></script>
-  <script src="js/cart.js"></script>
-  <script src="js/components.js"></script>
-  <script src="js/quote.js"></script>
-  <script src="js/main.js"></script>
+  <script src="js/data.js" defer></script>
+  <script src="js/cart.js" defer></script>
+  <script src="js/components.js" defer></script>
+  <script src="js/quote.js" defer></script>
+  <script src="js/main.js" defer></script>
 </body>
 </html>

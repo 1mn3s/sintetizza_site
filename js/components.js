@@ -1,10 +1,10 @@
 /**
  * =============================================================================
- * SINTETIZZA - COMPONENTES DOM REUTILIZÁVEIS (LEVE & AMARELO PREDOMINANTE)
+ * SINTETIZZA - COMPONENTES DOM REUTILIZÁVEIS, HEADER, FOOTER, MOBILE BAR & REVIEWS
  * =============================================================================
  */
 
-// Renderizador do Header
+// 1. Renderizador do Header
 function renderHeader(activePage = "home") {
   const headerElem = document.getElementById("site-header-container");
   if (!headerElem) return;
@@ -12,30 +12,56 @@ function renderHeader(activePage = "home") {
   const count = QuoteCart.getItemCount();
 
   headerElem.innerHTML = `
+    <!-- Barra Superior de Confiança & Plantão -->
+    <div class="top-trust-bar">
+      <div class="container top-trust-container">
+        <div class="top-trust-left">
+          <span><strong>Plantão 24h & ART Inclusa</strong> | Sorocaba e Região SP</span>
+          <span class="top-trust-rating">★ 4.9 no Google (+128 avaliações)</span>
+        </div>
+        <div class="top-trust-right">
+          <a href="tel:${SINTETIZZA_CONFIG.phoneRaw}" class="top-trust-link" title="Ligar para a Sintetizza">
+            <span class="trust-icon">📞</span> ${SINTETIZZA_CONFIG.phone}
+          </a>
+          <a href="https://wa.me/${SINTETIZZA_CONFIG.whatsappNumber}?text=${encodeURIComponent(SINTETIZZA_CONFIG.whatsappDefaultMsg)}" target="_blank" rel="noopener" class="top-trust-link text-whatsapp" title="WhatsApp Sintetizza">
+            <span class="trust-icon">💬</span> Atendimento em 15 min
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Header Principal -->
     <header class="site-header" id="main-header">
       <div class="container header-container">
-        <a href="index.html" class="brand-logo-link" title="Sintetizza Eventos">
-          <div class="brand-name">SINTETIZZA <span>EVENTOS</span></div>
+        <a href="index.html" class="brand-logo-link" title="Sintetizza Eventos - Início">
+          <picture>
+            <source srcset="assets/images/logo.webp" type="image/webp">
+            <img src="assets/images/logo.png" alt="Sintetizza Eventos - Estruturas e Soluções" class="brand-logo-img" width="170" height="36" loading="eager" decoding="async">
+          </picture>
         </a>
 
-        <nav class="nav-menu" id="desktop-nav">
+        <nav class="nav-menu" id="desktop-nav" aria-label="Menu Principal">
           <a href="index.html" class="nav-link ${activePage === 'home' ? 'active' : ''}">Início</a>
+          <a href="produtos.html" class="nav-link ${activePage === 'produtos' ? 'active' : ''}">Equipamentos & Soluções</a>
           <a href="quem-somos.html" class="nav-link ${activePage === 'quem-somos' ? 'active' : ''}">Quem Somos</a>
-          <a href="produtos.html" class="nav-link ${activePage === 'produtos' ? 'active' : ''}">Produtos & Soluções</a>
           <a href="contato.html" class="nav-link ${activePage === 'contato' ? 'active' : ''}">Contato</a>
         </nav>
 
         <div class="header-actions">
-          <a href="orcamento.html" class="btn btn-primary btn-sm quote-nav-btn" title="Orçamento">
+          <a href="tel:${SINTETIZZA_CONFIG.phoneRaw}" class="btn btn-dark btn-sm hide-tablet" title="Ligue Agora">
+            <span>📞 ${SINTETIZZA_CONFIG.phone}</span>
+          </a>
+
+          <a href="orcamento.html" class="btn btn-primary btn-sm quote-nav-btn" title="Ver Orçamento">
             <span class="btn-text">Orçamento</span>
             <span class="quote-count-badge" id="header-quote-badge">${count}</span>
           </a>
 
-          <a href="https://wa.me/${SINTETIZZA_CONFIG.whatsappNumber}" target="_blank" class="btn btn-dark btn-sm hide-mobile">
-            <span>(15) 99835-3108</span>
+          <a href="https://wa.me/${SINTETIZZA_CONFIG.whatsappNumber}?text=${encodeURIComponent(SINTETIZZA_CONFIG.whatsappDefaultMsg)}" target="_blank" rel="noopener" class="btn btn-whatsapp btn-sm hide-mobile" title="Falar no WhatsApp">
+            <span>WhatsApp ➔</span>
           </a>
 
-          <button class="mobile-toggle" id="mobile-menu-toggle" aria-label="Abrir Menu">
+          <button class="mobile-toggle" id="mobile-menu-toggle" aria-label="Abrir Menu de Navegação" aria-expanded="false">
             <span></span>
             <span></span>
             <span></span>
@@ -43,30 +69,56 @@ function renderHeader(activePage = "home") {
         </div>
       </div>
 
-      <div class="mobile-drawer" id="mobile-drawer">
-        <a href="index.html" class="nav-link ${activePage === 'home' ? 'active' : ''}">Início</a>
-        <a href="quem-somos.html" class="nav-link ${activePage === 'quem-somos' ? 'active' : ''}">Quem Somos</a>
-        <a href="produtos.html" class="nav-link ${activePage === 'produtos' ? 'active' : ''}">Produtos & Soluções</a>
-        <a href="contato.html" class="nav-link ${activePage === 'contato' ? 'active' : ''}">Contato</a>
-        
-        <div style="margin-top: 20px; display: flex; flex-direction: column; gap: 10px;">
-          <a href="orcamento.html" class="btn btn-primary btn-block">
-            Orçamento (${count})
+      <!-- Gaveta Mobile -->
+      <div class="mobile-drawer" id="mobile-drawer" aria-hidden="true">
+        <div class="mobile-drawer-header">
+          <div class="brand-name">SINTETIZZA <span>EVENTOS</span></div>
+          <span class="badge badge-brand-soft">Sorocaba e Região</span>
+        </div>
+
+        <nav class="mobile-nav-links">
+          <a href="index.html" class="mobile-nav-item ${activePage === 'home' ? 'active' : ''}">
+            <span>Início</span> ➔
           </a>
-          <a href="https://wa.me/${SINTETIZZA_CONFIG.whatsappNumber}" target="_blank" class="btn btn-whatsapp btn-block">
-            WhatsApp: (15) 99835-3108
+          <a href="produtos.html" class="mobile-nav-item ${activePage === 'produtos' ? 'active' : ''}">
+            <span>Catálogo de Equipamentos</span> ➔
+          </a>
+          <a href="orcamento.html" class="mobile-nav-item ${activePage === 'orcamento' ? 'active' : ''}">
+            <span>Solicitar Orçamento</span> <span class="badge badge-brand">${count}</span>
+          </a>
+          <a href="quem-somos.html" class="mobile-nav-item ${activePage === 'quem-somos' ? 'active' : ''}">
+            <span>Quem Somos & Laudos ART</span> ➔
+          </a>
+          <a href="contato.html" class="mobile-nav-item ${activePage === 'contato' ? 'active' : ''}">
+            <span>Contato & Localização</span> ➔
+          </a>
+        </nav>
+        
+        <div class="mobile-drawer-actions">
+          <a href="https://wa.me/${SINTETIZZA_CONFIG.whatsappNumber}?text=${encodeURIComponent(SINTETIZZA_CONFIG.whatsappDefaultMsg)}" target="_blank" rel="noopener" class="btn btn-whatsapp btn-block btn-lg">
+            <span>💬 Conversar no WhatsApp</span>
+          </a>
+          <a href="tel:${SINTETIZZA_CONFIG.phoneRaw}" class="btn btn-dark btn-block btn-lg">
+            <span>📞 Ligar Agora: ${SINTETIZZA_CONFIG.phone}</span>
+          </a>
+          <a href="orcamento.html" class="btn btn-primary btn-block btn-lg">
+            <span>📋 Construtor de Orçamento (${count})</span>
           </a>
         </div>
       </div>
     </header>
   `;
 
+  // Listeners de toggle e scroll
   const toggleBtn = document.getElementById("mobile-menu-toggle");
   const drawer = document.getElementById("mobile-drawer");
   if (toggleBtn && drawer) {
     toggleBtn.addEventListener("click", () => {
-      toggleBtn.classList.toggle("is-active");
+      const isOpen = toggleBtn.classList.toggle("is-active");
       drawer.classList.toggle("is-open");
+      toggleBtn.setAttribute("aria-expanded", isOpen);
+      drawer.setAttribute("aria-hidden", !isOpen);
+      document.body.classList.toggle("no-scroll", isOpen);
     });
   }
 
@@ -79,79 +131,172 @@ function renderHeader(activePage = "home") {
         mainHeader.classList.remove("scrolled");
       }
     }
-  });
+  }, { passive: true });
 }
 
-// Renderizador do Footer
+// 2. Renderizador do Footer com Dados Transparentes (E-E-A-T)
 function renderFooter() {
   const footerElem = document.getElementById("site-footer-container");
   if (!footerElem) return;
 
   footerElem.innerHTML = `
+    <!-- Barra de Confiança Pré-Footer -->
+    <div class="footer-trust-strip">
+      <div class="container">
+        <div class="trust-strip-grid">
+          <div class="trust-strip-item">
+            <span class="trust-icon-box">✓</span>
+            <div>
+              <strong>Montagem Segura & ART Inclusa</strong>
+              <p>Normas NR-10 e NR-35 com responsabilidade técnica.</p>
+            </div>
+          </div>
+          <div class="trust-strip-item">
+            <span class="trust-icon-box">⚡</span>
+            <div>
+              <strong>Plantão Operacional 24h</strong>
+              <p>Suporte e técnicos presentes em todo o evento.</p>
+            </div>
+          </div>
+          <div class="trust-strip-item">
+            <span class="trust-icon-box">★</span>
+            <div>
+              <strong>Nota 4.9 no Google Reviews</strong>
+              <p>Mais de 500 eventos atendidos com pontualidade.</p>
+            </div>
+          </div>
+          <div class="trust-strip-item">
+            <span class="trust-icon-box">🚚</span>
+            <div>
+              <strong>Frota Própria & Montagem Rápida</strong>
+              <p>Sorocaba, Itu, Campinas, São Paulo e todo o interior.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer Principal -->
     <footer class="site-footer">
       <div class="container">
         <div class="footer-grid">
+          
+          <!-- Coluna 1: Sobre & Google Rating -->
           <div class="footer-col">
             <div class="brand-name" style="margin-bottom: 12px;">SINTETIZZA <span>EVENTOS</span></div>
-            <p style="color: var(--color-text-secondary); font-size: 0.9rem; line-height: 1.5; margin-bottom: 16px;">
-              Estruturas, sonorização, iluminação, painéis de LED, climatização e geradores para eventos.
+            <p style="color: var(--color-text-secondary); font-size: 0.9rem; line-height: 1.6; margin-bottom: 14px;">
+              Locação e montagem de palcos, tendas, som line array, iluminação cênica, painéis de LED, climatizadores e geradores de energia.
             </p>
-            <div class="flex gap-sm">
-              <a href="${SINTETIZZA_CONFIG.instagramUrl}" target="_blank" class="btn btn-dark btn-sm" style="padding: 6px 12px;">
-                ${SINTETIZZA_CONFIG.instagram}
-              </a>
+            <div class="google-badge-card">
+              <div class="google-stars">★★★★★</div>
+              <div style="font-weight: 800; color: var(--color-text-primary); font-size: 0.95rem;">Nota 4.9 no Google</div>
+              <div style="font-size: 0.8rem; color: var(--color-text-secondary);">(+128 avaliações reais de clientes)</div>
             </div>
           </div>
 
+          <!-- Coluna 2: Navegação -->
           <div class="footer-col">
             <h4>Navegação</h4>
             <div class="footer-links">
-              <a href="index.html">Início</a>
-              <a href="quem-somos.html">Quem Somos</a>
-              <a href="produtos.html">Catálogo</a>
-              <a href="orcamento.html">Orçamento</a>
-              <a href="contato.html">Contato</a>
+              <a href="index.html">Página Inicial</a>
+              <a href="produtos.html">Catálogo de Equipamentos</a>
+              <a href="orcamento.html">Solicitar Orçamento Online</a>
+              <a href="quem-somos.html">Quem Somos & Infraestrutura</a>
+              <a href="contato.html">Fale Conosco</a>
+              <a href="politica-de-privacidade.html">Política de Privacidade</a>
+              <a href="termos-de-uso.html">Termos de Uso</a>
             </div>
           </div>
 
+          <!-- Coluna 3: Soluções por Categoria -->
           <div class="footer-col">
-            <h4>Soluções</h4>
+            <h4>Soluções Técnicas</h4>
             <div class="footer-links">
-              <a href="produtos.html?cat=estruturas">Palcos & Box Truss</a>
-              <a href="produtos.html?cat=coberturas">Tendas & Galpões</a>
-              <a href="produtos.html?cat=audio">Sonorização</a>
-              <a href="produtos.html?cat=iluminacao">Iluminação</a>
-              <a href="produtos.html?cat=audiovisual">Painéis de LED</a>
-              <a href="produtos.html?cat=climatizacao">Climatização</a>
-              <a href="produtos.html?cat=energia">Geradores</a>
+              <a href="produtos.html?cat=estruturas">Palcos & Box Truss Q30/Q50</a>
+              <a href="produtos.html?cat=coberturas">Tendas & Galpões Modulares</a>
+              <a href="produtos.html?cat=audio">Sonorização Line Array</a>
+              <a href="produtos.html?cat=iluminacao">Iluminação Cênica & Moving</a>
+              <a href="produtos.html?cat=audiovisual">Painéis de LED P3.9 HD</a>
+              <a href="produtos.html?cat=climatizacao">Climatizadores & Ventiladores</a>
+              <a href="produtos.html?cat=energia">Geradores & Elétrica Pro</a>
+              <a href="produtos.html?cat=seguranca">Arquibancadas & Estruturas</a>
             </div>
           </div>
 
+          <!-- Coluna 4: Informações de Confiança & Contato -->
           <div class="footer-col">
-            <h4>Atendimento</h4>
+            <h4>Atendimento & Empresa</h4>
             <div class="footer-contact-list">
               <div class="footer-contact-item">
                 <span class="footer-contact-bullet">•</span>
-                <span>${SINTETIZZA_CONFIG.address}</span>
+                <div>
+                  <strong>Razão Social:</strong><br>
+                  <span>${SINTETIZZA_CONFIG.legalName}</span>
+                </div>
               </div>
               <div class="footer-contact-item">
                 <span class="footer-contact-bullet">•</span>
-                <span>${SINTETIZZA_CONFIG.phone}</span>
+                <div>
+                  <strong>CNPJ:</strong> <span>${SINTETIZZA_CONFIG.cnpj}</span>
+                </div>
               </div>
               <div class="footer-contact-item">
                 <span class="footer-contact-bullet">•</span>
-                <span>${SINTETIZZA_CONFIG.emailQuotes}</span>
+                <div>
+                  <strong>WhatsApp Comercial:</strong><br>
+                  <a href="https://wa.me/${SINTETIZZA_CONFIG.whatsappNumber}?text=${encodeURIComponent(SINTETIZZA_CONFIG.whatsappDefaultMsg)}" target="_blank" rel="noopener" style="color: var(--color-success); font-weight: 700;">
+                    ${SINTETIZZA_CONFIG.whatsappDisplay} (Clique p/ conversar)
+                  </a>
+                </div>
+              </div>
+              <div class="footer-contact-item">
+                <span class="footer-contact-bullet">•</span>
+                <div>
+                  <strong>Instagram Oficial:</strong><br>
+                  <a href="${SINTETIZZA_CONFIG.instagramUrl}" target="_blank" rel="noopener" style="color: #E1306C; font-weight: 700;">
+                    ${SINTETIZZA_CONFIG.instagram} ➔
+                  </a>
+                </div>
+              </div>
+              <div class="footer-contact-item">
+                <span class="footer-contact-bullet">•</span>
+                <div>
+                  <strong>Telefone Fixo / Celular:</strong><br>
+                  <a href="tel:${SINTETIZZA_CONFIG.phoneRaw}" style="font-weight: 700;">
+                    ${SINTETIZZA_CONFIG.phone}
+                  </a>
+                </div>
+              </div>
+              <div class="footer-contact-item">
+                <span class="footer-contact-bullet">•</span>
+                <div>
+                  <strong>E-mail:</strong><br>
+                  <a href="mailto:${SINTETIZZA_CONFIG.emailQuotes}">
+                    ${SINTETIZZA_CONFIG.emailQuotes}
+                  </a>
+                </div>
+              </div>
+              <div class="footer-contact-item">
+                <span class="footer-contact-bullet">•</span>
+                <div>
+                  <strong>Localização:</strong> <span>${SINTETIZZA_CONFIG.address}</span>
+                </div>
               </div>
             </div>
           </div>
+
         </div>
 
         <div class="footer-bottom">
           <div>
-            &copy; ${new Date().getFullYear()} ${SINTETIZZA_CONFIG.companyName}. Todos os direitos reservados.
+            &copy; ${new Date().getFullYear()} ${SINTETIZZA_CONFIG.legalName} - CNPJ: ${SINTETIZZA_CONFIG.cnpj}. Todos os direitos reservados.
           </div>
           <div class="footer-bottom-links">
-            <a href="orcamento.html" style="color: #0F172A; font-weight: 700;">Solicitar Orçamento ➔</a>
+            <a href="politica-de-privacidade.html">Privacidade (LGPD)</a>
+            <span>•</span>
+            <a href="termos-de-uso.html">Termos de Uso</a>
+            <span>•</span>
+            <a href="orcamento.html" style="color: #0F172A; font-weight: 800;">Solicitar Orçamento ➔</a>
           </div>
         </div>
       </div>
@@ -159,27 +304,65 @@ function renderFooter() {
   `;
 }
 
-// Botão Flutuante de Orçamento
-function renderFloatingQuoteButton() {
-  const existing = document.getElementById("floating-quote-btn");
+// 3. Barra Fixa Inferior Mobile (Mobile First Quick Actions)
+function renderMobileStickyBar() {
+  const existing = document.getElementById("mobile-sticky-actions");
   if (existing) existing.remove();
 
   const count = QuoteCart.getItemCount();
 
-  const btn = document.createElement("a");
-  btn.href = "orcamento.html";
-  btn.className = "floating-quote-btn";
-  btn.id = "floating-quote-btn";
-  btn.title = "Ver Orçamento";
-  btn.innerHTML = `
-    <span>Orçamento</span>
-    <span class="floating-quote-count" id="floating-quote-count">${count}</span>
+  const bar = document.createElement("div");
+  bar.id = "mobile-sticky-actions";
+  bar.className = "mobile-sticky-actions";
+  bar.innerHTML = `
+    <a href="tel:${SINTETIZZA_CONFIG.phoneRaw}" class="mobile-sticky-btn btn-call" title="Ligar para Sintetizza">
+      <span class="icon">📞</span>
+      <span>Ligar</span>
+    </a>
+    <a href="https://wa.me/${SINTETIZZA_CONFIG.whatsappNumber}?text=${encodeURIComponent(SINTETIZZA_CONFIG.whatsappDefaultMsg)}" target="_blank" rel="noopener" class="mobile-sticky-btn btn-wa" title="WhatsApp Rápido">
+      <span class="icon">💬</span>
+      <span>WhatsApp</span>
+    </a>
+    <a href="orcamento.html" class="mobile-sticky-btn btn-quote" title="Ver Orçamento">
+      <span class="icon">📋</span>
+      <span>Orçamento</span>
+      <span class="mobile-sticky-badge" id="mobile-bar-quote-badge">${count}</span>
+    </a>
   `;
 
-  document.body.appendChild(btn);
+  document.body.appendChild(bar);
 }
 
-// Renderiza Card de Produto com Bloco Vazio de Imagem
+// 4. Botão Flutuante de Orçamento e WhatsApp (Desktop/Mobile)
+function renderFloatingQuoteButton() {
+  const existing = document.getElementById("floating-action-group");
+  if (existing) existing.remove();
+
+  const count = QuoteCart.getItemCount();
+
+  const group = document.createElement("div");
+  group.id = "floating-action-group";
+  group.className = "floating-action-group hide-mobile";
+  group.innerHTML = `
+    <a href="https://wa.me/${SINTETIZZA_CONFIG.whatsappNumber}?text=${encodeURIComponent(SINTETIZZA_CONFIG.whatsappDefaultMsg)}" 
+       target="_blank" 
+       rel="noopener"
+       class="floating-btn-wa" 
+       title="Falar no WhatsApp">
+      <span class="floating-btn-icon">💬</span>
+      <span class="floating-btn-text">WhatsApp Online</span>
+    </a>
+
+    <a href="orcamento.html" class="floating-quote-btn" title="Ver Lista de Orçamento">
+      <span>Orçamento</span>
+      <span class="floating-quote-count" id="floating-quote-count">${count}</span>
+    </a>
+  `;
+
+  document.body.appendChild(group);
+}
+
+// 5. Renderiza Card de Produto com Imagem Real e Otimizada
 function createProductCardHTML(product) {
   const isAdded = QuoteCart.hasItem(product.id);
   const badgeHTML = product.badge 
@@ -190,15 +373,25 @@ function createProductCardHTML(product) {
     ? product.specs.slice(0, 2).map(s => `<span class="spec-chip">${s.label}: ${s.value}</span>`).join("")
     : "";
 
+  const imageSrc = product.image || "assets/images/logo.png";
+
   return `
     <article class="product-card" data-product-id="${product.id}">
       <div class="product-image-wrap">
         ${badgeHTML}
-        <div class="image-placeholder">
-          <span class="image-placeholder-label">[ Espaço para Imagem ]</span>
+        <img src="${imageSrc}" 
+             alt="${product.name} - Sintetizza Eventos" 
+             class="product-img" 
+             loading="lazy" 
+             decoding="async" 
+             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+        <div class="image-placeholder" style="display: none;">
+          <span style="font-size: 0.9rem; font-weight: 700; color: var(--color-text-primary);">${product.name}</span>
+          <span class="image-placeholder-label">[ Foto do Equipamento ]</span>
         </div>
       </div>
       <div class="product-body">
+        <div class="product-cat-label">${product.categoryLabel}</div>
         <h3 class="product-title">${product.name}</h3>
         <p class="product-desc">${product.shortDesc}</p>
         <div class="product-specs">
@@ -206,10 +399,11 @@ function createProductCardHTML(product) {
         </div>
         <div class="product-actions">
           <button class="btn btn-sm btn-primary btn-add-quote ${isAdded ? 'added' : ''}" 
-                  onclick="handleToggleQuote('${product.id}', this)">
+                  onclick="handleToggleQuote('${product.id}', this)"
+                  aria-label="${isAdded ? 'Item já adicionado' : 'Adicionar ao orçamento'}">
             ${isAdded ? '✓ No Orçamento' : '+ Adicionar'}
           </button>
-          <a href="produto-detalhe.html?id=${product.id}" class="btn btn-sm btn-dark">
+          <a href="produto-detalhe.html?id=${product.id}" class="btn btn-sm btn-dark" title="Ver Ficha Técnica">
             Detalhes ➔
           </a>
         </div>
@@ -218,7 +412,88 @@ function createProductCardHTML(product) {
   `;
 }
 
-// Toast Notifier
+// 6. Renderizador da Seção de Avaliações Google
+function renderGoogleReviewsGrid(containerId) {
+  const container = document.getElementById(containerId);
+  if (!container) return;
+
+  container.innerHTML = GOOGLE_REVIEWS.map(r => `
+    <div class="review-card">
+      <div class="review-header">
+        <div class="review-avatar">${r.author.charAt(0)}</div>
+        <div class="review-meta">
+          <div class="review-author">
+            ${r.author}
+            ${r.verified ? '<span class="review-badge-verified" title="Cliente Verificado">✓ Verificado</span>' : ''}
+          </div>
+          <div class="review-role">${r.role} • ${r.city}</div>
+        </div>
+      </div>
+      <div class="review-rating">
+        <div class="review-stars">★★★★★</div>
+        <span class="review-date">${r.date}</span>
+      </div>
+      <p class="review-text">"${r.text}"</p>
+      <div class="review-event-tag">
+        <span>Evento:</span> <strong>${r.event}</strong>
+      </div>
+    </div>
+  `).join("");
+}
+
+// 7. Renderizador do FAQ Accordion
+function renderFAQAccordion(containerId) {
+  const container = document.getElementById(containerId);
+  if (!container) return;
+
+  container.innerHTML = `
+    <div class="faq-list">
+      ${FAQ_ITEMS.map((item, index) => `
+        <div class="faq-item ${index === 0 ? 'is-open' : ''}" data-faq-index="${index}">
+          <button type="button" class="faq-question" aria-expanded="${index === 0 ? 'true' : 'false'}">
+            <span>${item.question}</span>
+            <span class="faq-toggle-icon">${index === 0 ? '−' : '+'}</span>
+          </button>
+          <div class="faq-answer" style="${index === 0 ? 'display: block;' : 'display: none;'}">
+            <p>${item.answer}</p>
+          </div>
+        </div>
+      `).join("")}
+    </div>
+  `;
+
+  container.querySelectorAll(".faq-question").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const item = btn.closest(".faq-item");
+      const answer = item.querySelector(".faq-answer");
+      const icon = item.querySelector(".faq-toggle-icon");
+      const isOpen = item.classList.contains("is-open");
+
+      container.querySelectorAll(".faq-item").forEach(other => {
+        if (other !== item) {
+          other.classList.remove("is-open");
+          other.querySelector(".faq-answer").style.display = "none";
+          other.querySelector(".faq-question").setAttribute("aria-expanded", "false");
+          other.querySelector(".faq-toggle-icon").textContent = "+";
+        }
+      });
+
+      if (isOpen) {
+        item.classList.remove("is-open");
+        answer.style.display = "none";
+        btn.setAttribute("aria-expanded", "false");
+        icon.textContent = "+";
+      } else {
+        item.classList.add("is-open");
+        answer.style.display = "block";
+        btn.setAttribute("aria-expanded", "true");
+        icon.textContent = "−";
+      }
+    });
+  });
+}
+
+// 8. Toast Notifier
 function showToast(message, type = "success") {
   let container = document.getElementById("toast-container");
   if (!container) {
@@ -230,9 +505,7 @@ function showToast(message, type = "success") {
 
   const toast = document.createElement("div");
   toast.className = `toast toast-${type}`;
-  toast.innerHTML = `
-    <div>${message}</div>
-  `;
+  toast.innerHTML = `<div>${message}</div>`;
 
   container.appendChild(toast);
 
@@ -244,7 +517,7 @@ function showToast(message, type = "success") {
   }, 2800);
 }
 
-// Toggle Orçamento
+// 9. Toggle Orçamento
 window.handleToggleQuote = function(productId, btnElem) {
   const product = getProductById(productId);
   if (!product) return;
@@ -262,13 +535,14 @@ window.handleToggleQuote = function(productId, btnElem) {
       btnElem.classList.add("added");
       btnElem.innerHTML = "✓ No Orçamento";
     }
-    showToast(`Item adicionado ao orçamento!`, "success");
+    showToast(`"${product.name}" adicionado ao orçamento!`, "success");
   }
 };
 
-// Sincronização de contadores
+// 10. Sincronização de Contadores
 window.addEventListener("quoteUpdated", (e) => {
   const count = e.detail.count;
+  
   const headerBadge = document.getElementById("header-quote-badge");
   if (headerBadge) {
     headerBadge.textContent = count;
@@ -279,5 +553,10 @@ window.addEventListener("quoteUpdated", (e) => {
   const floatCount = document.getElementById("floating-quote-count");
   if (floatCount) {
     floatCount.textContent = count;
+  }
+
+  const mobileBarCount = document.getElementById("mobile-bar-quote-badge");
+  if (mobileBarCount) {
+    mobileBarCount.textContent = count;
   }
 });

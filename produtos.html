@@ -3,10 +3,26 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Produtos & Soluções | Sintetizza Eventos</title>
-  <meta name="description" content="Catálogo de equipamentos e estruturas para eventos.">
+  <title>Catálogo de Equipamentos e Estruturas | Sintetizza Eventos</title>
+  <meta name="description" content="Catálogo completo de palcos Box Truss, tendas galpão, sonorização line array, painéis de LED, iluminação cênica e geradores para locação em Sorocaba e região.">
+  <meta name="keywords" content="catalogo sintetizza, locacao palcos sorocaba, aluguel som line array, painel led p3.9 aluguel, tendas para eventos">
+  <link rel="canonical" href="https://www.sintetizza.com.br/produtos.html">
   
-  <!-- Fontes Google -->
+  <!-- Favicon & Icons -->
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
+  <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+  <meta name="theme-color" content="#F1CF00">
+
+  <!-- OpenGraph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.sintetizza.com.br/produtos.html">
+  <meta property="og:title" content="Catálogo de Equipamentos | Sintetizza Eventos">
+  <meta property="og:description" content="Confira nossos equipamentos para eventos: palcos, tendas, som, LED e geradores.">
+  <meta property="og:image" content="https://www.sintetizza.com.br/assets/images/logo.png">
+
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -16,6 +32,21 @@
   <link rel="stylesheet" href="css/global.css">
   <link rel="stylesheet" href="css/components.css">
   <link rel="stylesheet" href="css/pages.css">
+
+  <!-- Schema.org JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "Catálogo de Equipamentos e Soluções para Eventos",
+    "description": "Locação de palcos Box Truss, som line array, iluminação, painel de led, tendas e geradores.",
+    "provider": {
+      "@type": "LocalBusiness",
+      "name": "Sintetizza Eventos",
+      "telephone": "+5515997339422"
+    }
+  }
+  </script>
 </head>
 <body>
 
@@ -32,7 +63,7 @@
       </div>
       <h1 class="page-banner-title">Catálogo de Equipamentos</h1>
       <p class="page-banner-desc">
-        Selecione os equipamentos necessários e adicione-os ao seu orçamento.
+        Selecione os equipamentos necessários para o seu evento e adicione à sua lista de orçamento online.
       </p>
     </div>
   </section>
@@ -41,18 +72,18 @@
   <section class="section section-light">
     <div class="container">
       
-      <!-- Busca e Filtros -->
+      <!-- Busca e Contador -->
       <div class="catalog-toolbar">
         <div class="search-box">
-          <input type="text" id="catalog-search-input" placeholder="Buscar por palco, tenda, som, led, gerador..." style="padding-left: 18px;">
+          <input type="text" id="catalog-search-input" placeholder="🔍 Buscar por palco, tenda, som, led, gerador..." aria-label="Buscar equipamentos">
         </div>
         <div id="catalog-results-count" style="font-weight: 700; color: var(--color-text-secondary); font-size: 0.95rem;">
-          Carregando catálogo...
+          Carregando catálogo técnico...
         </div>
       </div>
 
-      <!-- Filtros por Categoria -->
-      <div class="category-filter-bar" id="category-filter-tabs"></div>
+      <!-- Abas de Filtros por Categoria -->
+      <div class="category-filter-bar" id="category-filter-tabs" role="tablist" aria-label="Categorias de produtos"></div>
 
       <!-- Grid de Produtos -->
       <div class="grid grid-3" id="catalog-products-grid"></div>
@@ -60,18 +91,23 @@
     </div>
   </section>
 
-  <!-- Banner Projetos Sob Medida -->
-  <section class="section section-dark">
+  <!-- Projetos Sob Medida -->
+  <section class="section section-white">
     <div class="container">
-      <div class="cta-banner" style="background: transparent; border: none; padding: 0;">
-        <span class="badge badge-brand" style="margin-bottom: 10px;">Projetos Especiais</span>
+      <div class="cta-banner">
+        <span class="badge badge-brand" style="margin-bottom: 10px;">Projetos sob Medida</span>
         <h2 style="margin-bottom: 10px;">Precisa de uma Estrutura Sob Medida?</h2>
-        <p style="max-width: 600px; margin: 0 auto 20px auto;">
-          Desenvolvemos layouts e soluções customizadas para palcos atípicos, galpões e eventos de grande porte.
+        <p style="max-width: 620px; margin: 0 auto 20px auto; font-size: 1rem;">
+          Desenvolvemos layouts técnicos em 3D, cálculos de carga e projetos customizados para palcos atípicos, galpões especiais e eventos corporativos de grande porte.
         </p>
-        <a href="orcamento.html" class="btn btn-primary btn-lg">
-          <span>Solicitar Proposta Customizada</span>
-        </a>
+        <div class="flex items-center justify-center gap-md" style="flex-wrap: wrap;">
+          <a href="orcamento.html" class="btn btn-primary btn-lg">
+            <span>📋 Solicitar Proposta Customizada</span>
+          </a>
+          <a href="https://wa.me/5515997339422?text=Olá!%20Preciso%20de%20um%20projeto%20de%20estrutura%20sob%20medida." target="_blank" rel="noopener" class="btn btn-whatsapp btn-lg">
+            <span>💬 Falar no WhatsApp</span>
+          </a>
+        </div>
       </div>
     </div>
   </section>
@@ -80,9 +116,9 @@
   <div id="site-footer-container"></div>
 
   <!-- Scripts -->
-  <script src="js/data.js"></script>
-  <script src="js/cart.js"></script>
-  <script src="js/components.js"></script>
-  <script src="js/main.js"></script>
+  <script src="js/data.js" defer></script>
+  <script src="js/cart.js" defer></script>
+  <script src="js/components.js" defer></script>
+  <script src="js/main.js" defer></script>
 </body>
 </html>

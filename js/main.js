@@ -1,6 +1,6 @@
 /**
  * =============================================================================
- * SINTETIZZA - SCRIPT PRINCIPAL (TEMA CLARO & AZUL SUAVE)
+ * SINTETIZZA - SCRIPT PRINCIPAL (ROTEAMENTO, REVIEWS, FAQ & EVENTOS)
  * =============================================================================
  */
 
@@ -13,26 +13,35 @@ document.addEventListener("DOMContentLoaded", () => {
   else if (path.includes("orcamento")) activePage = "orcamento";
   else if (path.includes("contato")) activePage = "contato";
 
+  // Componentes Globais
   renderHeader(activePage);
   renderFooter();
   renderFloatingQuoteButton();
+  renderMobileStickyBar();
 
+  // Inicialização de Páginas
   initHomePage();
   initProductsPage();
   initProductDetailPage();
   initContactPage();
 });
 
-// 1. Home
+// 1. Página Inicial (Home)
 function initHomePage() {
   const featuredGrid = document.getElementById("home-featured-products-grid");
-  if (!featuredGrid) return;
+  if (featuredGrid) {
+    const featured = PRODUCTS.filter(p => p.isFeatured).slice(0, 6);
+    featuredGrid.innerHTML = featured.map(p => createProductCardHTML(p)).join("");
+  }
 
-  const featured = PRODUCTS.filter(p => p.isFeatured).slice(0, 6);
-  featuredGrid.innerHTML = featured.map(p => createProductCardHTML(p)).join("");
+  // Renderiza Avaliações Google
+  renderGoogleReviewsGrid("home-google-reviews-grid");
+
+  // Renderiza FAQ Accordion
+  renderFAQAccordion("home-faq-accordion");
 }
 
-// 2. Produtos
+// 2. Catálogo de Produtos
 function initProductsPage() {
   const catalogGrid = document.getElementById("catalog-products-grid");
   const filterTabsContainer = document.getElementById("category-filter-tabs");
@@ -101,8 +110,8 @@ function initProductsPage() {
       catalogGrid.innerHTML = `
         <div class="empty-catalog-state">
           <h3>Nenhum item encontrado</h3>
-          <p style="color: var(--color-text-secondary); margin-bottom: 16px;">Tente outra busca ou solicite um item personalizado.</p>
-          <a href="orcamento.html" class="btn btn-outline">Solicitar Orçamento Personalizado</a>
+          <p style="color: var(--color-text-secondary); margin-bottom: 16px;">Tente outra busca ou solicite uma cotação personalizada.</p>
+          <a href="orcamento.html" class="btn btn-primary">Solicitar Orçamento Personalizado</a>
         </div>
       `;
       return;
@@ -125,7 +134,7 @@ function initProductDetailPage() {
   const product = getProductById(productId) || PRODUCTS[0];
   if (!product) return;
 
-  document.title = `${product.name} | Sintetizza`;
+  document.title = `${product.name} | Sintetizza Eventos`;
 
   const breadcrumbProduct = document.getElementById("detail-breadcrumb-product");
   if (breadcrumbProduct) breadcrumbProduct.textContent = product.name;
@@ -134,28 +143,36 @@ function initProductDetailPage() {
 
   detailContainer.innerHTML = `
     <div class="product-detail-grid">
-      <!-- Galeria com Espaço Vazio para Imagem -->
-      <div class="product-gallery" style="min-height: 360px; display: flex; align-items: center; justify-content: center; background: var(--color-surface-alt);">
-        <div class="image-placeholder" style="min-height: 300px; border: none; background: transparent;">
-          <span style="font-size: 1rem; font-weight: 700; color: var(--color-text-primary);">[ Espaço para Imagem do Equipamento ]</span>
-          <span class="image-placeholder-label">800 x 600px</span>
+      <!-- Galeria Otimizada com Foto Real -->
+      <div class="product-gallery" style="min-height: 380px; display: flex; flex-direction: column; align-items: center; justify-content: center; background: var(--color-surface-alt); border-radius: var(--radius-md); overflow: hidden; position: relative; padding: 20px;">
+        <img src="${product.image || 'assets/images/logo.png'}" 
+             alt="${product.name} - Sintetizza Eventos" 
+             class="product-detail-hero-img" 
+             style="width: 100%; height: auto; max-height: 420px; object-fit: contain;" 
+             loading="eager" 
+             decoding="async" 
+             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+        <div class="image-placeholder" style="display: none; min-height: 320px; border: none; background: transparent;">
+          <span style="font-size: 1.15rem; font-weight: 800; color: var(--color-text-primary); margin-bottom: 4px;">${product.name}</span>
+          <span class="badge badge-brand" style="margin-bottom: 8px;">${product.categoryLabel}</span>
+          <span class="image-placeholder-label">[ Foto Técnica do Equipamento ]</span>
         </div>
       </div>
 
-      <!-- Informações do Produto -->
+      <!-- Informações do Equipamento -->
       <div class="product-detail-info">
         <div>
           <span class="badge badge-brand" style="margin-bottom: 10px;">${product.categoryLabel}</span>
-          <h1 style="font-size: clamp(1.6rem, 2.5vw, 2.2rem); margin-bottom: 10px;">${product.name}</h1>
+          <h1 style="font-size: clamp(1.7rem, 2.5vw, 2.3rem); margin-bottom: 10px;">${product.name}</h1>
           <p style="font-size: 1rem; color: var(--color-text-secondary); line-height: 1.6;">
             ${product.fullDesc || product.shortDesc}
           </p>
         </div>
 
-        <!-- Especificações -->
+        <!-- Especificações Técnicas -->
         <div>
           <h3 style="font-size: 1.1rem; margin-bottom: 10px; border-bottom: 2px solid var(--color-brand-primary); display: inline-block; padding-bottom: 4px;">
-            Especificações
+            Especificações Técnicas
           </h3>
           <table class="detail-specs-table">
             <tbody>
@@ -169,36 +186,40 @@ function initProductDetailPage() {
           </table>
         </div>
 
-        <!-- O que está incluso -->
+        <!-- Itens Inclusos & Garantia -->
         <div>
-          <h4 style="font-size: 1rem; margin-bottom: 8px;">Itens Inclusos:</h4>
-          <ul style="display: flex; flex-direction: column; gap: 6px;">
+          <h4 style="font-size: 1rem; margin-bottom: 8px;">Diferenciais & O que está incluso:</h4>
+          <ul style="display: flex; flex-direction: column; gap: 8px;">
             ${product.features.map(f => `
               <li style="display: flex; align-items: center; gap: 8px; font-size: 0.9rem;">
-                <span style="color: var(--color-brand-primary);">•</span>
+                <span style="color: var(--color-brand-primary); font-weight: 800;">✓</span>
                 <span>${f}</span>
               </li>
             `).join("")}
+            <li style="display: flex; align-items: center; gap: 8px; font-size: 0.9rem;">
+              <span style="color: var(--color-brand-primary); font-weight: 800;">✓</span>
+              <span>Emissão de ART / CREA e equipe homologada</span>
+            </li>
           </ul>
         </div>
 
-        <!-- Ação de Orçamento -->
+        <!-- Caixa de Ação do Orçamento -->
         <div class="quote-action-box">
           <div class="flex items-center justify-between">
-            <span style="font-weight: 700; color: var(--color-text-primary);">Quantidade:</span>
+            <span style="font-weight: 700; color: var(--color-text-primary);">Quantidade Necessária:</span>
             <div class="quote-qty-controls">
-              <button type="button" class="qty-btn" id="detail-qty-minus">-</button>
+              <button type="button" class="qty-btn" id="detail-qty-minus" aria-label="Diminuir quantidade">-</button>
               <span class="qty-display" id="detail-qty-value">1</span>
-              <button type="button" class="qty-btn" id="detail-qty-plus">+</button>
+              <button type="button" class="qty-btn" id="detail-qty-plus" aria-label="Aumentar quantidade">+</button>
             </div>
           </div>
 
           <div class="flex flex-col gap-sm">
             <button class="btn btn-primary btn-block btn-lg" id="detail-btn-add-quote">
-              ${isAdded ? '✓ No Orçamento (Adicionar Mais)' : '+ Adicionar ao Orçamento'}
+              ${isAdded ? '✓ Adicionado! (Adicionar Mais)' : '+ Adicionar ao Orçamento'}
             </button>
-            <a href="orcamento.html" class="btn btn-outline btn-block">
-              Ver Lista de Orçamento
+            <a href="orcamento.html" class="btn btn-dark btn-block">
+              Ver Orçamento Completo ➔
             </a>
           </div>
         </div>
@@ -206,13 +227,15 @@ function initProductDetailPage() {
     </div>
   `;
 
-  let currentQty = 1;
-  const qtyDisplay = document.getElementById("detail-qty-value");
+  // Interatividade do Detalhe
   const btnMinus = document.getElementById("detail-qty-minus");
   const btnPlus = document.getElementById("detail-qty-plus");
+  const qtyDisplay = document.getElementById("detail-qty-value");
   const btnAdd = document.getElementById("detail-btn-add-quote");
 
   if (btnMinus && btnPlus && qtyDisplay && btnAdd) {
+    let currentQty = 1;
+
     btnMinus.addEventListener("click", () => {
       if (currentQty > 1) {
         currentQty--;
@@ -227,7 +250,7 @@ function initProductDetailPage() {
 
     btnAdd.addEventListener("click", () => {
       QuoteCart.addItem(product.id, currentQty);
-      showToast(`+${currentQty}x adicionado ao orçamento!`, "success");
+      showToast(`+${currentQty}x ${product.name} adicionado ao orçamento!`, "success");
       btnAdd.innerHTML = "✓ Adicionado! Adicionar Mais";
     });
   }
@@ -257,16 +280,19 @@ function initContactPage() {
     const message = form.message.value.trim();
 
     if (!name || !email || !message) {
-      alert("Por favor, preencha os campos obrigatórios.");
+      alert("Por favor, preencha todos os campos obrigatórios.");
       return;
     }
 
     const whatsappText = encodeURIComponent(
-      `Olá Sintetizza!\n` +
-      `Nome: ${name}\n` +
-      `E-mail: ${email}\n` +
-      `Telefone: ${phone || 'Não informado'}\n\n` +
-      `Mensagem:\n${message}`
+      `=========================================\n` +
+      `CONTATO VIA SITE - SINTETIZZA EVENTOS\n` +
+      `=========================================\n` +
+      `• Nome: ${name}\n` +
+      `• E-mail: ${email}\n` +
+      `• Telefone: ${phone || 'Não informado'}\n\n` +
+      `Mensagem:\n${message}\n` +
+      `=========================================`
     );
 
     const waUrl = `https://wa.me/${SINTETIZZA_CONFIG.whatsappNumber}?text=${whatsappText}`;
