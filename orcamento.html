@@ -95,7 +95,7 @@
             <!-- Dados do Evento -->
             <div class="grid grid-2" style="gap: 16px; margin-bottom: 16px;">
               <div class="form-group">
-                <label class="form-label" for="eventType">Tipo de Evento <span class="required">*</span></label>
+                <label class="form-label" for="eventType">Segmento do Evento <span class="required">*</span></label>
                 <select id="eventType" name="eventType" class="form-control" required>
                   <option value="Corporativo / Congresso">Corporativo / Congresso</option>
                   <option value="Feira / Estande / Exposição">Feira / Estande / Exposição</option>
@@ -107,7 +107,7 @@
               </div>
 
               <div class="form-group">
-                <label class="form-label" for="eventDate">Data Prevista</label>
+                <label class="form-label" for="eventDate">Data Prevista do Evento</label>
                 <input type="date" id="eventDate" name="eventDate" class="form-control">
               </div>
             </div>
@@ -119,8 +119,8 @@
               </div>
 
               <div class="form-group">
-                <label class="form-label" for="eventAudience">Público Estimado</label>
-                <input type="text" id="eventAudience" name="eventAudience" class="form-control" placeholder="Ex: 500 pessoas">
+                <label class="form-label" for="eventAudience">Estimativa de Público / Metragem</label>
+                <input type="text" id="eventAudience" name="eventAudience" class="form-control" placeholder="Ex: 800 pessoas ou 500m²">
               </div>
             </div>
 
@@ -145,7 +145,7 @@
           <div class="quote-card" style="margin-bottom: var(--space-lg);">
             <div class="flex items-center justify-between" style="margin-bottom: 16px; border-bottom: 1px solid var(--color-border-light); padding-bottom: 12px;">
               <div>
-                <h3 style="font-size: 1.15rem;">Itens Selecionados</h3>
+                <h3 style="font-size: 1.15rem; color: var(--color-slate-950); font-weight: 800;">Itens Selecionados</h3>
               </div>
               <span class="badge badge-brand" id="quote-total-items-badge">0 itens</span>
             </div>
@@ -217,3 +217,4 @@
   <script src="js/main.js" defer></script>
 </body>
 </html>
+

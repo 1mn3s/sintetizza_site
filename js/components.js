@@ -282,6 +282,16 @@ function renderFooter() {
                   <strong>Localização:</strong> <span>${SINTETIZZA_CONFIG.address}</span>
                 </div>
               </div>
+              <div class="footer-contact-item">
+                <span class="footer-contact-icon">🕒</span>
+                <span>${SINTETIZZA_CONFIG.serviceHours}</span>
+              </div>
+            </div>
+
+            <div style="margin-top: 18px;">
+              <a href="https://wa.me/${SINTETIZZA_CONFIG.whatsappNumber}?text=Ol%C3%A1%2C+gostaria+de+um+or%C3%A7amento+para+meu+evento" target="_blank" class="btn btn-whatsapp btn-sm btn-block">
+                Falar com Especialista
+              </a>
             </div>
           </div>
 
@@ -370,7 +380,7 @@ function createProductCardHTML(product) {
     : `<span class="badge badge-dark product-tag">${product.categoryLabel}</span>`;
 
   const specsHTML = product.specs && product.specs.length 
-    ? product.specs.slice(0, 2).map(s => `<span class="spec-chip">${s.label}: ${s.value}</span>`).join("")
+    ? product.specs.slice(0, 2).map(s => `<span class="spec-chip">${s.label}: <strong>${s.value}</strong></span>`).join("")
     : "";
 
   const imageSrc = product.image || "assets/images/logo.png";
@@ -526,14 +536,14 @@ window.handleToggleQuote = function(productId, btnElem) {
     QuoteCart.removeItem(productId);
     if (btnElem) {
       btnElem.classList.remove("added");
-      btnElem.innerHTML = "+ Adicionar";
+      btnElem.innerHTML = "+ Orçamento";
     }
-    showToast(`Item removido do orçamento.`);
+    showToast(`"${product.name}" removido do orçamento.`);
   } else {
     QuoteCart.addItem(productId, 1);
     if (btnElem) {
       btnElem.classList.add("added");
-      btnElem.innerHTML = "✓ No Orçamento";
+      btnElem.innerHTML = "✓ Adicionado";
     }
     showToast(`"${product.name}" adicionado ao orçamento!`, "success");
   }
@@ -560,3 +570,4 @@ window.addEventListener("quoteUpdated", (e) => {
     mobileBarCount.textContent = count;
   }
 });
+

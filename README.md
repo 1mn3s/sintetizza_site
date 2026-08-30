@@ -87,16 +87,16 @@ Site_sintetizza/
 
 ---
 
-## Como Testar Localmente
+## Como Executar Localmente
 
 Abra qualquer arquivo `.html` diretamente no navegador ou execute um servidor HTTP:
 
 ```bash
+# Com Python:
+python3 -m http.server 8080
+
 # Com Node.js:
 npx serve .
-
-# Com Python:
-python -m http.server 8080
 ```
 
 Acesse: `http://localhost:8080`

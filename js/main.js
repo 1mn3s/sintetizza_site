@@ -103,7 +103,7 @@ function initProductsPage() {
 
     const countLabel = document.getElementById("catalog-results-count");
     if (countLabel) {
-      countLabel.textContent = `${list.length} item(s) encontrado(s)`;
+      countLabel.textContent = `${list.length} equipamento(s) disponível(is)`;
     }
 
     if (list.length === 0) {
@@ -123,7 +123,7 @@ function initProductsPage() {
   applyCatalogFilters();
 }
 
-// 3. Detalhe do Produto
+// 3. Ficha Técnica / Detalhe do Produto
 function initProductDetailPage() {
   const detailContainer = document.getElementById("product-detail-root");
   if (!detailContainer) return;
@@ -140,6 +140,8 @@ function initProductDetailPage() {
   if (breadcrumbProduct) breadcrumbProduct.textContent = product.name;
 
   const isAdded = QuoteCart.hasItem(product.id);
+  const imgSrc = product.image || product.fallbackImage || "assets/images/original/principal-novo-2.png";
+  const fallbackSrc = product.fallbackImage || "assets/images/original/principal-novo-2.png";
 
   detailContainer.innerHTML = `
     <div class="product-detail-grid">
@@ -179,7 +181,7 @@ function initProductDetailPage() {
               ${product.specs.map(s => `
                 <tr>
                   <td>${s.label}</td>
-                  <td><strong>${s.value}</strong></td>
+                  <td>${s.value}</td>
                 </tr>
               `).join("")}
             </tbody>
@@ -223,6 +225,7 @@ function initProductDetailPage() {
             </a>
           </div>
         </div>
+
       </div>
     </div>
   `;
@@ -266,7 +269,7 @@ function initProductDetailPage() {
   }
 }
 
-// 4. Contato
+// 4. Página de Contato
 function initContactPage() {
   const form = document.getElementById("contact-message-form");
   if (!form) return;
@@ -301,3 +304,4 @@ function initContactPage() {
     form.reset();
   });
 }
+

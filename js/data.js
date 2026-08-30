@@ -293,7 +293,7 @@ const PRODUCTS = [
   },
   {
     id: "climatizadores-evaporativos-industriais",
-    name: "Climatizadores Evaporativos",
+    name: "Climatizadores Evaporativos Ecológicos",
     category: "climatizacao",
     categoryLabel: "Climatização & Ventiladores",
     image: "assets/images/climatizadores.png",
@@ -335,7 +335,7 @@ const PRODUCTS = [
   },
   {
     id: "gerador-silenciado-grupos",
-    name: "Gerador de Energia Silenciado",
+    name: "Grupos Geradores Silenciados (55kVA a 350kVA)",
     category: "energia",
     categoryLabel: "Geradores & Elétrica",
     image: "assets/images/geradores-1.png",
@@ -521,7 +521,7 @@ const PRODUCTS = [
   },
   {
     id: "coordenacao-tecnica-art-alvara",
-    name: "Coordenação Técnica & Laudo ART",
+    name: "Engenharia Técnica, Laudo ART & Alvará de Eventos",
     category: "operacao",
     categoryLabel: "Equipe & Laudos ART",
     image: "assets/images/alvara-para-eventos.png",
@@ -558,6 +558,8 @@ function searchProducts(query) {
     p.shortDesc.toLowerCase().includes(q) ||
     p.categoryLabel.toLowerCase().includes(q) ||
     (p.features && p.features.some(f => f.toLowerCase().includes(q))) ||
-    (p.specs && p.specs.some(s => s.value.toLowerCase().includes(q)))
+    (p.specs && p.specs.some(s => s.value.toLowerCase().includes(q) || s.label.toLowerCase().includes(q)))
   );
 }
+
+
