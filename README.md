@@ -35,7 +35,7 @@ Website institucional e catálogo interativo de orçamentos para a **Sintetizza 
 
 ### 4. Provas Sociais & Transparência (Google E-E-A-T)
 - **Avaliações do Google (Google Reviews)**: Depoimentos detalhados com estrelas, eventos atendidos e perfis verificados.
-- **Dados Institucionais Completos**: CNPJ (`54.891.423/0001-90`), Razão Social, endereço da base operacional, telefones e e-mail.
+- **Dados Institucionais Completos**: CNPJ (`33.273.080/0001-08`), Razão Social, endereço da base operacional, telefones e e-mail.
 - **Páginas de Conformidade**: `politica-de-privacidade.html` (em conformidade com a LGPD) e `termos-de-uso.html`.
 
 ### 5. Mobile First & Usabilidade

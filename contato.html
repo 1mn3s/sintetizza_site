@@ -142,7 +142,7 @@
         </div>
 
         <!-- Coluna 2: Formulário de Mensagem Direta -->
-        <div style="background: var(--color-surface-light); border: 1px solid var(--color-border-light); border-radius: var(--radius-xl); padding: var(--space-2xl); box-shadow: var(--shadow-card);">
+        <div class="contact-form-card">
           <div style="margin-bottom: 20px;">
             <span class="badge badge-brand" style="margin-bottom: 8px;">Mensagem Rápida</span>
             <h2 style="font-size: 1.35rem;">Envie sua Solicitação</h2>
@@ -155,23 +155,27 @@
             <div class="form-group">
               <label class="form-label" for="name">Nome Completo <span class="required">*</span></label>
               <input type="text" id="name" name="name" class="form-control" placeholder="Seu nome completo" required autocomplete="name">
+              <span class="form-helper">Informe quem está solicitando o contato.</span>
             </div>
 
-            <div class="grid grid-2" style="gap: 16px;">
+            <div class="field-grid">
               <div class="form-group">
                 <label class="form-label" for="email">E-mail <span class="required">*</span></label>
                 <input type="email" id="email" name="email" class="form-control" placeholder="seuemail@empresa.com" required autocomplete="email">
+                <span class="form-helper">Usado caso a equipe precise enviar retorno formal.</span>
               </div>
 
               <div class="form-group">
                 <label class="form-label" for="phone">Telefone / WhatsApp</label>
                 <input type="tel" id="phone" name="phone" class="form-control" placeholder="(15) 99999-9999" autocomplete="tel">
+                <span class="form-helper">Opcional, mas ajuda bastante no atendimento rápido.</span>
               </div>
             </div>
 
             <div class="form-group">
               <label class="form-label" for="message">Mensagem / Descrição da Necessidade <span class="required">*</span></label>
               <textarea id="message" name="message" class="form-control" rows="4" placeholder="Descreva sua solicitação, data do evento, equipamentos desejados ou dúvidas técnicas..." required></textarea>
+              <span class="form-helper">Você pode incluir cidade, data, público estimado e itens desejados.</span>
             </div>
 
             <div style="margin-top: 20px;">
@@ -181,7 +185,7 @@
             </div>
           </form>
 
-          <div style="margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--color-border-light); text-align: center;">
+          <div class="contact-form-footer">
             <p style="font-size: 0.85rem; color: var(--color-text-secondary); margin-bottom: 10px;">
               Já sabe exatamente os equipamentos que precisa?
             </p>

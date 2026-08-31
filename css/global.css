@@ -337,6 +337,88 @@ ul, ol {
   width: 100%;
 }
 
+/* Forms */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 0.9rem;
+  font-weight: 800;
+  color: var(--color-text-primary);
+}
+
+.required {
+  color: var(--color-danger);
+  font-weight: 800;
+}
+
+.form-helper {
+  font-size: 0.78rem;
+  color: var(--color-text-muted);
+  line-height: 1.45;
+}
+
+.form-control {
+  width: 100%;
+  min-height: 52px;
+  padding: 14px 16px;
+  border-radius: var(--radius-md);
+  border: 1.5px solid var(--color-border-light);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(248, 250, 252, 0.96));
+  color: var(--color-text-primary);
+  font-family: var(--font-family-base);
+  font-size: 0.96rem;
+  line-height: 1.4;
+  box-shadow: inset 0 1px 2px rgba(15, 23, 42, 0.03);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast), transform var(--transition-fast), background-color var(--transition-fast);
+  appearance: none;
+}
+
+.form-control::placeholder {
+  color: var(--color-text-light-subtle);
+}
+
+.form-control:hover {
+  border-color: var(--color-slate-300);
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: var(--color-brand);
+  box-shadow: 0 0 0 4px var(--color-brand-glow), inset 0 1px 2px rgba(15, 23, 42, 0.02);
+  transform: translateY(-1px);
+  background: var(--color-surface-light);
+}
+
+textarea.form-control {
+  min-height: 132px;
+  resize: vertical;
+}
+
+select.form-control {
+  background-image:
+    linear-gradient(45deg, transparent 50%, var(--color-slate-600) 50%),
+    linear-gradient(135deg, var(--color-slate-600) 50%, transparent 50%);
+  background-position:
+    calc(100% - 22px) calc(50% - 3px),
+    calc(100% - 16px) calc(50% - 3px);
+  background-size: 6px 6px, 6px 6px;
+  background-repeat: no-repeat;
+  padding-right: 42px;
+}
+
+input[type="date"].form-control {
+  padding-right: 14px;
+}
+
 /* Grids */
 .grid {
   display: grid;

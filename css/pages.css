@@ -4,7 +4,9 @@
 
 /* 1. Page Banners */
 .page-banner {
-  background: linear-gradient(180deg, var(--color-brand-primary-light) 0%, var(--color-bg-light) 100%);
+  background:
+    radial-gradient(circle at top center, rgba(245, 158, 11, 0.22), transparent 45%),
+    linear-gradient(180deg, #FFF9EC 0%, #F8FAFC 100%);
   padding: calc(var(--space-2xl) + 10px) 0 var(--space-2xl) 0;
   border-bottom: 1px solid var(--color-border-light);
   text-align: center;
@@ -42,7 +44,7 @@
 }
 
 .page-banner-title {
-  color: var(--color-white);
+  color: var(--color-slate-950);
   font-size: clamp(2rem, 3.5vw, 2.8rem);
   font-weight: 800;
   margin-bottom: var(--space-xs);
@@ -51,13 +53,24 @@
 }
 
 .page-banner-desc {
-  color: var(--color-slate-300);
+  color: var(--color-slate-600);
   font-size: 1.05rem;
   max-width: 680px;
   margin: 0 auto;
   line-height: 1.6;
   position: relative;
   z-index: 2;
+}
+
+.page-banner::after {
+  content: '';
+  position: absolute;
+  width: 220px;
+  height: 220px;
+  right: -80px;
+  top: -70px;
+  background: radial-gradient(circle, rgba(15, 23, 42, 0.08), transparent 68%);
+  pointer-events: none;
 }
 
 /* Comparison Section (Por que escolher a Sintetizza) */
@@ -480,6 +493,169 @@
   box-shadow: var(--shadow-card);
 }
 
+.quote-card-shell {
+  position: relative;
+  overflow: hidden;
+}
+
+.quote-card-shell::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 5px;
+  background: linear-gradient(90deg, var(--color-brand-primary), #FACC15, #F59E0B);
+}
+
+.quote-card-shell > * {
+  position: relative;
+  z-index: 1;
+}
+
+.quote-card-intro {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 24px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--color-border-light);
+}
+
+.quote-intro-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.quote-intro-top p,
+.quote-intro-title p {
+  color: var(--color-text-secondary);
+}
+
+.quote-meta-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.quote-meta-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 12px;
+  border-radius: var(--radius-pill);
+  background: var(--color-surface-alt);
+  border: 1px solid var(--color-border-light);
+  color: var(--color-text-primary);
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.quote-form {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.quote-form-section {
+  background: linear-gradient(180deg, rgba(255, 251, 235, 0.72), rgba(255, 255, 255, 0.96));
+  border: 1px solid rgba(245, 158, 11, 0.18);
+  border-radius: var(--radius-lg);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.quote-form-section-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.quote-form-section-title p {
+  font-size: 0.86rem;
+  color: var(--color-text-secondary);
+}
+
+.field-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.quote-submit-wrap {
+  margin-top: 4px;
+}
+
+.quote-submit-note {
+  font-size: 0.8rem;
+  color: var(--color-text-secondary);
+  text-align: center;
+  margin-top: 10px;
+}
+
+.quote-summary-card {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.quote-summary-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--color-border-light);
+}
+
+.quote-summary-head p {
+  font-size: 0.84rem;
+  color: var(--color-text-secondary);
+}
+
+.quote-empty-state {
+  text-align: center;
+  padding: 24px 12px;
+  border: 1px dashed var(--color-border-strong);
+  border-radius: var(--radius-lg);
+  background: linear-gradient(180deg, #FFFFFF, #F8FAFC);
+}
+
+.quote-empty-state-icon {
+  width: 62px;
+  height: 62px;
+  margin: 0 auto 10px;
+  border-radius: 18px;
+  background: var(--color-brand-primary-light);
+  border: 1px solid var(--color-brand-primary-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+}
+
+.quote-inline-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.quote-clear-btn {
+  background: none;
+  border: none;
+  color: var(--color-danger);
+  font-size: 0.82rem;
+  cursor: pointer;
+  text-decoration: underline;
+  font-weight: 700;
+  align-self: flex-end;
+}
+
 .quote-items-container {
   display: flex;
   flex-direction: column;
@@ -492,10 +668,11 @@
   align-items: center;
   justify-content: space-between;
   padding: 14px 16px;
-  background-color: var(--color-surface-alt);
+  background: linear-gradient(180deg, #FFFFFF 0%, #F8FAFC 100%);
   border-radius: var(--radius-md);
   border: 1px solid var(--color-border-light);
   gap: var(--space-md);
+  box-shadow: var(--shadow-xs);
 }
 
 .quote-item-info {
@@ -588,10 +765,12 @@
 }
 
 .quote-highlight-box {
-  background: var(--color-brand-subtle);
+  background:
+    radial-gradient(circle at top right, rgba(245, 158, 11, 0.18), transparent 40%),
+    linear-gradient(180deg, var(--color-brand-subtle), #FFFFFF);
   border: 1.5px solid var(--color-brand-border);
   border-radius: var(--radius-lg);
-  padding: var(--space-lg);
+  padding: var(--space-xl);
 }
 
 .quote-highlight-box h4 {
@@ -607,6 +786,47 @@
   gap: 6px;
   font-size: 0.85rem;
   color: var(--color-text-secondary);
+}
+
+.quote-trust-note {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(245, 158, 11, 0.18);
+  font-size: 0.82rem;
+  color: var(--color-text-secondary);
+}
+
+.contact-form-card {
+  background: linear-gradient(180deg, #FFFFFF 0%, #F8FAFC 100%);
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--radius-xl);
+  padding: var(--space-2xl);
+  box-shadow: var(--shadow-card);
+}
+
+.contact-form-card::before {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 5px;
+  border-radius: var(--radius-pill);
+  background: linear-gradient(90deg, var(--color-brand-primary), #FACC15, #0F172A);
+  margin-bottom: 20px;
+}
+
+.contact-form-footer {
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid var(--color-border-light);
+  text-align: center;
+}
+
+@media (max-width: 900px) {
+  .quote-layout,
+  .contact-grid,
+  .product-detail-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* 9. Contact Page */
@@ -732,5 +952,30 @@
   object-fit: cover;
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-card);
+}
+
+@media (max-width: 768px) {
+  .quote-layout {
+    gap: var(--space-lg);
+  }
+
+  .quote-card,
+  .contact-form-card {
+    padding: var(--space-lg);
+  }
+
+  .field-grid,
+  .quote-inline-actions,
+  .process-grid,
+  .comparison-grid,
+  .hero-grid,
+  .product-actions {
+    grid-template-columns: 1fr;
+  }
+
+  .quote-intro-top,
+  .quote-summary-head {
+    flex-direction: column;
+  }
 }
 

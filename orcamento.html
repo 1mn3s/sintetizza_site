@@ -49,6 +49,11 @@
       <p class="page-banner-desc">
         Revise os itens selecionados, informe os dados básicos do seu evento e envie diretamente para o atendimento técnico via WhatsApp ou e-mail.
       </p>
+      <div class="quote-meta-chips" style="justify-content: center; margin-top: 18px;">
+        <span class="quote-meta-chip">Retorno em até 15 minutos</span>
+        <span class="quote-meta-chip">ART e suporte técnico inclusos</span>
+        <span class="quote-meta-chip">Atendimento em Sorocaba e todo o estado de SP</span>
+      </div>
     </div>
   </section>
 
@@ -58,41 +63,70 @@
       <div class="quote-layout">
 
         <!-- Formulário de Dados -->
-        <div class="quote-card">
-          <div style="margin-bottom: 20px; border-bottom: 1px solid var(--color-border-light); padding-bottom: 14px;">
-            <span class="badge badge-brand" style="margin-bottom: 8px;">Atendimento Rápido</span>
-            <h2 style="font-size: 1.35rem;">Dados do Solicitante & Local do Evento</h2>
-            <p style="font-size: 0.875rem; color: var(--color-text-secondary); margin: 0;">Retorno comercial em até 15 minutos em horário comercial.</p>
+        <div class="quote-card quote-card-shell">
+          <div class="quote-card-intro">
+            <div class="quote-intro-top">
+              <div>
+                <span class="badge badge-brand" style="margin-bottom: 8px;">Atendimento Rápido</span>
+                <h2 style="font-size: 1.35rem;">Dados do Solicitante & Local do Evento</h2>
+                <p style="font-size: 0.875rem; margin: 6px 0 0 0;">Preencha o básico e nós cuidamos do dimensionamento técnico da estrutura ideal.</p>
+              </div>
+              <div class="quote-meta-chips">
+                <span class="quote-meta-chip">WhatsApp comercial</span>
+                <span class="quote-meta-chip">Proposta técnica</span>
+              </div>
+            </div>
           </div>
 
-          <form id="quote-request-form">
-            <!-- Dados de Contato -->
-            <div class="grid grid-2" style="gap: 16px; margin-bottom: 16px;">
+          <form id="quote-request-form" class="quote-form">
+            <div class="quote-form-section">
+              <div class="quote-form-section-title">
+                <div>
+                  <h3 style="font-size: 1.05rem; margin-bottom: 4px;">Contato do solicitante</h3>
+                  <p>Esses dados são usados apenas para retorno comercial e envio da proposta.</p>
+                </div>
+                <span class="badge badge-brand-soft">1. Identificação</span>
+              </div>
+
+              <div class="field-grid">
               <div class="form-group">
                 <label class="form-label" for="clientName">Nome Completo <span class="required">*</span></label>
                 <input type="text" id="clientName" name="clientName" class="form-control" placeholder="Seu nome ou responsável" required autocomplete="name">
+                <span class="form-helper">Informe quem vai aprovar ou acompanhar o evento.</span>
               </div>
 
               <div class="form-group">
                 <label class="form-label" for="clientCompany">Empresa / Produtora</label>
                 <input type="text" id="clientCompany" name="clientCompany" class="form-control" placeholder="Nome da empresa ou agência (opcional)" autocomplete="organization">
+                <span class="form-helper">Ajuda nossa equipe a contextualizar a proposta.</span>
               </div>
             </div>
 
-            <div class="grid grid-2" style="gap: 16px; margin-bottom: 16px;">
+            <div class="field-grid">
               <div class="form-group">
                 <label class="form-label" for="clientEmail">E-mail Corporativo / Pessoal <span class="required">*</span></label>
                 <input type="email" id="clientEmail" name="clientEmail" class="form-control" placeholder="seuemail@empresa.com" required autocomplete="email">
+                <span class="form-helper">Usado para envio formal da proposta e documentação.</span>
               </div>
 
               <div class="form-group">
                 <label class="form-label" for="clientPhone">WhatsApp / Telefone <span class="required">*</span></label>
                 <input type="tel" id="clientPhone" name="clientPhone" class="form-control" placeholder="(15) 99999-9999" required autocomplete="tel">
+                <span class="form-helper">Canal mais rápido para ajustes e confirmação de disponibilidade.</span>
               </div>
             </div>
+            </div>
 
-            <!-- Dados do Evento -->
-            <div class="grid grid-2" style="gap: 16px; margin-bottom: 16px;">
+            <div class="quote-form-section">
+              <div class="quote-form-section-title">
+                <div>
+                  <h3 style="font-size: 1.05rem; margin-bottom: 4px;">Detalhes do evento</h3>
+                  <p>Quanto mais contexto, mais precisa fica a lista técnica e operacional.</p>
+                </div>
+                <span class="badge badge-brand-soft">2. Produção</span>
+              </div>
+
+              <div class="field-grid">
               <div class="form-group">
                 <label class="form-label" for="eventType">Segmento do Evento <span class="required">*</span></label>
                 <select id="eventType" name="eventType" class="form-control" required>
@@ -103,36 +137,42 @@
                   <option value="Evento Esportivo">Evento Esportivo</option>
                   <option value="Outro Segmento">Outro Segmento</option>
                 </select>
+                <span class="form-helper">Escolha o formato mais próximo para acelerar a triagem técnica.</span>
               </div>
 
               <div class="form-group">
                 <label class="form-label" for="eventDate">Data Prevista do Evento</label>
                 <input type="date" id="eventDate" name="eventDate" class="form-control">
+                <span class="form-helper">Se ainda não tiver a data fechada, deixe em branco.</span>
               </div>
             </div>
 
-            <div class="grid grid-2" style="gap: 16px; margin-bottom: 16px;">
+            <div class="field-grid">
               <div class="form-group">
                 <label class="form-label" for="eventCity">Cidade / Local do Evento <span class="required">*</span></label>
                 <input type="text" id="eventCity" name="eventCity" class="form-control" placeholder="Ex: Sorocaba - SP" required>
+                <span class="form-helper">Informe a cidade e, se possível, o espaço ou endereço do evento.</span>
               </div>
 
               <div class="form-group">
                 <label class="form-label" for="eventAudience">Estimativa de Público / Metragem</label>
                 <input type="text" id="eventAudience" name="eventAudience" class="form-control" placeholder="Ex: 800 pessoas ou 500m²">
+                <span class="form-helper">Pode ser quantidade de pessoas, área útil ou dimensão de palco/tenda.</span>
               </div>
             </div>
 
             <div class="form-group">
               <label class="form-label" for="observations">Observações Técnicas ou Metragens</label>
               <textarea id="observations" name="observations" class="form-control" placeholder="Descreva horários de montagem, exigências específicas ou medidas de palco/tenda..." rows="3"></textarea>
+              <span class="form-helper">Exemplo: acesso para caminhão, necessidade de gerador, rider, grid ou climatização.</span>
+            </div>
             </div>
 
-            <div style="margin-top: 24px;">
+            <div class="quote-submit-wrap">
               <button type="submit" class="btn btn-primary btn-block btn-lg" style="font-size: 1.1rem;">
                 <span>💬 Enviar Orçamento no WhatsApp & E-mail</span>
               </button>
-              <p style="font-size: 0.8rem; color: var(--color-text-secondary); text-align: center; margin-top: 8px;">
+              <p class="quote-submit-note">
                 ✓ Seus dados são protegidos conforme a LGPD e utilizados apenas para a cotação.
               </p>
             </div>
@@ -141,17 +181,18 @@
 
         <!-- Sidebar com Itens Selecionados -->
         <div class="quote-summary-sidebar">
-          <div class="quote-card" style="margin-bottom: var(--space-lg);">
-            <div class="flex items-center justify-between" style="margin-bottom: 16px; border-bottom: 1px solid var(--color-border-light); padding-bottom: 12px;">
+          <div class="quote-card quote-summary-card" style="margin-bottom: var(--space-lg);">
+            <div class="quote-summary-head">
               <div>
                 <h3 style="font-size: 1.15rem; color: var(--color-slate-950); font-weight: 800;">Itens Selecionados</h3>
+                <p>Monte sua lista e envie tudo de uma vez para análise comercial e técnica.</p>
               </div>
               <span class="badge badge-brand" id="quote-total-items-badge">0 itens</span>
             </div>
 
             <!-- Estado Vazio -->
-            <div id="quote-empty-state" style="display: none; text-align: center; padding: 24px 10px;">
-              <div style="font-size: 2rem; margin-bottom: 8px;">📋</div>
+            <div id="quote-empty-state" class="quote-empty-state" style="display: none;">
+              <div class="quote-empty-state-icon">📋</div>
               <h4 style="margin-bottom: 6px; font-size: 1rem;">Nenhum item adicionado ainda</h4>
               <p style="font-size: 0.85rem; color: var(--color-text-secondary); margin-bottom: 16px;">
                 Adicione equipamentos do catálogo ou crie um item personalizado.
@@ -170,7 +211,7 @@
             <div id="quote-items-section">
               <div class="quote-items-container" id="quote-items-container"></div>
 
-              <div class="flex gap-sm" style="margin-top: 14px;">
+              <div class="quote-inline-actions">
                 <button type="button" class="btn btn-outline btn-sm" id="btn-add-custom-item" style="flex: 1;">
                   + Item Personalizado
                 </button>
@@ -179,11 +220,9 @@
                 </a>
               </div>
 
-              <div style="text-align: right; margin-top: 12px;">
-                <button type="button" onclick="handleClearQuote()" style="background: none; border: none; color: var(--color-danger); font-size: 0.8rem; cursor: pointer; text-decoration: underline; font-weight: 600;">
-                  Limpar lista de itens
-                </button>
-              </div>
+              <button type="button" onclick="handleClearQuote()" class="quote-clear-btn">
+                Limpar lista de itens
+              </button>
             </div>
           </div>
 
@@ -198,6 +237,9 @@
               <li>• <strong>Plantão operacional 24h</strong> durante todo o evento</li>
               <li>• <strong>Frota própria</strong> garantindo montagem antecipada</li>
             </ul>
+            <div class="quote-trust-note">
+              Nossa equipe técnica avalia rider, metragem, público, energia e cronograma para te devolver uma proposta mais segura e realista.
+            </div>
           </div>
         </div>
 

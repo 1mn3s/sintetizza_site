@@ -203,8 +203,92 @@ function showQuoteSuccessModal(data, mailtoUrl, whatsappUrl) {
   modal.classList.add("is-active");
 }
 
+function showCustomItemModal() {
+  let modal = document.getElementById("custom-item-modal");
+  if (!modal) {
+    modal = document.createElement("div");
+    modal.id = "custom-item-modal";
+    modal.className = "modal-backdrop";
+    document.body.appendChild(modal);
+  }
+
+  modal.innerHTML = `
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <div>
+          <span class="badge badge-brand-soft" style="margin-bottom: 8px;">Item Personalizado</span>
+          <h3 style="font-size: 1.25rem; font-weight: 800; color: var(--color-slate-950);">
+            Adicionar item fora do catálogo
+          </h3>
+        </div>
+        <button class="modal-close-btn" onclick="closeCustomItemModal()" aria-label="Fechar">&times;</button>
+      </div>
+      <div class="modal-body">
+        <form id="custom-item-form" class="quote-form" style="gap: 16px;">
+          <div class="form-group">
+            <label class="form-label" for="customItemName">Nome do item <span class="required">*</span></label>
+            <input type="text" id="customItemName" name="customItemName" class="form-control" placeholder="Ex: praticável 2x1, tenda 6x6, fechamento especial" required>
+            <span class="form-helper">Descreva o equipamento, medida ou estrutura desejada.</span>
+          </div>
+
+          <div class="field-grid" style="grid-template-columns: 140px 1fr;">
+            <div class="form-group">
+              <label class="form-label" for="customItemQty">Quantidade</label>
+              <input type="number" id="customItemQty" name="customItemQty" class="form-control" min="1" value="1" inputmode="numeric">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="customItemNotes">Observações</label>
+              <input type="text" id="customItemNotes" name="customItemNotes" class="form-control" placeholder="Metragem, acabamento, cor, prazo ou detalhe técnico">
+            </div>
+          </div>
+
+          <div class="quote-inline-actions">
+            <button type="submit" class="btn btn-primary btn-block">
+              Salvar item personalizado
+            </button>
+            <button type="button" class="btn btn-outline btn-block" onclick="closeCustomItemModal()">
+              Cancelar
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  `;
+
+  modal.classList.add("is-active");
+
+  const form = document.getElementById("custom-item-form");
+  const nameInput = document.getElementById("customItemName");
+  if (nameInput) nameInput.focus();
+
+  if (form) {
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+
+      const itemName = form.customItemName.value.trim();
+      const itemNotes = form.customItemNotes.value.trim();
+      const quantity = Math.max(1, Number(form.customItemQty.value) || 1);
+
+      if (!itemName) {
+        showToast("Informe o nome do item personalizado.", "error");
+        return;
+      }
+
+      QuoteCart.addCustomItem(itemName, itemNotes, quantity);
+      closeCustomItemModal();
+      showToast(`"${itemName}" adicionado à sua lista!`, "success");
+    });
+  }
+}
+
 window.closeQuoteModal = function() {
   const modal = document.getElementById("quote-success-modal");
+  if (modal) modal.classList.remove("is-active");
+};
+
+window.closeCustomItemModal = function() {
+  const modal = document.getElementById("custom-item-modal");
   if (modal) modal.classList.remove("is-active");
 };
 
@@ -220,12 +304,7 @@ function setupCustomItemModal() {
   if (!customBtn) return;
 
   customBtn.addEventListener("click", () => {
-    const itemName = prompt("Qual equipamento, medida ou estrutura especial você precisa?");
-    if (itemName && itemName.trim()) {
-      const itemNotes = prompt("Alguma observação técnica ou metragem? (Opcional):", "");
-      QuoteCart.addCustomItem(itemName, itemNotes || "");
-      showToast(`"${itemName.trim()}" adicionado à sua lista!`, "success");
-    }
+    showCustomItemModal();
   });
 }
 
