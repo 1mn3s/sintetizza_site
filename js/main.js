@@ -155,16 +155,13 @@ function initProductDetailPage() {
 
   const isAdded = QuoteCart.hasItem(product.id);
   const imgSrc = product.image || product.fallbackImage || "assets/images/original/principal-novo-2.png";
-  const fallbackSrc = product.fallbackImage || "assets/images/original/principal-novo-2.png";
-
   detailContainer.innerHTML = `
     <div class="product-detail-grid">
       <!-- Galeria Otimizada com Foto Real -->
-      <div class="product-gallery" style="min-height: 380px; display: flex; flex-direction: column; align-items: center; justify-content: center; background: var(--color-surface-alt); border-radius: var(--radius-md); overflow: hidden; position: relative; padding: 20px;">
-        <img src="${product.image || 'assets/images/logo.png'}" 
+      <div class="product-gallery">
+        <img src="${imgSrc}"
              alt="${product.name} - Sintetizza Eventos" 
              class="product-detail-hero-img" 
-             style="width: 100%; height: auto; max-height: 420px; object-fit: contain;" 
              loading="eager" 
              decoding="async" 
              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
@@ -318,4 +315,3 @@ function initContactPage() {
     form.reset();
   });
 }
-

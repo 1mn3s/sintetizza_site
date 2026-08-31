@@ -21,10 +21,10 @@ function renderHeader(activePage = "home") {
         </div>
         <div class="top-trust-right">
           <a href="tel:${SINTETIZZA_CONFIG.phoneRaw}" class="top-trust-link" title="Ligar para a Sintetizza">
-            <span class="trust-icon">📞</span> ${SINTETIZZA_CONFIG.phone}
+            Telefone: ${SINTETIZZA_CONFIG.phone}
           </a>
           <a href="https://wa.me/${SINTETIZZA_CONFIG.whatsappNumber}?text=${encodeURIComponent(SINTETIZZA_CONFIG.whatsappDefaultMsg)}" target="_blank" rel="noopener" class="top-trust-link text-whatsapp" title="WhatsApp Sintetizza">
-            <span class="trust-icon">💬</span> Atendimento em 15 min
+            WhatsApp em 15 min
           </a>
         </div>
       </div>
@@ -49,7 +49,7 @@ function renderHeader(activePage = "home") {
 
         <div class="header-actions">
           <a href="tel:${SINTETIZZA_CONFIG.phoneRaw}" class="btn btn-dark btn-sm hide-tablet" title="Ligue Agora">
-            <span>📞 ${SINTETIZZA_CONFIG.phone}</span>
+            <span>${SINTETIZZA_CONFIG.phone}</span>
           </a>
 
           <a href="orcamento.html" class="btn btn-primary btn-sm quote-nav-btn" title="Ver Orçamento">
@@ -96,13 +96,13 @@ function renderHeader(activePage = "home") {
         
         <div class="mobile-drawer-actions">
           <a href="https://wa.me/${SINTETIZZA_CONFIG.whatsappNumber}?text=${encodeURIComponent(SINTETIZZA_CONFIG.whatsappDefaultMsg)}" target="_blank" rel="noopener" class="btn btn-whatsapp btn-block btn-lg">
-            <span>💬 Conversar no WhatsApp</span>
+            <span>Conversar no WhatsApp</span>
           </a>
           <a href="tel:${SINTETIZZA_CONFIG.phoneRaw}" class="btn btn-dark btn-block btn-lg">
-            <span>📞 Ligar Agora: ${SINTETIZZA_CONFIG.phone}</span>
+            <span>Ligar Agora: ${SINTETIZZA_CONFIG.phone}</span>
           </a>
           <a href="orcamento.html" class="btn btn-primary btn-block btn-lg">
-            <span>📋 Construtor de Orçamento (${count})</span>
+            <span>Construtor de Orçamento (${count})</span>
           </a>
         </div>
       </div>
@@ -138,6 +138,23 @@ function renderHeader(activePage = "home") {
 function renderFooter() {
   const footerElem = document.getElementById("site-footer-container");
   if (!footerElem) return;
+
+  const clientLogos = [
+    { src: "Galeria/Clientes/WhatsApp Image 2026-08-31 at 12.20.27.jpeg", alt: "Cliente atendido pela Sintetizza" },
+    { src: "Galeria/Clientes/WhatsApp Image 2026-08-31 at 12.20.56(1).jpeg", alt: "Logo de cliente da Sintetizza" },
+    { src: "Galeria/Clientes/WhatsApp Image 2026-08-31 at 12.20.56(10).jpeg", alt: "Logo de cliente atendido em eventos" },
+    { src: "Galeria/Clientes/WhatsApp Image 2026-08-31 at 12.20.56(12).jpeg", alt: "Marca cliente da Sintetizza" },
+    { src: "Galeria/Clientes/WhatsApp Image 2026-08-31 at 12.20.56(14).jpeg", alt: "Cliente corporativo atendido pela Sintetizza" },
+    { src: "Galeria/Clientes/WhatsApp Image 2026-08-31 at 12.20.56(17).jpeg", alt: "Cliente de infraestrutura para eventos" },
+    { src: "Galeria/Clientes/WhatsApp Image 2026-08-31 at 12.20.56(20).jpeg", alt: "Logo de cliente parceiro da Sintetizza" },
+    { src: "Galeria/Clientes/WhatsApp Image 2026-08-31 at 12.20.56(23).jpeg", alt: "Cliente parceiro em eventos e ativações" },
+    { src: "Galeria/Clientes/WhatsApp Image 2026-08-31 at 12.20.56(24).jpeg", alt: "Cliente institucional da Sintetizza" },
+    { src: "Galeria/Clientes/WhatsApp Image 2026-08-31 at 12.20.56(25).jpeg", alt: "Marca já atendida em eventos" },
+    { src: "Galeria/Clientes/WhatsApp Image 2026-08-31 at 12.20.56(27).jpeg", alt: "Cliente com eventos realizados pela Sintetizza" },
+    { src: "Galeria/Clientes/WhatsApp Image 2026-08-31 at 12.20.56(29).jpeg", alt: "Parceiro de eventos atendido pela Sintetizza" }
+  ];
+  const footerLogos = clientLogos.map(({ src, alt }) => `<img src="${src}" alt="${alt}" loading="lazy">`).join("");
+  const footerLogosDuplicate = clientLogos.map(({ src }) => `<img src="${src}" alt="" loading="lazy">`).join("");
 
   footerElem.innerHTML = `
     <!-- Barra de Confiança Pré-Footer -->
@@ -296,6 +313,20 @@ function renderFooter() {
           </div>
 
         </div>
+
+        <section class="footer-client-marquee" aria-label="Marcas atendidas pela Sintetizza">
+          <span class="footer-client-label">Marcas atendidas</span>
+          <div class="footer-client-viewport">
+            <div class="footer-client-track">
+              <div class="footer-client-set">
+                ${footerLogos}
+              </div>
+              <div class="footer-client-set" aria-hidden="true">
+                ${footerLogosDuplicate}
+              </div>
+            </div>
+          </div>
+        </section>
 
         <div class="footer-bottom">
           <div>
@@ -589,4 +620,3 @@ window.addEventListener("quoteUpdated", (e) => {
     mobileBarCount.textContent = count;
   }
 });
-
