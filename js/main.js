@@ -28,9 +28,23 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // 1. Página Inicial (Home)
 function initHomePage() {
+  const strategicGrid = document.getElementById("home-strategic-groups-grid");
+  if (strategicGrid) {
+    strategicGrid.innerHTML = HOME_STRATEGIC_GROUPS.map(group => createStrategicGroupCardHTML(group)).join("");
+  }
+
   const featuredGrid = document.getElementById("home-featured-products-grid");
   if (featuredGrid) {
-    const featured = PRODUCTS.filter(p => p.isFeatured).slice(0, 6);
+    const featuredPriority = [
+      "porticos-backdrops-estruturas-visuais",
+      "painel-led-p39-outdoor-indoor",
+      "som-line-array-profissional",
+      "tenda-piramidal-reforcada"
+    ];
+    const featured = [
+      ...featuredPriority.map(id => getProductById(id)).filter(Boolean),
+      ...PRODUCTS.filter(p => p.isFeatured && !featuredPriority.includes(p.id))
+    ].slice(0, 4);
     featuredGrid.innerHTML = featured.map(p => createProductCardHTML(p)).join("");
   }
 

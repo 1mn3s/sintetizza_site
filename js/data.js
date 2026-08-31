@@ -35,6 +35,427 @@ const CITIES_SERVED = [
   "Piracicaba", "Araçoiaba da Serra", "Mairinque", "Ibiúna"
 ];
 
+const EXTRA_CATEGORIES = [
+  { id: "aquecimento", name: "Aquecedores & Lareiras" },
+  { id: "mobiliario", name: "Bistrôs, Mesas & Lounge" },
+  { id: "camarim", name: "Camarim & Backstage" },
+  { id: "limpeza", name: "Lixeiras & Coleta" },
+  { id: "decoracao", name: "Tecidos, Pisos & Plantas" },
+  { id: "recepcao", name: "Balcões, Totens & Filas" },
+  { id: "apoio", name: "Apoio Operacional" },
+  { id: "servicos", name: "Serviços Técnicos" }
+];
+
+const HOME_STRATEGIC_GROUPS = [
+  {
+    id: "estruturas-coberturas",
+    title: "Estruturas, Palcos e Coberturas",
+    description: "Palcos, Box Truss, pórticos, backdrops, praticáveis, tendas piramidais, cristal, chapéu de bruxa e galpões para projetos completos.",
+    href: "produtos.html?cat=estruturas",
+    accent: "Estruturas",
+    bullets: ["Palcos e praticáveis", "Pórticos e comunicação visual", "Tendas e galpões"],
+    icon: "🏗️"
+  },
+  {
+    id: "audiovisual-climatizacao",
+    title: "Audiovisual, Climatização e Energia",
+    description: "Som, iluminação, painéis de LED, projetores, climatizadores, aquecedores, geradores e elétrica para eventos de todos os portes.",
+    href: "produtos.html?cat=audiovisual",
+    accent: "Operação",
+    bullets: ["Som e painel de LED", "Climatização e aquecimento", "Geradores e elétrica"],
+    icon: "🔊"
+  },
+  {
+    id: "mobiliario-apoio",
+    title: "Mobiliário, Camarim e Apoio Operacional",
+    description: "Bistrôs, mesas, cadeiras, puffs, balcões, camarins, paisagismo, unifilas, catracas e itens de apoio para experiências completas.",
+    href: "produtos.html?cat=mobiliario",
+    accent: "Ambientação",
+    bullets: ["Lounge e recepção", "Backstage e camarim", "Fluxo e apoio"],
+    icon: "🛋️"
+  }
+];
+
+const EXTRA_PRODUCTS = [
+  {
+    id: "aquecedores-e-lareiras-eventos",
+    name: "Aquecedores, Lareiras e Pirâmides a Gás",
+    category: "aquecimento",
+    categoryLabel: "Aquecedores & Lareiras",
+    image: "assets/images/climatizadores.png",
+    shortDesc: "Soluções para aquecimento confortável em eventos ao ar livre e ambientes amplos.",
+    fullDesc: "Locação de aquecedor tipo chapéu, aquecedor pirâmide e lareira externa com acendimento elétrico e sensores de segurança para recepções, casamentos e áreas VIP.",
+    specs: [
+      { label: "Potência", value: "Até 6750 W" },
+      { label: "Combustível", value: "Gás com ignição elétrica" },
+      { label: "Segurança", value: "Sensor anti-inclinação e contra ausência de chama" }
+    ],
+    features: [
+      "Ideal para noites frias e eventos externos",
+      "Equipamentos revisados e prontos para operação",
+      "Entrega e orientação técnica no local"
+    ],
+    isFeatured: false,
+    badge: "Conforto"
+  },
+  {
+    id: "bistros-poltronas-lounge",
+    name: "Bistrôs, Poltronas, Sofás e Banquetas",
+    category: "mobiliario",
+    categoryLabel: "Bistrôs, Mesas & Lounge",
+    image: "assets/images/moveis-e-utensilios.png",
+    shortDesc: "Linha lounge para recepção, área VIP, feiras e eventos corporativos.",
+    fullDesc: "Catálogo com bistrô dobrável, bistrô artesanal, bistrô industrial, poltronas, sofá, banquetas e composições para ambientação de eventos com alto padrão visual.",
+    specs: [
+      { label: "Modelos", value: "Bistrôs, poltronas, sofás e banquetas" },
+      { label: "Materiais", value: "Madeira, ferro, tecido e acabamento premium" }
+    ],
+    features: [
+      "Combinações para lounge, recepção e camarote",
+      "Acabamentos alinhados ao perfil do evento",
+      "Montagem organizada e pronta para uso"
+    ],
+    isFeatured: true,
+    badge: "Lounge"
+  },
+  {
+    id: "mesas-cadeiras-puffs-eventos",
+    name: "Mesas, Cadeiras Tiffany e Puffs",
+    category: "mobiliario",
+    categoryLabel: "Bistrôs, Mesas & Lounge",
+    image: "assets/images/moveis-e-utensilios.png",
+    shortDesc: "Opções para jantar, credenciamento, área kids e composições sociais.",
+    fullDesc: "Mesas em madeira, PVC, pé palito, redondas e infantis, além de cadeiras Tiffany e puffs decorativos para diversas configurações de eventos.",
+    specs: [
+      { label: "Linhas", value: "Social, corporativa e infantil" },
+      { label: "Capacidade", value: "Modelos para 2 a 8 lugares" }
+    ],
+    features: [
+      "Versões para buffet, feira e recepção",
+      "Peças fáceis de combinar com o projeto visual",
+      "Excelente opção para apoio e ambientação"
+    ],
+    isFeatured: false,
+    badge: "Mobiliário"
+  },
+  {
+    id: "balcoes-credenciamento-personalizados",
+    name: "Balcões de Atendimento e Credenciamento",
+    category: "recepcao",
+    categoryLabel: "Balcões, Totens & Filas",
+    image: "assets/images/bancadas.png",
+    shortDesc: "Balcões em madeira ou MDF para recepção, bar e ativações.",
+    fullDesc: "Balcões de apoio e atendimento com opções personalizáveis para credenciamento, recepção de convidados, operação de bar e áreas promocionais.",
+    specs: [
+      { label: "Materiais", value: "Madeira e MDF" },
+      { label: "Formato", value: "Retangular e sob medida" }
+    ],
+    features: [
+      "Ideal para check-in e atendimento ao público",
+      "Pode compor projetos personalizados",
+      "Entrega pronta para uso no local"
+    ],
+    isFeatured: false,
+    badge: "Recepção"
+  },
+  {
+    id: "camarim-backstage-completo",
+    name: "Camarim Completo com Arara, Espelho e Frigobar",
+    category: "camarim",
+    categoryLabel: "Camarim & Backstage",
+    image: "assets/images/container.png",
+    shortDesc: "Estrutura de apoio para artistas, palestrantes e equipes de produção.",
+    fullDesc: "Itens para montagem de camarim e backstage com araras, espelhos, frigobar e módulos de apoio para eventos, shows, convenções e produções itinerantes.",
+    specs: [
+      { label: "Itens", value: "Arara, espelho e frigobar" },
+      { label: "Aplicação", value: "Camarim, produção e apoio operacional" }
+    ],
+    features: [
+      "Organização e conforto para equipe e elenco",
+      "Apoio para trocas, maquiagem e descanso",
+      "Combinável com containers e módulos habitacionais"
+    ],
+    isFeatured: false,
+    badge: "Backstage"
+  },
+  {
+    id: "lixeiras-coleta-seletiva",
+    name: "Lixeiras Plásticas, Aramadas e Coleta Seletiva",
+    category: "limpeza",
+    categoryLabel: "Lixeiras & Coleta",
+    shortDesc: "Soluções para limpeza, organização e descarte em eventos.",
+    fullDesc: "Disponibilidade de lixeiras plásticas, aramadas e conjuntos de coleta seletiva para eventos corporativos, feiras, áreas de alimentação e grandes públicos.",
+    specs: [
+      { label: "Modelos", value: "Pequeno, médio, grande e reciclável" },
+      { label: "Capacidade", value: "60 L a 100 L" }
+    ],
+    features: [
+      "Melhora a organização do espaço",
+      "Apoia operação de limpeza e descarte correto",
+      "Disponível em diferentes pontos do evento"
+    ],
+    isFeatured: false,
+    badge: "Operação"
+  },
+  {
+    id: "tecidos-pisos-grama-sintetica",
+    name: "Toalhas, Carpetes, Tecidos Tensionados e Grama Sintética",
+    category: "decoracao",
+    categoryLabel: "Tecidos, Pisos & Plantas",
+    shortDesc: "Acabamentos para ambientação, circulação e composição cenográfica.",
+    fullDesc: "Linhas de toalhas, carpetes, tecido tensionado e grama sintética para cenografia, cobertura de piso, decoração de stands e acabamento premium em eventos.",
+    specs: [
+      { label: "Itens", value: "Toalhas, carpetes, lycra e grama sintética" },
+      { label: "Formato", value: "Sob medida por metro linear ou projeto" }
+    ],
+    features: [
+      "Melhora a apresentação visual do evento",
+      "Ajuda na setorização e acabamento final",
+      "Combinação ideal com stands, palcos e lounges"
+    ],
+    isFeatured: false,
+    badge: "Acabamento"
+  },
+  {
+    id: "plantas-ornamentais-decoracao",
+    name: "Plantas Ornamentais para Decoração",
+    category: "decoracao",
+    categoryLabel: "Tecidos, Pisos & Plantas",
+    shortDesc: "Composições verdes para recepção, lounge e cenografia.",
+    fullDesc: "Plantas ornamentais como Ficus Lyrata, Dracena Massangeana e outros modelos para dar acabamento natural a feiras, recepções e ambientes corporativos.",
+    specs: [
+      { label: "Modelos", value: "Ficus, dracena e opções sob consulta" },
+      { label: "Aplicação", value: "Decoração, recepção e ambientação" }
+    ],
+    features: [
+      "Valorização visual do espaço",
+      "Boa combinação com lounge e stands",
+      "Montagem alinhada ao projeto do evento"
+    ],
+    isFeatured: false,
+    badge: "Decoração"
+  },
+  {
+    id: "estruturas-podium-praticavel-barricada",
+    name: "Podium, Praticáveis, Barricadas e Fechamentos",
+    category: "estruturas",
+    categoryLabel: "Palcos & Box Truss",
+    image: "assets/images/gradil-metal.png",
+    shortDesc: "Itens estruturais complementares para palco, circulação e segurança.",
+    fullDesc: "Catálogo com podium, piso praticável, barricada, gradil com capa, gradil metálico e fechamento galvanizado para montagem técnica e controle de público.",
+    specs: [
+      { label: "Aplicação", value: "Palco, backstage, fila e perímetro" },
+      { label: "Estrutura", value: "Aço galvanizado e alumínio modular" }
+    ],
+    features: [
+      "Completa projetos de palco e área técnica",
+      "Ajuda no fluxo e na proteção perimetral",
+      "Montagem rápida com equipe especializada"
+    ],
+    isFeatured: false,
+    badge: "Estrutura"
+  },
+  {
+    id: "tenda-chapeu-de-bruxa-cristal",
+    name: "Tenda Chapéu de Bruxa e Tenda Cristal",
+    category: "coberturas",
+    categoryLabel: "Tendas & Galpões",
+    image: "assets/images/tendas.png",
+    shortDesc: "Coberturas elegantes para recepção, alimentação, ativações e eventos sociais.",
+    fullDesc: "Locação de tendas chapéu de bruxa e tendas cristal em diferentes medidas, com estrutura em alumínio e lona adequada ao projeto para eventos corporativos, sociais e promocionais.",
+    specs: [
+      { label: "Modelos", value: "Chapéu de bruxa e cristal" },
+      { label: "Estrutura", value: "Alumínio com medidas sob projeto" }
+    ],
+    features: [
+      "Excelente opção para composição visual refinada",
+      "Pode ser integrada a lounges, recepções e áreas gourmet",
+      "Montagem técnica com acabamento profissional"
+    ],
+    isFeatured: false,
+    badge: "Cobertura"
+  },
+  {
+    id: "cobertura-box-truss-personalizada",
+    name: "Coberturas em Box Truss Q15, Q20 e Q30",
+    category: "coberturas",
+    categoryLabel: "Tendas & Galpões",
+    image: "assets/images/boxtruss.png",
+    shortDesc: "Estruturas personalizadas com uma ou duas quedas para eventos de diferentes portes.",
+    fullDesc: "Coberturas em Box Truss desenvolvidas conforme o projeto, com treliças Q15, Q20 e Q30 para áreas técnicas, palcos, ativações, feiras e espaços de circulação coberta.",
+    specs: [
+      { label: "Treliças", value: "Q15, Q20 e Q30" },
+      { label: "Configuração", value: "Uma ou duas quedas" }
+    ],
+    features: [
+      "Projeto sob medida conforme metragem do espaço",
+      "Compatível com iluminação, comunicação visual e fechamento lateral",
+      "Solução robusta para eventos técnicos e promocionais"
+    ],
+    isFeatured: false,
+    badge: "Sob Medida"
+  },
+  {
+    id: "porticos-backdrops-estruturas-visuais",
+    name: "Pórticos, Backdrops e Estruturas para Comunicação Visual",
+    category: "estruturas",
+    categoryLabel: "Palcos & Box Truss",
+    image: "assets/images/boxtruss.png",
+    shortDesc: "Estruturas para entrada, sinalização, cenografia e presença de marca no evento.",
+    fullDesc: "Projetos com pórticos, backdrops, treliças e estruturas especiais para comunicação visual, largadas esportivas, recepções, feiras, congressos e ativações de marca.",
+    specs: [
+      { label: "Aplicações", value: "Entrada, backdrop, pórtico e cenografia" },
+      { label: "Estrutura", value: "Alumínio modular com montagem personalizada" }
+    ],
+    features: [
+      "Valoriza a identidade visual do evento",
+      "Ideal para ativações, fotos oficiais e sinalização técnica",
+      "Dimensionamento conforme o fluxo e o layout"
+    ],
+    isFeatured: true,
+    badge: "Comunicação Visual"
+  },
+  {
+    id: "passa-cabos-protecao-cabos",
+    name: "Passa-Cabos para Áreas Técnicas e Público",
+    category: "energia",
+    categoryLabel: "Geradores & Elétrica",
+    shortDesc: "Proteção para cabos de energia, áudio e dados em áreas de circulação.",
+    fullDesc: "Passa-cabos de alta resistência para proteger cabos e garantir segurança de pessoas, veículos, empilhadeiras e operação técnica em eventos.",
+    specs: [
+      { label: "Resistência", value: "Até 4 toneladas" },
+      { label: "Uso", value: "Público, carros, paleteiras e apoio técnico" }
+    ],
+    features: [
+      "Organização e segurança do cabeamento",
+      "Reduz risco de tropeços e danos",
+      "Ideal para estruturas com alta circulação"
+    ],
+    isFeatured: false,
+    badge: "Segurança"
+  },
+  {
+    id: "tv-notebook-radio-comunicador",
+    name: "TV com Suporte, Notebook e Rádio Comunicador",
+    category: "apoio",
+    categoryLabel: "Apoio Operacional",
+    image: "assets/images/projetores.jpg",
+    shortDesc: "Itens de apoio para credenciamento, operação, apresentações e coordenação.",
+    fullDesc: "Equipamentos de apoio como televisores com suporte, notebooks e rádios comunicadores para operação técnica, sala de controle, recepção e produção.",
+    specs: [
+      { label: "Itens", value: "TV, notebook e rádio comunicador" },
+      { label: "Uso", value: "Controle, recepção, reunião e backstage" }
+    ],
+    features: [
+      "Apoio prático para equipes e apresentações",
+      "Boa integração com audiovisual e produção",
+      "Locação flexível conforme o porte do evento"
+    ],
+    isFeatured: false,
+    badge: "Apoio"
+  },
+  {
+    id: "cafeteiras-refresqueiras-fogao",
+    name: "Cafeteiras, Refresqueiras e Fogão Industrial",
+    category: "apoio",
+    categoryLabel: "Apoio Operacional",
+    image: "assets/images/bartender.png",
+    shortDesc: "Equipamentos para apoio de cozinha, recepção e área de alimentos.",
+    fullDesc: "Linha de apoio com cafeteiras de cápsula, refresqueiras e fogão industrial para áreas de staff, camarim, cozinha de apoio e atendimento ao público.",
+    specs: [
+      { label: "Aplicação", value: "Camarim, staff, buffet e backstage" },
+      { label: "Operação", value: "Itens sob demanda conforme evento" }
+    ],
+    features: [
+      "Mais conforto para equipe e convidados",
+      "Apoio operacional para eventos longos",
+      "Fácil combinação com bares e lounges"
+    ],
+    isFeatured: false,
+    badge: "Hospitalidade"
+  },
+  {
+    id: "totens-unifilas-catracas",
+    name: "Totens, Unifilas e Catracas",
+    category: "recepcao",
+    categoryLabel: "Balcões, Totens & Filas",
+    shortDesc: "Controle de acesso e organização de fluxo para entradas e ativações.",
+    fullDesc: "Estruturas para organização de recepção e filas com totens em MDF, unifilas, unifilas realeza e catracas para eventos, feiras e controle de credenciamento.",
+    specs: [
+      { label: "Itens", value: "Totem, unifila e catraca" },
+      { label: "Uso", value: "Entrada, fila, credenciamento e acesso" }
+    ],
+    features: [
+      "Melhora a experiência de chegada",
+      "Ajuda na sinalização e controle de público",
+      "Ideal para eventos com grande circulação"
+    ],
+    isFeatured: false,
+    badge: "Fluxo"
+  },
+  {
+    id: "varal-luzes-neon-pulpito",
+    name: "Varal de Luzes, LED/Neon e Púlpito Acrílico",
+    category: "iluminacao",
+    categoryLabel: "Iluminação & Cênica",
+    image: "assets/images/som-e-luz.png",
+    shortDesc: "Elementos cênicos para palco, cerimonial, fotos e ambientação.",
+    fullDesc: "Soluções decorativas e cênicas com varal de luzes, peças em LED ou neon e púlpito em acrílico para eventos sociais, corporativos e religiosos.",
+    specs: [
+      { label: "Itens", value: "Varal de luzes, neon e púlpito" },
+      { label: "Aplicação", value: "Cerimonial, palco, fotos e decoração" }
+    ],
+    features: [
+      "Valoriza a cenografia e o impacto visual",
+      "Boa integração com palco e lounge",
+      "Montagem conforme o conceito do evento"
+    ],
+    isFeatured: false,
+    badge: "Cenografia"
+  },
+  {
+    id: "sofa-pallet-estante-ombrelones",
+    name: "Sofá de Pallet, Estante Industrial e Ombrelones",
+    category: "mobiliario",
+    categoryLabel: "Bistrôs, Mesas & Lounge",
+    image: "assets/images/moveis-e-utensilios.png",
+    shortDesc: "Composições para áreas externas, descanso e ativações de marca.",
+    fullDesc: "Mobiliário de apoio com sofá de pallet, estante industrial, ombrelones, banco industrial, pia inox móvel e armário baixo com chaves para operações e lounges.",
+    specs: [
+      { label: "Uso", value: "Lounge, externo, apoio e backstage" },
+      { label: "Perfil", value: "Visual industrial e funcional" }
+    ],
+    features: [
+      "Ambientes mais confortáveis e organizados",
+      "Excelente para eventos ao ar livre",
+      "Flexibilidade para projetos especiais"
+    ],
+    isFeatured: false,
+    badge: "Área Lounge"
+  },
+  {
+    id: "staff-eletrica-engenharia",
+    name: "Staff em Geral, Serviços de Elétrica e Engenharia",
+    category: "servicos",
+    categoryLabel: "Serviços Técnicos",
+    image: "assets/images/servicos-de-eletrica.png",
+    shortDesc: "Equipe operacional e suporte técnico para execução completa do evento.",
+    fullDesc: "Serviços especializados de staff, elétrica e engenharia para montagem, acompanhamento, ART, AVCB, adequações técnicas e operação durante todas as etapas do evento.",
+    specs: [
+      { label: "Áreas", value: "Operação, elétrica, engenharia e apoio" },
+      { label: "Cobertura", value: "Planejamento, montagem e evento ao vivo" },
+      { label: "Documentação", value: "ART, suporte técnico e AVCB sob demanda" }
+    ],
+    features: [
+      "Equipe pronta para demandas sob medida",
+      "Integra documentação técnica e execução",
+      "Mantém o padrão de qualidade da Sintetizza"
+    ],
+    isFeatured: true,
+    badge: "Serviço Técnico"
+  }
+];
+
 const GOOGLE_REVIEWS = [
   {
     id: 1,
@@ -540,6 +961,9 @@ const PRODUCTS = [
     badge: "Laudo ART"
   }
 ];
+
+CATEGORIES.push(...EXTRA_CATEGORIES);
+PRODUCTS.push(...EXTRA_PRODUCTS);
 
 function getProductById(id) {
   return PRODUCTS.find(p => p.id === id);

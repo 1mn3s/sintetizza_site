@@ -80,6 +80,162 @@
   gap: var(--space-xl);
 }
 
+.comparison-grid-single {
+  grid-template-columns: 1fr;
+  max-width: 920px;
+  margin: 0 auto;
+}
+
+.portfolio-showcase-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.9fr 0.9fr;
+  gap: var(--space-lg);
+  margin-bottom: var(--space-2xl);
+}
+
+.portfolio-showcase-card {
+  position: relative;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.98) 0%, rgba(248, 250, 252, 0.98) 100%);
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--radius-xl);
+  padding: var(--space-xl);
+  box-shadow: var(--shadow-card);
+  overflow: hidden;
+}
+
+.portfolio-showcase-card::after {
+  content: '';
+  position: absolute;
+  inset: auto -30px -40px auto;
+  width: 120px;
+  height: 120px;
+  border-radius: 999px;
+  background: radial-gradient(circle, rgba(245, 158, 11, 0.18), transparent 70%);
+  pointer-events: none;
+}
+
+.portfolio-showcase-card-main {
+  background:
+    radial-gradient(circle at top left, rgba(245, 158, 11, 0.22), transparent 36%),
+    linear-gradient(135deg, #FFF7E6 0%, #FFFFFF 70%);
+  border: 1px solid rgba(245, 158, 11, 0.28);
+}
+
+.portfolio-showcase-card-accent {
+  background:
+    radial-gradient(circle at top right, rgba(15, 23, 42, 0.09), transparent 34%),
+    linear-gradient(180deg, #FFFDF7 0%, #F8FAFC 100%);
+}
+
+.portfolio-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: var(--radius-pill);
+  background: rgba(15, 23, 42, 0.92);
+  color: #F8FAFC;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin-bottom: var(--space-md);
+}
+
+.portfolio-showcase-card h3 {
+  font-size: 1.35rem;
+  line-height: 1.25;
+  color: var(--color-slate-950);
+  margin-bottom: 10px;
+}
+
+.portfolio-showcase-card p {
+  color: var(--color-slate-600);
+  font-size: 0.95rem;
+  line-height: 1.65;
+  margin-bottom: var(--space-md);
+}
+
+.portfolio-pill-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.portfolio-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 7px 12px;
+  border-radius: var(--radius-pill);
+  background: rgba(255, 255, 255, 0.88);
+  border: 1px solid rgba(245, 158, 11, 0.24);
+  color: var(--color-slate-950);
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.portfolio-icon {
+  width: 48px;
+  height: 48px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-md);
+  background: var(--color-brand-primary-light);
+  border: 1px solid var(--color-brand-primary-border);
+  font-size: 1.3rem;
+  margin-bottom: var(--space-md);
+}
+
+.portfolio-mini-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.portfolio-mini-list li {
+  position: relative;
+  padding-left: 18px;
+  color: var(--color-slate-700);
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+
+.portfolio-mini-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 9px;
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: var(--color-brand-primary);
+}
+
+.portfolio-metric {
+  display: grid;
+  gap: 4px;
+  margin-top: auto;
+  padding-top: 10px;
+  border-top: 1px solid var(--color-border-light);
+}
+
+.portfolio-metric strong {
+  font-size: 2rem;
+  line-height: 1;
+  color: var(--color-slate-950);
+}
+
+.portfolio-metric span {
+  color: var(--color-slate-600);
+  font-size: 0.88rem;
+  line-height: 1.5;
+}
+
 .comparison-card {
   border-radius: var(--radius-lg);
   padding: var(--space-xl);
@@ -148,6 +304,7 @@
 
 @media (max-width: 768px) {
   .comparison-grid { grid-template-columns: 1fr; }
+  .portfolio-showcase-grid { grid-template-columns: 1fr; }
 }
 
 /* Home: Why Choose Us / Differentiators */
@@ -246,6 +403,8 @@
 
 @media (max-width: 1024px) {
   .process-grid { grid-template-columns: repeat(2, 1fr); }
+  .portfolio-showcase-grid { grid-template-columns: 1fr 1fr; }
+  .portfolio-showcase-card-main { grid-column: 1 / -1; }
 }
 
 @media (max-width: 640px) {

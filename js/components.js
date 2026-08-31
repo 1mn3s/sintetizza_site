@@ -422,6 +422,25 @@ function createProductCardHTML(product) {
   `;
 }
 
+function createStrategicGroupCardHTML(group) {
+  const bullets = (group.bullets || []).map(item => `<li>${item}</li>`).join("");
+
+  return `
+    <article class="strategic-group-card">
+      <div class="strategic-group-top">
+        <span class="strategic-group-icon">${group.icon || "◆"}</span>
+        <span class="strategic-group-accent">${group.accent || "Soluções"}</span>
+      </div>
+      <h3 class="strategic-group-title">${group.title}</h3>
+      <p class="strategic-group-desc">${group.description}</p>
+      <ul class="strategic-group-list">
+        ${bullets}
+      </ul>
+      <a href="${group.href}" class="strategic-group-link">Explorar soluções ➔</a>
+    </article>
+  `;
+}
+
 // 6. Renderizador da Seção de Avaliações Google
 function renderGoogleReviewsGrid(containerId) {
   const container = document.getElementById(containerId);
