@@ -374,12 +374,10 @@ function renderMobileStickyBar() {
   document.body.appendChild(bar);
 }
 
-// 4. Botão Flutuante de Orçamento e WhatsApp (Desktop/Mobile)
+// 4. Botão Flutuante de WhatsApp (Desktop)
 function renderFloatingQuoteButton() {
   const existing = document.getElementById("floating-action-group");
   if (existing) existing.remove();
-
-  const count = QuoteCart.getItemCount();
 
   const group = document.createElement("div");
   group.id = "floating-action-group";
@@ -390,13 +388,12 @@ function renderFloatingQuoteButton() {
        rel="noopener"
        class="floating-btn-wa" 
        title="Falar no WhatsApp">
-      <span class="floating-btn-icon">💬</span>
-      <span class="floating-btn-text">WhatsApp Online</span>
-    </a>
-
-    <a href="orcamento.html" class="floating-quote-btn" title="Ver Lista de Orçamento">
-      <span>Orçamento</span>
-      <span class="floating-quote-count" id="floating-quote-count">${count}</span>
+      <span class="floating-btn-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" width="24" height="24" focusable="false">
+          <path fill="currentColor" d="M12.04 2C6.58 2 2.15 6.43 2.15 11.89c0 1.74.46 3.44 1.32 4.94L2 22l5.31-1.39a9.86 9.86 0 0 0 4.73 1.2h.01c5.46 0 9.89-4.43 9.89-9.89C21.94 6.43 17.5 2 12.04 2Zm5.75 14.15c-.24.69-1.4 1.31-1.96 1.36-.5.05-1.14.07-1.84-.12-.42-.13-.97-.31-1.67-.61-2.94-1.27-4.85-4.24-5-4.44-.15-.19-1.19-1.58-1.19-3.02s.75-2.15 1.02-2.45c.27-.3.59-.37.79-.37h.57c.18 0 .43-.07.67.51.25.59.84 2.04.91 2.19.08.15.13.32.03.51-.1.2-.15.32-.3.49-.15.17-.32.38-.45.51-.15.15-.31.31-.13.61.17.3.77 1.27 1.66 2.06 1.14 1.02 2.1 1.33 2.4 1.48.3.15.47.13.64-.08.2-.23.74-.86.94-1.16.2-.3.4-.25.67-.15.28.1 1.75.83 2.05.98.3.15.5.23.57.36.08.13.08.74-.16 1.43Z"/>
+        </svg>
+      </span>
+      <span class="sr-only">Falar no WhatsApp</span>
     </a>
   `;
 
@@ -608,11 +605,6 @@ window.addEventListener("quoteUpdated", (e) => {
     headerBadge.textContent = count;
     headerBadge.classList.add("animate-pop");
     setTimeout(() => headerBadge.classList.remove("animate-pop"), 300);
-  }
-
-  const floatCount = document.getElementById("floating-quote-count");
-  if (floatCount) {
-    floatCount.textContent = count;
   }
 
   const mobileBarCount = document.getElementById("mobile-bar-quote-badge");
