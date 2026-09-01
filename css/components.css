@@ -1271,10 +1271,6 @@
   transition: filter var(--transition-fast), opacity var(--transition-fast);
 }
 
-.footer-client-viewport:hover .footer-client-track {
-  animation-play-state: paused;
-}
-
 .footer-client-set img:hover {
   filter: grayscale(0);
   opacity: 1;
@@ -1285,7 +1281,7 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .footer-client-track { animation: none; }
+  .footer-client-track { animation-duration: 92s; }
 }
 
 .footer-bottom {

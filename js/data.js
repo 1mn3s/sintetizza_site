@@ -103,7 +103,7 @@ const EXTRA_PRODUCTS = [
     name: "Bistrôs, Poltronas, Sofás e Banquetas",
     category: "mobiliario",
     categoryLabel: "Bistrôs, Mesas & Lounge",
-    image: "Galeria/Galery/WhatsApp Image 2026-08-31 at 11.43.14.jpeg",
+    image: "assets/images/moveis-e-utensilios.png",
     shortDesc: "Linha lounge para recepção, área VIP, feiras e eventos corporativos.",
     fullDesc: "Catálogo com bistrô dobrável, bistrô artesanal, bistrô industrial, poltronas, sofá, banquetas e composições para ambientação de eventos com alto padrão visual.",
     specs: [
@@ -143,7 +143,7 @@ const EXTRA_PRODUCTS = [
     name: "Balcões de Atendimento e Credenciamento",
     category: "recepcao",
     categoryLabel: "Balcões, Totens & Filas",
-    image: "Galeria/Galery/WhatsApp Image 2026-08-31 at 11.41.58(13).jpeg",
+    image: "assets/images/bancadas.png",
     shortDesc: "Balcões em madeira ou MDF para recepção, bar e ativações.",
     fullDesc: "Balcões de apoio e atendimento com opções personalizáveis para credenciamento, recepção de convidados, operação de bar e áreas promocionais.",
     specs: [
@@ -163,7 +163,7 @@ const EXTRA_PRODUCTS = [
     name: "Camarim Completo com Arara, Espelho e Frigobar",
     category: "camarim",
     categoryLabel: "Camarim & Backstage",
-    image: "Galeria/Galery/WhatsApp Image 2026-08-31 at 11.45.38.jpeg",
+    image: "assets/images/container.png",
     shortDesc: "Estrutura de apoio para artistas, palestrantes e equipes de produção.",
     fullDesc: "Itens para montagem de camarim e backstage com araras, espelhos, frigobar e módulos de apoio para eventos, shows, convenções e produções itinerantes.",
     specs: [
@@ -243,7 +243,7 @@ const EXTRA_PRODUCTS = [
     name: "Podium, Praticáveis, Barricadas e Fechamentos",
     category: "estruturas",
     categoryLabel: "Palcos & Box Truss",
-    image: "Galeria/Galery/WhatsApp Image 2026-08-31 at 11.42.00(6).jpeg",
+    image: "assets/images/gradil-metal.png",
     shortDesc: "Itens estruturais complementares para palco, circulação e segurança.",
     fullDesc: "Catálogo com podium, piso praticável, barricada, gradil com capa, gradil metálico e fechamento galvanizado para montagem técnica e controle de público.",
     specs: [
@@ -263,7 +263,7 @@ const EXTRA_PRODUCTS = [
     name: "Tenda Chapéu de Bruxa e Tenda Cristal",
     category: "coberturas",
     categoryLabel: "Tendas & Galpões",
-    image: "Galeria/Galery/WhatsApp Image 2026-08-31 at 11.41.58(12).jpeg",
+    image: "assets/images/tendas.png",
     shortDesc: "Coberturas elegantes para recepção, alimentação, ativações e eventos sociais.",
     fullDesc: "Locação de tendas chapéu de bruxa e tendas cristal em diferentes medidas, com estrutura em alumínio e lona adequada ao projeto para eventos corporativos, sociais e promocionais.",
     specs: [
@@ -283,7 +283,7 @@ const EXTRA_PRODUCTS = [
     name: "Coberturas em Box Truss Q15, Q20 e Q30",
     category: "coberturas",
     categoryLabel: "Tendas & Galpões",
-    image: "Galeria/Galery/WhatsApp Image 2026-08-31 at 11.42.00(5).jpeg",
+    image: "assets/images/boxtruss.png",
     shortDesc: "Estruturas personalizadas com uma ou duas quedas para eventos de diferentes portes.",
     fullDesc: "Coberturas em Box Truss desenvolvidas conforme o projeto, com treliças Q15, Q20 e Q30 para áreas técnicas, palcos, ativações, feiras e espaços de circulação coberta.",
     specs: [
@@ -303,7 +303,7 @@ const EXTRA_PRODUCTS = [
     name: "Pórticos, Backdrops e Estruturas para Comunicação Visual",
     category: "estruturas",
     categoryLabel: "Palcos & Box Truss",
-    image: "Galeria/Galery/WhatsApp Image 2026-08-31 at 11.42.00(4).jpeg",
+    image: "assets/images/boxtruss.png",
     shortDesc: "Estruturas para entrada, sinalização, cenografia e presença de marca no evento.",
     fullDesc: "Projetos com pórticos, backdrops, treliças e estruturas especiais para comunicação visual, largadas esportivas, recepções, feiras, congressos e ativações de marca.",
     specs: [
@@ -323,6 +323,7 @@ const EXTRA_PRODUCTS = [
     name: "Passa-Cabos para Áreas Técnicas e Público",
     category: "energia",
     categoryLabel: "Geradores & Elétrica",
+    image: "assets/images/servicos-de-eletrica.png",
     shortDesc: "Proteção para cabos de energia, áudio e dados em áreas de circulação.",
     fullDesc: "Passa-cabos de alta resistência para proteger cabos e garantir segurança de pessoas, veículos, empilhadeiras e operação técnica em eventos.",
     specs: [
@@ -342,8 +343,7 @@ const EXTRA_PRODUCTS = [
     name: "TV com Suporte, Notebook e Rádio Comunicador",
     category: "apoio",
     categoryLabel: "Apoio Operacional",
-    image: "Galeria/Galery/WhatsApp Image 2026-08-31 at 11.41.58(18).jpeg",
-    image: "Galeria/Galery/WhatsApp Image 2026-08-31 at 11.41.58(3).jpeg",
+    image: "assets/images/projetores.jpg",
     shortDesc: "Itens de apoio para credenciamento, operação, apresentações e coordenação.",
     fullDesc: "Equipamentos de apoio como televisores com suporte, notebooks e rádios comunicadores para operação técnica, sala de controle, recepção e produção.",
     specs: [
@@ -363,7 +363,7 @@ const EXTRA_PRODUCTS = [
     name: "Cafeteiras, Refresqueiras e Fogão Industrial",
     category: "apoio",
     categoryLabel: "Apoio Operacional",
-    image: "Galeria/Galery/WhatsApp Image 2026-08-31 at 11.42.00(3).jpeg",
+    image: "assets/images/bartender.png",
     shortDesc: "Equipamentos para apoio de cozinha, recepção e área de alimentos.",
     fullDesc: "Linha de apoio com cafeteiras de cápsula, refresqueiras e fogão industrial para áreas de staff, camarim, cozinha de apoio e atendimento ao público.",
     specs: [
@@ -383,7 +383,7 @@ const EXTRA_PRODUCTS = [
     name: "Totens, Unifilas e Catracas",
     category: "recepcao",
     categoryLabel: "Balcões, Totens & Filas",
-    image: "Galeria/Galery/WhatsApp Image 2026-08-31 at 11.41.58(17).jpeg",
+    image: "assets/images/stands-para-feiras.png",
     shortDesc: "Controle de acesso e organização de fluxo para entradas e ativações.",
     fullDesc: "Estruturas para organização de recepção e filas com totens em MDF, unifilas, unifilas realeza e catracas para eventos, feiras e controle de credenciamento.",
     specs: [
@@ -403,7 +403,7 @@ const EXTRA_PRODUCTS = [
     name: "Varal de Luzes, LED/Neon e Púlpito Acrílico",
     category: "iluminacao",
     categoryLabel: "Iluminação & Cênica",
-    image: "Galeria/Galery/WhatsApp Image 2026-08-31 at 11.41.58(1).jpeg",
+    image: "assets/images/som-e-luz.png",
     shortDesc: "Elementos cênicos para palco, cerimonial, fotos e ambientação.",
     fullDesc: "Soluções decorativas e cênicas com varal de luzes, peças em LED ou neon e púlpito em acrílico para eventos sociais, corporativos e religiosos.",
     specs: [
@@ -423,7 +423,7 @@ const EXTRA_PRODUCTS = [
     name: "Sofá de Pallet, Estante Industrial e Ombrelones",
     category: "mobiliario",
     categoryLabel: "Bistrôs, Mesas & Lounge",
-    image: "Galeria/Galery/WhatsApp Image 2026-08-31 at 11.42.00(1).jpeg",
+    image: "assets/images/moveis-e-utensilios.png",
     shortDesc: "Composições para áreas externas, descanso e ativações de marca.",
     fullDesc: "Mobiliário de apoio com sofá de pallet, estante industrial, ombrelones, banco industrial, pia inox móvel e armário baixo com chaves para operações e lounges.",
     specs: [
@@ -443,7 +443,7 @@ const EXTRA_PRODUCTS = [
     name: "Staff em Geral, Serviços de Elétrica e Engenharia",
     category: "servicos",
     categoryLabel: "Serviços Técnicos",
-    image: "Galeria/Galery/WhatsApp Image 2026-08-31 at 11.41.58(21).jpeg",
+    image: "assets/images/alvara-para-eventos.png",
     shortDesc: "Equipe operacional e suporte técnico para execução completa do evento.",
     fullDesc: "Serviços especializados de staff, elétrica e engenharia para montagem, acompanhamento, ART, AVCB, adequações técnicas e operação durante todas as etapas do evento.",
     specs: [
@@ -945,26 +945,6 @@ const PRODUCTS = [
     isFeatured: false,
     badge: "Bar & Drinks"
   },
-  {
-    id: "coordenacao-tecnica-art-alvara",
-    name: "Engenharia Técnica, Laudo ART & Alvará de Eventos",
-    category: "operacao",
-    categoryLabel: "Equipe & Laudos ART",
-    image: "assets/images/alvara-para-eventos.png",
-    shortDesc: "Responsabilidade técnica completa e emissão de laudos oficiais.",
-    fullDesc: "Emissão de ART de montagem e elétrica, laudos de estabilidade mecânica, memorial descritivo para alvará do Corpo de Bombeiros e equipe homologada.",
-    specs: [
-      { label: "Normas Atendidas", value: "NR-10, NR-35 e NBR 6123" },
-      { label: "Documentação", value: "ART / CREA oficial assinada" }
-    ],
-    features: [
-      "Engenheiro responsável credenciado",
-      "Equipe uniformizada e certificada com EPIs",
-      "Vistoria prévia no local do evento"
-    ],
-    isFeatured: false,
-    badge: "Laudo ART"
-  }
 ];
 
 CATEGORIES.push(...EXTRA_CATEGORIES);

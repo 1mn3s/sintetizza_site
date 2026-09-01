@@ -154,7 +154,7 @@ function initProductDetailPage() {
   if (breadcrumbProduct) breadcrumbProduct.textContent = product.name;
 
   const isAdded = QuoteCart.hasItem(product.id);
-  const imgSrc = product.image || product.fallbackImage || "assets/images/original/principal-novo-2.png";
+  const imgSrc = product.image || product.fallbackImage || "assets/images/principal-novo-2.png";
   detailContainer.innerHTML = `
     <div class="product-detail-grid">
       <!-- Galeria Otimizada com Foto Real -->

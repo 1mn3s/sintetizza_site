@@ -411,7 +411,7 @@ function createProductCardHTML(product) {
     ? product.specs.slice(0, 2).map(s => `<span class="spec-chip">${s.label}: <strong>${s.value}</strong></span>`).join("")
     : "";
 
-  const imageSrc = product.image || "assets/images/logo.png";
+  const imageSrc = product.image || "assets/images/principal-novo-2.png";
 
   return `
     <article class="product-card" data-product-id="${product.id}">
