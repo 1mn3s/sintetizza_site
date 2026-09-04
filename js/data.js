@@ -12,10 +12,10 @@ const SINTETIZZA_CONFIG = {
   tagline: "Locação de Palcos, Tendas, Som, Iluminação, Painéis de LED e Climatização",
   email: "sintetizzalocacoes@gmail.com",
   emailQuotes: "sintetizzalocacoes@gmail.com",
-  phone: "(15) 99733-9422",
-  phoneRaw: "+5515997339422",
-  whatsappNumber: "5515997339422",
-  whatsappDisplay: "(15) 99733-9422",
+  phone: "(15) 99835-3108",
+  phoneRaw: "+5515998353108",
+  whatsappNumber: "5515998353108",
+  whatsappDisplay: "(15) 99835-3108",
   whatsappDefaultMsg: "Olá! Gostaria de solicitar um orçamento para o meu evento com a Sintetizza.",
   address: "Sorocaba e Região Metropolitana - SP",
   serviceHours: "Seg a Sex: 08h às 18h | Sáb: 08h às 12h | Plantão Operacional 24h",
@@ -531,7 +531,7 @@ const FAQ_ITEMS = [
   },
   {
     question: "Como posso receber um orçamento detalhado com rapidez?",
-    answer: "Você pode adicionar os itens desejados pelo nosso construtor de orçamento no site e enviar via WhatsApp em 1 clique, ou entrar em contato direto pelo telefone (15) 99733-9422. Nosso time comercial retorna em até 15 minutos em horário comercial."
+    answer: "Você pode adicionar os itens desejados pelo nosso construtor de orçamento no site e enviar via WhatsApp em 1 clique, ou entrar em contato direto pelo telefone (15) 99835-3108. Nosso time comercial retorna em até 15 minutos em horário comercial."
   }
 ];
 

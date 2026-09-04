@@ -5,10 +5,9 @@
 /* 1. Page Banners */
 .page-banner {
   background:
-    radial-gradient(circle at top center, rgba(245, 158, 11, 0.22), transparent 45%),
-    linear-gradient(180deg, #FFF9EC 0%, #F8FAFC 100%);
-  padding: calc(var(--space-2xl) + 10px) 0 var(--space-2xl) 0;
-  border-bottom: 1px solid var(--color-border-light);
+    linear-gradient(90deg, rgba(9, 15, 28, 0.94) 0%, rgba(9, 15, 28, 0.84) 100%);
+  padding: calc(var(--space-3xl) - 4px) 0 var(--space-2xl) 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   text-align: center;
   position: relative;
   overflow: hidden;
@@ -21,7 +20,9 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: radial-gradient(circle at 50% 0%, rgba(245, 158, 11, 0.15), transparent 70%);
+  background:
+    radial-gradient(circle at 50% 0%, rgba(198, 161, 91, 0.26), transparent 38%),
+    linear-gradient(180deg, transparent 0%, rgba(198, 161, 91, 0.05) 100%);
   pointer-events: none;
 }
 
@@ -31,29 +32,31 @@
   justify-content: center;
   gap: 8px;
   font-size: 0.88rem;
-  color: var(--color-slate-400);
+  color: rgba(255, 255, 255, 0.66);
   margin-bottom: var(--space-xs);
   position: relative;
   z-index: 2;
 }
 
 .page-banner .breadcrumb a {
-  color: var(--color-brand);
+  color: var(--color-brand-light);
   font-weight: 700;
   text-decoration: none;
 }
 
 .page-banner-title {
-  color: var(--color-slate-950);
+  color: #FFFFFF;
   font-size: clamp(2rem, 3.5vw, 2.8rem);
   font-weight: 800;
   margin-bottom: var(--space-xs);
   position: relative;
   z-index: 2;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
 }
 
 .page-banner-desc {
-  color: var(--color-slate-600);
+  color: rgba(255, 255, 255, 0.78);
   font-size: 1.05rem;
   max-width: 680px;
   margin: 0 auto;
@@ -69,7 +72,7 @@
   height: 220px;
   right: -80px;
   top: -70px;
-  background: radial-gradient(circle, rgba(15, 23, 42, 0.08), transparent 68%);
+  background: radial-gradient(circle, rgba(198, 161, 91, 0.16), transparent 68%);
   pointer-events: none;
 }
 
@@ -284,6 +287,8 @@
   border-radius: calc(var(--radius-lg) + 2px);
   overflow: hidden;
   border: 1px solid rgba(15, 23, 42, 0.08);
+  position: relative;
+  background: var(--color-slate-100);
 }
 
 .services-visual-card-lg {
@@ -297,6 +302,28 @@
   height: 100%;
   object-fit: cover;
   display: block;
+}
+
+.services-visual-card img {
+  transition: transform var(--transition-smooth);
+}
+
+.services-visual-card:hover img {
+  transform: scale(1.04);
+}
+
+.services-visual-card figcaption {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 32px 16px 14px;
+  color: var(--color-white);
+  background: linear-gradient(transparent, rgba(11, 15, 25, 0.84));
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
 }
 
 .client-logo-marquee {

@@ -5,20 +5,20 @@
    * ========================================================================== */
 
   /* Brand Colors */
-  --color-brand: #F59E0B;
-  --color-brand-primary: #F59E0B;
-  --color-brand-hover: #D97706;
-  --color-brand-primary-hover: #D97706;
-  --color-brand-active: #B45309;
-  --color-brand-light: #FEF3C7;
-  --color-brand-primary-light: #FEF3C7;
-  --color-brand-subtle: #FFFBEB;
-  --color-brand-primary-subtle: #FFFBEB;
-  --color-brand-border: #FDE68A;
-  --color-brand-primary-border: #FDE68A;
-  --color-brand-glow: rgba(245, 158, 11, 0.32);
-  --color-brand-primary-glow: rgba(245, 158, 11, 0.32);
-  --color-brand-dark: #78350F;
+  --color-brand: #C6A15B;
+  --color-brand-primary: #C6A15B;
+  --color-brand-hover: #A88443;
+  --color-brand-primary-hover: #A88443;
+  --color-brand-active: #86672F;
+  --color-brand-light: #F4E7CD;
+  --color-brand-primary-light: #F4E7CD;
+  --color-brand-subtle: #FBF6EE;
+  --color-brand-primary-subtle: #FBF6EE;
+  --color-brand-border: #E7D1A4;
+  --color-brand-primary-border: #E7D1A4;
+  --color-brand-glow: rgba(198, 161, 91, 0.28);
+  --color-brand-primary-glow: rgba(198, 161, 91, 0.28);
+  --color-brand-dark: #715325;
 
   /* Neutral Dark Palette (Executivo & Profissional) */
   --color-slate-950: #0B0F19;
@@ -36,12 +36,12 @@
   --color-white:     #FFFFFF;
 
   /* Light Surface Palette (Catálogo e Áreas Claras) */
-  --color-bg-light: #F8FAFC;
-  --color-bg-alt: #F1F5F9;
+  --color-bg-light: #F7F4EE;
+  --color-bg-alt: #EFE7DA;
   --color-surface-light: #FFFFFF;
-  --color-surface-alt: #F8FAFC;
-  --color-border-light: #E2E8F0;
-  --color-border-strong: #CBD5E1;
+  --color-surface-alt: #FBF8F3;
+  --color-border-light: #E7DED1;
+  --color-border-strong: #D8CCBB;
 
   /* Dark Surface Palette (Hero & Seções de Autoridade) */
   --color-bg-dark: #0B0F19;
@@ -75,8 +75,8 @@
   --color-info-soft: #EFF6FF;
 
   /* Typography */
-  --font-family-base: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-  --font-family-heading: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-family-base: 'Poppins', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-family-heading: 'Poppins', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 
   /* Spacing Scale */
   --space-2xs: 4px;
@@ -107,12 +107,14 @@
   --shadow-dropdown: 0 16px 40px rgba(15, 23, 42, 0.15);
 
   /* Transitions */
-  --transition-fast: 0.15s ease;
-  --transition-normal: 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-  --transition-smooth: 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-fast: 0.18s var(--ease-out-expo);
+  --transition-normal: 0.32s var(--ease-out-expo);
+  --transition-smooth: 0.5s var(--ease-out-expo);
+  --transition-base: var(--transition-normal);
 
   /* Layout */
-  --container-max-width: 1240px;
+  --container-max-width: 1280px;
   --container-padding: 24px;
-  --header-height: 90px;
+  --header-height: 96px;
 }

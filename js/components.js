@@ -122,16 +122,56 @@ function renderHeader(activePage = "home") {
     });
   }
 
-  window.addEventListener("scroll", () => {
+  let scrollFrame;
+  const updateHeaderOnScroll = () => {
     const mainHeader = document.getElementById("main-header");
     if (mainHeader) {
-      if (window.scrollY > 20) {
-        mainHeader.classList.add("scrolled");
-      } else {
-        mainHeader.classList.remove("scrolled");
-      }
+      mainHeader.classList.toggle("scrolled", window.scrollY > 20);
     }
+    scrollFrame = undefined;
+  };
+
+  updateHeaderOnScroll();
+  window.addEventListener("scroll", () => {
+    if (!scrollFrame) scrollFrame = window.requestAnimationFrame(updateHeaderOnScroll);
   }, { passive: true });
+}
+
+// Applies subtle, one-time entrance motion to content added during initial render and filtering.
+function initScrollReveal(scope = document) {
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+  document.documentElement.classList.add("js-motion");
+  const selector = [
+    ".section-header",
+    ".product-card",
+    ".strategic-group-card",
+    ".feature-card",
+    ".review-card",
+    ".service-card",
+    ".contact-card",
+    ".quote-action-box",
+    ".product-detail-grid",
+    ".gallery-viewer",
+    ".footer-trust-strip"
+  ].join(", ");
+  const elements = [...scope.querySelectorAll(selector)].filter((element) => !element.classList.contains("reveal-on-scroll"));
+
+  if (!elements.length) return;
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add("is-visible");
+      observer.unobserve(entry.target);
+    });
+  }, { threshold: 0.08, rootMargin: "0px 0px -6%" });
+
+  elements.forEach((element, index) => {
+    element.classList.add("reveal-on-scroll");
+    element.style.setProperty("--reveal-delay", `${Math.min(index % 4, 3) * 70}ms`);
+    observer.observe(element);
+  });
 }
 
 // 2. Renderizador do Footer com Dados Transparentes (E-E-A-T)

@@ -24,10 +24,15 @@ document.addEventListener("DOMContentLoaded", () => {
   initProductsPage();
   initProductDetailPage();
   initContactPage();
+  initScrollReveal();
 });
 
 // 1. Página Inicial (Home)
 function initHomePage() {
+  if (document.body.classList.contains("home-page")) {
+    document.documentElement.classList.add("screen-scroll");
+  }
+
   const strategicGrid = document.getElementById("home-strategic-groups-grid");
   if (strategicGrid) {
     strategicGrid.innerHTML = HOME_STRATEGIC_GROUPS.map(group => createStrategicGroupCardHTML(group)).join("");
@@ -128,10 +133,12 @@ function initProductsPage() {
           <a href="orcamento.html" class="btn btn-primary">Solicitar Orçamento Personalizado</a>
         </div>
       `;
+      initScrollReveal(catalogGrid);
       return;
     }
 
     catalogGrid.innerHTML = list.map(p => createProductCardHTML(p)).join("");
+    initScrollReveal(catalogGrid);
   }
 
   applyCatalogFilters();
@@ -277,6 +284,7 @@ function initProductDetailPage() {
     } else {
       relatedGrid.innerHTML = related.map(p => createProductCardHTML(p)).join("");
     }
+    initScrollReveal(relatedGrid);
   }
 }
 
