@@ -5,29 +5,29 @@
    * ========================================================================== */
 
   /* Brand Colors */
-  --color-brand: #C6A15B;
-  --color-brand-primary: #C6A15B;
-  --color-brand-hover: #A88443;
-  --color-brand-primary-hover: #A88443;
-  --color-brand-active: #86672F;
-  --color-brand-light: #F4E7CD;
-  --color-brand-primary-light: #F4E7CD;
-  --color-brand-subtle: #FBF6EE;
-  --color-brand-primary-subtle: #FBF6EE;
-  --color-brand-border: #E7D1A4;
-  --color-brand-primary-border: #E7D1A4;
-  --color-brand-glow: rgba(198, 161, 91, 0.28);
-  --color-brand-primary-glow: rgba(198, 161, 91, 0.28);
-  --color-brand-dark: #715325;
+  --color-brand: #FA5A00;
+  --color-brand-primary: #FA5A00;
+  --color-brand-hover: #D94D00;
+  --color-brand-primary-hover: #D94D00;
+  --color-brand-active: #B83F00;
+  --color-brand-light: #FFE8DB;
+  --color-brand-primary-light: #FFE8DB;
+  --color-brand-subtle: #FFF5EF;
+  --color-brand-primary-subtle: #FFF5EF;
+  --color-brand-border: #FFC5A3;
+  --color-brand-primary-border: #FFC5A3;
+  --color-brand-glow: rgba(250, 90, 0, 0.28);
+  --color-brand-primary-glow: rgba(250, 90, 0, 0.28);
+  --color-brand-dark: #A63800;
 
   /* Neutral Dark Palette (Executivo & Profissional) */
-  --color-slate-950: #0B0F19;
-  --color-slate-900: #0F172A;
-  --color-slate-850: #162033;
-  --color-slate-800: #1E293B;
-  --color-slate-700: #334155;
-  --color-slate-600: #475569;
-  --color-slate-500: #64748B;
+  --color-slate-950: #2D3345;
+  --color-slate-900: #363D52;
+  --color-slate-850: #424A60;
+  --color-slate-800: #525B72;
+  --color-slate-700: #4C566D;
+  --color-slate-600: #657088;
+  --color-slate-500: #7B8498;
   --color-slate-400: #94A3B8;
   --color-slate-300: #CBD5E1;
   --color-slate-200: #E2E8F0;
@@ -36,25 +36,25 @@
   --color-white:     #FFFFFF;
 
   /* Light Surface Palette (Catálogo e Áreas Claras) */
-  --color-bg-light: #F7F4EE;
-  --color-bg-alt: #EFE7DA;
+  --color-bg-light: #F4F5F5;
+  --color-bg-alt: #E1F2FB;
   --color-surface-light: #FFFFFF;
-  --color-surface-alt: #FBF8F3;
-  --color-border-light: #E7DED1;
-  --color-border-strong: #D8CCBB;
+  --color-surface-alt: #F7FAFC;
+  --color-border-light: #DCE4E9;
+  --color-border-strong: #C8D4DC;
 
   /* Dark Surface Palette (Hero & Seções de Autoridade) */
-  --color-bg-dark: #0B0F19;
-  --color-surface-dark: #162033;
-  --color-surface-dark-card: #0F172A;
-  --color-surface-dark-hover: #1E293B;
+  --color-bg-dark: #2D3345;
+  --color-surface-dark: #363D52;
+  --color-surface-dark-card: #30374B;
+  --color-surface-dark-hover: #424A60;
   --color-border-dark: rgba(255, 255, 255, 0.08);
   --color-border-dark-strong: rgba(255, 255, 255, 0.16);
 
   /* Typography Colors */
-  --color-text-primary: #0F172A;
-  --color-text-secondary: #475569;
-  --color-text-muted: #64748B;
+  --color-text-primary: #2D3345;
+  --color-text-secondary: #657088;
+  --color-text-muted: #7B8498;
   --color-text-light: #F8FAFC;
   --color-text-light-secondary: #CBD5E1;
   --color-text-light-muted: #94A3B8;
@@ -103,7 +103,7 @@
   --shadow-card: 0 4px 20px -2px rgba(15, 23, 42, 0.08), 0 2px 6px -1px rgba(15, 23, 42, 0.04);
   --shadow-card-hover: 0 12px 30px -4px rgba(15, 23, 42, 0.12), 0 4px 10px -2px rgba(15, 23, 42, 0.06);
   --shadow-dark-card: 0 10px 30px rgba(0, 0, 0, 0.4);
-  --shadow-brand: 0 4px 18px rgba(245, 158, 11, 0.35);
+  --shadow-brand: 0 8px 20px rgba(250, 90, 0, 0.3);
   --shadow-dropdown: 0 16px 40px rgba(15, 23, 42, 0.15);
 
   /* Transitions */

@@ -4,7 +4,7 @@
 
 /* Top Trust Bar */
 .top-trust-bar {
-  background-color: #101827;
+  background-color: var(--color-slate-950);
   color: #F8FAFC;
   font-size: 0.78rem;
   padding: 6px 0;
@@ -303,12 +303,33 @@
 /* Hero Section (Above The Fold) */
 .hero-section {
   position: relative;
-  background:
-    linear-gradient(90deg, rgba(9, 15, 28, 0.94) 0%, rgba(9, 15, 28, 0.78) 48%, rgba(9, 15, 28, 0.62) 100%),
-    url("../assets/images/principal-novo-3.png") center center / cover no-repeat;
+  background: var(--color-slate-950);
   padding: calc(var(--space-3xl) + 12px) 0 var(--space-4xl) 0;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   overflow: hidden;
+}
+
+.hero-background-rotator,
+.hero-background-slide {
+  position: absolute;
+  inset: 0;
+}
+
+.hero-background-rotator {
+  overflow: hidden;
+}
+
+.hero-background-slide {
+  background-position: center;
+  background-size: cover;
+  opacity: 0;
+  transform: scale(1.05);
+  transition: opacity 1.2s ease, transform 7.5s linear;
+}
+
+.hero-background-slide.is-active {
+  opacity: 1;
+  transform: scale(1);
 }
 
 .hero-section::after {
@@ -316,9 +337,11 @@
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(circle at 78% 24%, rgba(198, 161, 91, 0.22), transparent 20%),
-    linear-gradient(180deg, transparent 0%, rgba(9, 15, 28, 0.16) 100%);
+    radial-gradient(circle at 78% 24%, rgba(250, 90, 0, 0.2), transparent 22%),
+    linear-gradient(90deg, rgba(45, 51, 69, 0.95) 0%, rgba(45, 51, 69, 0.76) 52%, rgba(45, 51, 69, 0.54) 100%),
+    linear-gradient(180deg, transparent 0%, rgba(45, 51, 69, 0.22) 100%);
   pointer-events: none;
+  z-index: 1;
 }
 
 .hero-grid {
@@ -327,7 +350,7 @@
   gap: var(--space-2xl);
   align-items: center;
   position: relative;
-  z-index: 1;
+  z-index: 2;
 }
 
 .hero-tag {
@@ -503,7 +526,7 @@
 
 .strategic-group-card {
   background:
-    radial-gradient(circle at top right, rgba(198, 161, 91, 0.14), transparent 30%),
+    radial-gradient(circle at top right, rgba(250, 90, 0, 0.12), transparent 30%),
     linear-gradient(180deg, #FFFFFF 0%, #FBF8F3 100%);
   border: 1px solid var(--color-border-light);
   border-radius: var(--radius-xl);
@@ -604,7 +627,7 @@
 }
 
 .strategic-group-link:hover {
-  color: #B45309;
+  color: var(--color-brand-dark);
 }
 
 .product-tag {
@@ -618,7 +641,7 @@
   font-size: 0.75rem;
   text-transform: uppercase;
   font-weight: 800;
-  color: #B45309;
+  color: var(--color-brand-dark);
   letter-spacing: 0.05em;
   margin-bottom: 4px;
 }
@@ -736,7 +759,7 @@
 }
 
 .filter-pill.active .filter-pill-count {
-  background-color: rgba(245, 158, 11, 0.2);
+  background-color: rgba(250, 90, 0, 0.18);
   color: var(--color-brand);
   font-weight: 800;
 }
@@ -779,7 +802,7 @@
   width: 42px;
   height: 42px;
   background-color: var(--color-brand-primary-light);
-  color: #B45309;
+  color: var(--color-brand-dark);
   border: 1px solid var(--color-brand-primary-border);
   border-radius: var(--radius-md);
   font-size: 1.25rem;
@@ -879,7 +902,7 @@
 }
 
 .review-stars {
-  color: #F59E0B;
+  color: var(--color-brand);
   font-size: 1.15rem;
   letter-spacing: 2px;
 }
@@ -918,7 +941,7 @@
 }
 
 .google-stars {
-  color: #F59E0B;
+  color: var(--color-brand);
   font-size: 1rem;
   letter-spacing: 2px;
 }
@@ -969,7 +992,7 @@
 .faq-toggle-icon {
   font-size: 1.3rem;
   font-weight: 800;
-  color: #B45309;
+  color: var(--color-brand-dark);
   min-width: 20px;
   text-align: center;
 }
@@ -1144,7 +1167,7 @@
   border-radius: var(--radius-pill);
   background-color: var(--color-brand-primary-light);
   border: 1px solid var(--color-brand-primary-border);
-  color: #B45309;
+  color: var(--color-brand-dark);
   font-weight: 800;
   display: flex;
   align-items: center;

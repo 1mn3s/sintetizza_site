@@ -20,7 +20,7 @@ body {
   font-family: var(--font-family-base);
   color: var(--color-text-primary);
   background:
-    radial-gradient(circle at top, rgba(198, 161, 91, 0.08), transparent 28%),
+    radial-gradient(circle at top, rgba(225, 242, 251, 0.9), transparent 30%),
     var(--color-bg-light);
   line-height: 1.6;
   min-height: 100vh;
@@ -171,7 +171,7 @@ ul, ol {
   align-items: center;
   gap: 8px;
   color: var(--color-brand);
-  background-color: rgba(198, 161, 91, 0.14);
+  background-color: rgba(250, 90, 0, 0.1);
   padding: 5px 14px;
   border-radius: var(--radius-pill);
   font-weight: 800;
@@ -227,7 +227,7 @@ ul, ol {
   background-color: var(--color-brand);
   color: var(--color-slate-950);
   font-weight: 800;
-  box-shadow: 0 10px 22px rgba(198, 161, 91, 0.24);
+  box-shadow: 0 10px 22px rgba(250, 90, 0, 0.22);
 }
 
 .badge-brand-soft {
@@ -287,7 +287,7 @@ ul, ol {
 .btn-primary:hover {
   background-color: var(--color-brand-hover);
   color: var(--color-slate-950);
-  box-shadow: 0 14px 28px rgba(198, 161, 91, 0.32);
+  box-shadow: 0 14px 28px rgba(250, 90, 0, 0.3);
   transform: translateY(-2px);
 }
 
@@ -299,14 +299,14 @@ button:focus-visible {
 }
 
 .btn-dark {
-  background-color: #101827;
+  background-color: var(--color-slate-950);
   color: var(--color-white);
   border: 1px solid rgba(255, 255, 255, 0.08);
   box-shadow: var(--shadow-sm);
 }
 
 .btn-dark:hover {
-  background-color: #1A2436;
+  background-color: var(--color-slate-900);
   border-color: var(--color-brand);
   color: var(--color-white);
   transform: translateY(-2px);

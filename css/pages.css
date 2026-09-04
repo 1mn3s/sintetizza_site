@@ -21,8 +21,8 @@
   right: 0;
   bottom: 0;
   background:
-    radial-gradient(circle at 50% 0%, rgba(198, 161, 91, 0.26), transparent 38%),
-    linear-gradient(180deg, transparent 0%, rgba(198, 161, 91, 0.05) 100%);
+    radial-gradient(circle at 50% 0%, rgba(250, 90, 0, 0.22), transparent 38%),
+    linear-gradient(180deg, transparent 0%, rgba(250, 90, 0, 0.05) 100%);
   pointer-events: none;
 }
 
@@ -72,7 +72,7 @@
   height: 220px;
   right: -80px;
   top: -70px;
-  background: radial-gradient(circle, rgba(198, 161, 91, 0.16), transparent 68%);
+  background: radial-gradient(circle, rgba(250, 90, 0, 0.16), transparent 68%);
   pointer-events: none;
 }
 
@@ -114,15 +114,15 @@
   width: 120px;
   height: 120px;
   border-radius: 999px;
-  background: radial-gradient(circle, rgba(245, 158, 11, 0.18), transparent 70%);
+  background: radial-gradient(circle, rgba(250, 90, 0, 0.18), transparent 70%);
   pointer-events: none;
 }
 
 .portfolio-showcase-card-main {
   background:
-    radial-gradient(circle at top left, rgba(245, 158, 11, 0.22), transparent 36%),
+    radial-gradient(circle at top left, rgba(250, 90, 0, 0.22), transparent 36%),
     linear-gradient(135deg, #FFF7E6 0%, #FFFFFF 70%);
-  border: 1px solid rgba(245, 158, 11, 0.28);
+  border: 1px solid rgba(250, 90, 0, 0.28);
 }
 
 .portfolio-showcase-card-accent {
@@ -872,7 +872,7 @@ body.gallery-lightbox-open {
   left: 0;
   right: 0;
   bottom: 0;
-  background: radial-gradient(circle at 50% 50%, rgba(245, 158, 11, 0.15), transparent 75%);
+  background: radial-gradient(circle at 50% 50%, rgba(250, 90, 0, 0.15), transparent 75%);
   pointer-events: none;
 }
 
@@ -909,7 +909,7 @@ body.gallery-lightbox-open {
   border: 1px solid var(--color-border-light);
   border-radius: var(--radius-xl);
   background:
-    radial-gradient(circle at top right, rgba(245, 158, 11, 0.18), transparent 34%),
+    radial-gradient(circle at top right, rgba(250, 90, 0, 0.18), transparent 34%),
     linear-gradient(135deg, #FFFDF7 0%, #FFFFFF 72%);
   box-shadow: var(--shadow-card);
 }
@@ -1111,7 +1111,7 @@ body.gallery-lightbox-open {
   position: absolute;
   inset: 0 0 auto 0;
   height: 5px;
-  background: linear-gradient(90deg, var(--color-brand-primary), #FACC15, #F59E0B);
+  background: linear-gradient(90deg, var(--color-brand-primary), #FF7A36, #D94D00);
 }
 
 .quote-card-shell > * {
@@ -1168,7 +1168,7 @@ body.gallery-lightbox-open {
 
 .quote-form-section {
   background: linear-gradient(180deg, rgba(255, 251, 235, 0.72), rgba(255, 255, 255, 0.96));
-  border: 1px solid rgba(245, 158, 11, 0.18);
+  border: 1px solid rgba(250, 90, 0, 0.18);
   border-radius: var(--radius-lg);
   padding: 20px;
   display: flex;
@@ -1374,7 +1374,7 @@ body.gallery-lightbox-open {
 
 .quote-highlight-box {
   background:
-    radial-gradient(circle at top right, rgba(245, 158, 11, 0.18), transparent 40%),
+    radial-gradient(circle at top right, rgba(250, 90, 0, 0.18), transparent 40%),
     linear-gradient(180deg, var(--color-brand-subtle), #FFFFFF);
   border: 1.5px solid var(--color-brand-border);
   border-radius: var(--radius-lg);
@@ -1399,7 +1399,7 @@ body.gallery-lightbox-open {
 .quote-trust-note {
   margin-top: 12px;
   padding-top: 12px;
-  border-top: 1px solid rgba(245, 158, 11, 0.18);
+  border-top: 1px solid rgba(250, 90, 0, 0.18);
   font-size: 0.82rem;
   color: var(--color-text-secondary);
 }
