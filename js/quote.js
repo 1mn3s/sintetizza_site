@@ -46,15 +46,19 @@ function renderQuoteItemsList() {
 
   container.innerHTML = items.map(item => {
     const thumbImg = item.image || item.fallbackImage || "assets/images/original/principal-novo-2.png";
+    const safeName = escapeHTML(item.name);
+    const safeCategory = escapeHTML(item.categoryLabel || "Item");
+    const safeNotes = item.notes ? escapeHTML(item.notes) : "";
+    const safeThumb = escapeHTML(thumbImg);
     return `
       <div class="quote-item-row" data-id="${item.id}">
         <div class="quote-item-info">
           <div class="quote-item-thumb">
-            <img src="${thumbImg}" alt="${item.name}" onerror="this.src='assets/images/original/principal-novo-2.png'">
+            <img src="${safeThumb}" alt="${safeName}" onerror="this.src='assets/images/original/principal-novo-2.png'">
           </div>
           <div>
-            <div class="quote-item-title">${item.name}</div>
-            <div class="quote-item-cat">${item.categoryLabel || 'Item'} ${item.notes ? `• <em>${item.notes}</em>` : ''}</div>
+            <div class="quote-item-title">${safeName}</div>
+            <div class="quote-item-cat">${safeCategory} ${safeNotes ? `• <em>${safeNotes}</em>` : ''}</div>
           </div>
         </div>
 
@@ -162,6 +166,9 @@ function buildQuoteSummaryText(data) {
 }
 
 function showQuoteSuccessModal(data, mailtoUrl, whatsappUrl) {
+  const safeClientName = escapeHTML(data.clientName);
+  const safeItemCount = Number.isFinite(Number(data.items?.length)) ? Number(data.items.length) : 0;
+
   let modal = document.getElementById("quote-success-modal");
   if (!modal) {
     modal = document.createElement("div");
@@ -180,11 +187,11 @@ function showQuoteSuccessModal(data, mailtoUrl, whatsappUrl) {
       </div>
       <div class="modal-body">
         <p style="color: var(--color-slate-600); margin-bottom: 20px; font-size: 1rem; line-height: 1.6;">
-          Olá <strong>${data.clientName}</strong>! Sua lista técnica com <strong>${data.items.length} item(s)</strong> está pronta. Escolha seu canal preferido para envio imediato:
+          Olá <strong>${safeClientName}</strong>! Sua lista técnica com <strong>${safeItemCount} item(s)</strong> está pronta. Escolha seu canal preferido para envio imediato:
         </p>
 
         <div class="flex flex-col gap-md" style="margin-bottom: 20px;">
-          <a href="${whatsappUrl}" target="_blank" class="btn btn-whatsapp btn-block btn-lg" onclick="handleFinishQuote()">
+          <a href="${whatsappUrl}" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp btn-block btn-lg" onclick="handleFinishQuote()">
             <span>Enviar no WhatsApp (Atendimento Mais Rápido)</span>
           </a>
 

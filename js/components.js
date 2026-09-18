@@ -4,6 +4,17 @@
  * =============================================================================
  */
 
+// Utilitário de segurança para texto inserido em templates HTML.
+// Use em qualquer valor que possa vir do usuário antes de interpolar em innerHTML.
+function escapeHTML(value) {
+  return String(value ?? "")
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#039;");
+}
+
 // 1. Renderizador do Header
 function renderHeader(activePage = "home") {
   const headerElem = document.getElementById("site-header-container");
@@ -346,7 +357,7 @@ function renderFooter() {
             </div>
 
             <div style="margin-top: 18px;">
-              <a href="https://wa.me/${SINTETIZZA_CONFIG.whatsappNumber}?text=Ol%C3%A1%2C+gostaria+de+um+or%C3%A7amento+para+meu+evento" target="_blank" class="btn btn-whatsapp btn-sm btn-block">
+              <a href="https://wa.me/${SINTETIZZA_CONFIG.whatsappNumber}?text=Ol%C3%A1%2C+gostaria+de+um+or%C3%A7amento+para+meu+evento" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp btn-sm btn-block">
                 Falar com Especialista
               </a>
             </div>
@@ -602,7 +613,10 @@ function showToast(message, type = "success") {
 
   const toast = document.createElement("div");
   toast.className = `toast toast-${type}`;
-  toast.innerHTML = `<div>${message}</div>`;
+
+  const messageElement = document.createElement("div");
+  messageElement.textContent = String(message ?? "");
+  toast.appendChild(messageElement);
 
   container.appendChild(toast);
 

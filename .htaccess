@@ -1,50 +1,80 @@
 # ==============================================================================
-# SINTETIZZA - PERFORMANCE, CACHE & SECURITY (.htaccess)
+# SINTETIZZA - HOSTGATOR / APACHE
+# Performance, cache e hardening para site institucional estatico
 # ==============================================================================
 
+# Evita listagem de arquivos quando uma pasta nao possui index.
+Options -Indexes
+
+# Reduz informacao exposta em paginas de erro do Apache.
+ServerSignature Off
+
+# ------------------------------------------------------------------------------
+# HTTPS
+# ------------------------------------------------------------------------------
 <IfModule mod_rewrite.c>
   RewriteEngine On
-  # Force HTTPS
-  RewriteCond %{HTTPS} off
-  RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+  RewriteCond %{HTTPS} !=on
+  RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 </IfModule>
 
-# Gzip Compression
+# ------------------------------------------------------------------------------
+# Arquivos que pertencem ao repositorio, mas nao devem ser servidos em producao
+# ------------------------------------------------------------------------------
+<FilesMatch "^(README\.md|total\.txt|\.gitignore|_headers|\.nojekyll)$">
+  Require all denied
+</FilesMatch>
+
+# Bloqueia arquivos comuns de configuracao, segredo, log e backup caso sejam
+# enviados por engano para a hospedagem no futuro.
+<FilesMatch "(^\.env($|\.)|\.ini$|\.log$|\.sql$|\.bak$|\.backup$|\.old$|\.orig$|~$)">
+  Require all denied
+</FilesMatch>
+
+# ------------------------------------------------------------------------------
+# Compressao
+# ------------------------------------------------------------------------------
 <IfModule mod_deflate.c>
   AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript application/json application/xml image/svg+xml
 </IfModule>
 
-# Browser Caching
+# ------------------------------------------------------------------------------
+# Cache
+# Imagens/fontes: longo prazo. CSS/JS: moderado para permitir atualizacoes sem
+# depender de nomes de arquivo com hash.
+# ------------------------------------------------------------------------------
 <IfModule mod_expires.c>
   ExpiresActive On
   ExpiresDefault "access plus 1 month"
 
-  # Images & Favicon
   ExpiresByType image/webp "access plus 1 year"
   ExpiresByType image/png "access plus 1 year"
   ExpiresByType image/jpeg "access plus 1 year"
   ExpiresByType image/svg+xml "access plus 1 year"
   ExpiresByType image/x-icon "access plus 1 year"
 
-  # CSS, JavaScript
-  ExpiresByType text/css "access plus 1 year"
-  ExpiresByType text/javascript "access plus 1 year"
-  ExpiresByType application/javascript "access plus 1 year"
-
-  # Fonts
   ExpiresByType font/woff2 "access plus 1 year"
   ExpiresByType font/woff "access plus 1 year"
   ExpiresByType font/ttf "access plus 1 year"
 
-  # HTML & JSON
+  ExpiresByType text/css "access plus 7 days"
+  ExpiresByType text/javascript "access plus 7 days"
+  ExpiresByType application/javascript "access plus 7 days"
+
   ExpiresByType text/html "access plus 1 hour"
   ExpiresByType application/json "access plus 1 hour"
 </IfModule>
 
-# Security Headers
+# ------------------------------------------------------------------------------
+# Cabecalhos de seguranca
+# CSP propositalmente restrita apenas a diretivas que nao quebram os scripts,
+# estilos inline e Google Fonts atualmente usados pelo site.
+# ------------------------------------------------------------------------------
 <IfModule mod_headers.c>
-  Header set X-Content-Type-Options "nosniff"
-  Header set X-Frame-Options "SAMEORIGIN"
-  Header set Referrer-Policy "strict-origin-when-cross-origin"
-  Header set Permissions-Policy "geolocation=(), microphone=(), camera=()"
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set Permissions-Policy "geolocation=(), microphone=(), camera=()"
+  Header always set Content-Security-Policy "base-uri 'self'; object-src 'none'; frame-ancestors 'self'; upgrade-insecure-requests"
+  Header always set Strict-Transport-Security "max-age=31536000"
 </IfModule>
