@@ -191,7 +191,7 @@ function showQuoteSuccessModal(data, mailtoUrl, whatsappUrl) {
         </p>
 
         <div class="flex flex-col gap-md" style="margin-bottom: 20px;">
-          <a href="${whatsappUrl}" target="_blank" class="btn btn-whatsapp btn-block btn-lg" onclick="handleFinishQuote()">
+          <a href="${whatsappUrl}" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp btn-block btn-lg" onclick="handleFinishQuote()">
             <span>Enviar no WhatsApp (Atendimento Mais Rápido)</span>
           </a>
 
