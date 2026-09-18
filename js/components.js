@@ -357,7 +357,7 @@ function renderFooter() {
             </div>
 
             <div style="margin-top: 18px;">
-              <a href="https://wa.me/${SINTETIZZA_CONFIG.whatsappNumber}?text=Ol%C3%A1%2C+gostaria+de+um+or%C3%A7amento+para+meu+evento" target="_blank" class="btn btn-whatsapp btn-sm btn-block">
+              <a href="https://wa.me/${SINTETIZZA_CONFIG.whatsappNumber}?text=Ol%C3%A1%2C+gostaria+de+um+or%C3%A7amento+para+meu+evento" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp btn-sm btn-block">
                 Falar com Especialista
               </a>
             </div>
