@@ -331,7 +331,7 @@ function initContactPage() {
     );
 
     const waUrl = `https://wa.me/${SINTETIZZA_CONFIG.whatsappNumber}?text=${whatsappText}`;
-    window.open(waUrl, "_blank");
+    window.open(waUrl, "_blank", "noopener,noreferrer");
     showToast("Mensagem aberta no WhatsApp!", "success");
     form.reset();
   });
