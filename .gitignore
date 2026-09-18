@@ -1,3 +1,15 @@
 .vscode/
 .DS_Store
 Thumbs.db
+
+# Segredos/configuracoes locais
+.env
+.env.*
+!.env.example
+
+# Arquivos temporarios e de deploy local
+*.log
+*.zip
+*.bak
+*.backup
+*.old
