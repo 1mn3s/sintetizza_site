@@ -23,32 +23,11 @@ function renderHeader(activePage = "home") {
   const count = QuoteCart.getItemCount();
 
   headerElem.innerHTML = `
-    <!-- Barra Superior de Confiança & Plantão -->
-    <div class="top-trust-bar">
-      <div class="container top-trust-container">
-        <div class="top-trust-left">
-          <span><strong>Plantão 24h & ART Inclusa</strong> | Sorocaba e Região SP</span>
-          <span class="top-trust-rating">4,9/5 no Google (+128 avaliações)</span>
-        </div>
-        <div class="top-trust-right">
-          <a href="tel:${SINTETIZZA_CONFIG.phoneRaw}" class="top-trust-link" title="Ligar para a Sintetizza">
-            Telefone: ${SINTETIZZA_CONFIG.phone}
-          </a>
-          <a href="https://wa.me/${SINTETIZZA_CONFIG.whatsappNumber}?text=${encodeURIComponent(SINTETIZZA_CONFIG.whatsappDefaultMsg)}" target="_blank" rel="noopener" class="top-trust-link text-whatsapp" title="WhatsApp Sintetizza">
-            WhatsApp em 15 min
-          </a>
-        </div>
-      </div>
-    </div>
-
     <!-- Header Principal -->
     <header class="site-header" id="main-header">
       <div class="container header-container">
         <a href="index.html" class="brand-logo-link" title="Sintetizza Eventos - Início">
-          <picture>
-            <source srcset="assets/images/logo.webp" type="image/webp">
-            <img src="assets/images/logo.png" alt="Sintetizza Eventos - Estruturas e Soluções" class="brand-logo-img" width="170" height="36" loading="eager" decoding="async">
-          </picture>
+          <img src="assets/images/logo.png" alt="Sintetizza Eventos" class="brand-logo-img" width="170" height="48" loading="eager" decoding="async">
         </a>
 
         <nav class="nav-menu" id="desktop-nav" aria-label="Menu Principal">
@@ -59,17 +38,15 @@ function renderHeader(activePage = "home") {
         </nav>
 
         <div class="header-actions">
-          <a href="tel:${SINTETIZZA_CONFIG.phoneRaw}" class="btn btn-dark btn-sm hide-tablet" title="Ligue Agora">
-            <span>${SINTETIZZA_CONFIG.phone}</span>
-          </a>
-
           <a href="orcamento.html" class="btn btn-primary btn-sm quote-nav-btn" title="Ver Orçamento">
             <span class="btn-text">Orçamento</span>
             <span class="quote-count-badge" id="header-quote-badge">${count}</span>
           </a>
 
-          <a href="https://wa.me/${SINTETIZZA_CONFIG.whatsappNumber}?text=${encodeURIComponent(SINTETIZZA_CONFIG.whatsappDefaultMsg)}" target="_blank" rel="noopener" class="btn btn-whatsapp btn-sm hide-mobile" title="Falar no WhatsApp">
-            <span>WhatsApp</span>
+          <a href="https://wa.me/${SINTETIZZA_CONFIG.whatsappNumber}?text=${encodeURIComponent(SINTETIZZA_CONFIG.whatsappDefaultMsg)}" target="_blank" rel="noopener" class="header-whatsapp-icon hide-mobile" title="Falar no WhatsApp" aria-label="Falar no WhatsApp">
+            <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false">
+              <path fill="currentColor" d="M12.04 2C6.58 2 2.15 6.43 2.15 11.89c0 1.74.46 3.44 1.32 4.94L2 22l5.31-1.39a9.86 9.86 0 0 0 4.73 1.2h.01c5.46 0 9.89-4.43 9.89-9.89C21.94 6.43 17.5 2 12.04 2Zm5.75 14.15c-.24.69-1.4 1.31-1.96 1.36-.5.05-1.14.07-1.84-.12-.42-.13-.97-.31-1.67-.61-2.94-1.27-4.85-4.24-5-4.44-.15-.19-1.19-1.58-1.19-3.02s.75-2.15 1.02-2.45c.27-.3.59-.37.79-.37h.57c.18 0 .43-.07.67.51.25.59.84 2.04.91 2.19.08.15.13.32.03.51-.1.2-.15.32-.3.49-.15.17-.32.38-.45.51-.15.15-.31.31-.13.61.17.3.77 1.27 1.66 2.06 1.14 1.02 2.1 1.33 2.4 1.48.3.15.47.13.64-.08.2-.23.74-.86.94-1.16.2-.3.4-.25.67-.15.28.1 1.75.83 2.05.98.3.15.5.23.57.36.08.13.08.74-.16 1.43Z"/>
+            </svg>
           </a>
 
           <button class="mobile-toggle" id="mobile-menu-toggle" aria-label="Abrir Menu de Navegação" aria-expanded="false">
