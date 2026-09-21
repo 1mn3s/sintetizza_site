@@ -1,0 +1,442 @@
+/* Home limpa: foco em leitura, retenção e conversão */
+.home-page {
+  background: #ffffff;
+}
+
+.home-page main {
+  overflow: hidden;
+}
+
+.clean-hero {
+  position: relative;
+  min-height: 680px;
+  display: flex;
+  align-items: center;
+  background: #2D3345;
+  color: #fff;
+  overflow: hidden;
+}
+
+.clean-hero-media {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(25, 30, 43, 0.96) 0%, rgba(25, 30, 43, 0.78) 48%, rgba(25, 30, 43, 0.38) 100%),
+    url("../assets/images/galpoes.png") center/cover no-repeat;
+}
+
+.clean-hero-inner {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  padding-top: 96px;
+  padding-bottom: 96px;
+}
+
+.clean-hero-copy {
+  max-width: 780px;
+}
+
+.clean-eyebrow {
+  margin: 0 0 16px;
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #FA5A00;
+}
+
+.clean-eyebrow-dark {
+  color: var(--color-brand-dark);
+}
+
+.clean-hero h1 {
+  max-width: 820px;
+  margin-bottom: 22px;
+  color: #fff;
+  font-size: clamp(2.45rem, 5vw, 4.9rem);
+  line-height: 1.02;
+  letter-spacing: -0.045em;
+  text-transform: none;
+}
+
+.clean-lead {
+  max-width: 700px;
+  margin-bottom: 28px;
+  color: rgba(255,255,255,0.82);
+  font-size: clamp(1rem, 1.4vw, 1.18rem);
+  line-height: 1.75;
+}
+
+.clean-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+}
+
+.clean-outline-light {
+  color: #fff;
+  border-color: rgba(255,255,255,0.55);
+}
+
+.clean-outline-light:hover {
+  color: #fff;
+  background: rgba(255,255,255,0.1);
+  border-color: #fff;
+}
+
+.clean-proof-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 26px;
+  margin-top: 34px;
+  padding-top: 22px;
+  border-top: 1px solid rgba(255,255,255,0.14);
+  color: rgba(255,255,255,0.72);
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+
+.clean-section {
+  padding: clamp(72px, 8vw, 112px) 0;
+  background: #fff;
+}
+
+.clean-section-soft {
+  background: #F6F7F8;
+}
+
+.clean-section-heading {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(300px, 0.72fr);
+  gap: 56px;
+  align-items: end;
+  margin-bottom: 44px;
+}
+
+.clean-section-heading-compact {
+  margin-bottom: 34px;
+}
+
+.clean-section-heading h2,
+.clean-split-copy h2,
+.clean-faq-layout h2 {
+  max-width: 720px;
+  margin: 0;
+  color: var(--color-slate-950);
+  font-size: clamp(2rem, 3.2vw, 3.3rem);
+  line-height: 1.08;
+  text-transform: none;
+}
+
+.clean-section-heading > p,
+.clean-faq-intro {
+  margin: 0;
+  color: var(--color-slate-600);
+  line-height: 1.8;
+}
+
+.clean-services-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  border-top: 1px solid var(--color-border-light);
+  border-bottom: 1px solid var(--color-border-light);
+}
+
+.clean-service-card {
+  min-height: 310px;
+  padding: 34px 28px;
+  border-right: 1px solid var(--color-border-light);
+  background: #fff;
+  transition: background-color .2s ease, transform .2s ease;
+}
+
+.clean-service-card:last-child {
+  border-right: 0;
+}
+
+.clean-service-card:hover {
+  background: #FAFAFA;
+  transform: translateY(-3px);
+}
+
+.clean-service-number {
+  display: block;
+  margin-bottom: 56px;
+  color: var(--color-brand-dark);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+}
+
+.clean-service-card h3 {
+  margin-bottom: 12px;
+  font-size: 1.25rem;
+}
+
+.clean-service-card p {
+  min-height: 92px;
+  color: var(--color-slate-600);
+  font-size: 0.92rem;
+  line-height: 1.7;
+}
+
+.clean-text-link {
+  display: inline-block;
+  margin-top: 10px;
+  color: var(--color-slate-950);
+  font-size: 0.86rem;
+  font-weight: 800;
+  text-decoration: underline;
+  text-decoration-color: var(--color-brand);
+  text-underline-offset: 5px;
+}
+
+.clean-text-link-strong {
+  margin-top: 22px;
+}
+
+.clean-split {
+  display: grid;
+  grid-template-columns: minmax(0, 1.08fr) minmax(0, .92fr);
+  gap: clamp(42px, 6vw, 84px);
+  align-items: center;
+}
+
+.clean-split-media {
+  min-height: 520px;
+  overflow: hidden;
+  border-radius: 4px;
+  background: var(--color-slate-200);
+}
+
+.clean-split-media img {
+  width: 100%;
+  height: 100%;
+  min-height: 520px;
+  object-fit: cover;
+}
+
+.clean-split-copy > p:not(.clean-eyebrow) {
+  margin-top: 22px;
+  color: var(--color-slate-600);
+  line-height: 1.8;
+}
+
+.clean-check-list {
+  display: grid;
+  gap: 14px;
+  margin-top: 26px;
+}
+
+.clean-check-list li {
+  position: relative;
+  padding-left: 22px;
+  color: var(--color-slate-700);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.clean-check-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: .72em;
+  width: 8px;
+  height: 2px;
+  background: var(--color-brand);
+}
+
+.clean-metrics {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  margin: 18px 0 58px;
+  border-top: 1px solid var(--color-border-light);
+  border-bottom: 1px solid var(--color-border-light);
+}
+
+.clean-metrics > div {
+  display: grid;
+  gap: 7px;
+  padding: 30px 24px;
+  border-right: 1px solid var(--color-border-light);
+}
+
+.clean-metrics > div:last-child {
+  border-right: 0;
+}
+
+.clean-metrics strong {
+  color: var(--color-slate-950);
+  font-size: clamp(1.8rem, 3vw, 2.8rem);
+  line-height: 1;
+}
+
+.clean-metrics span {
+  color: var(--color-slate-600);
+  font-size: 0.86rem;
+}
+
+.clean-reviews {
+  margin-top: 12px;
+}
+
+.clean-reviews-heading {
+  max-width: 620px;
+  margin-bottom: 24px;
+}
+
+.clean-reviews-heading h3 {
+  margin-bottom: 8px;
+}
+
+.clean-reviews-heading p {
+  color: var(--color-slate-600);
+}
+
+.clean-faq-section {
+  background: #F8F9FA;
+}
+
+.clean-faq-layout {
+  display: grid;
+  grid-template-columns: minmax(260px, .72fr) minmax(0, 1.28fr);
+  gap: clamp(40px, 7vw, 96px);
+  align-items: start;
+}
+
+.clean-faq-intro {
+  margin-top: 20px;
+}
+
+.clean-cta {
+  padding: 78px 0;
+  background: var(--color-slate-950);
+  color: #fff;
+}
+
+.clean-cta-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 48px;
+}
+
+.clean-cta h2 {
+  max-width: 760px;
+  color: #fff;
+  font-size: clamp(1.9rem, 3vw, 3rem);
+  line-height: 1.12;
+}
+
+@media (max-width: 1050px) {
+  .clean-services-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .clean-service-card:nth-child(2) {
+    border-right: 0;
+  }
+
+  .clean-service-card:nth-child(-n+2) {
+    border-bottom: 1px solid var(--color-border-light);
+  }
+
+  .clean-split,
+  .clean-faq-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .clean-split-media,
+  .clean-split-media img {
+    min-height: 420px;
+  }
+}
+
+@media (max-width: 760px) {
+  .clean-hero {
+    min-height: auto;
+  }
+
+  .clean-hero-media {
+    background:
+      linear-gradient(180deg, rgba(25,30,43,.88) 0%, rgba(25,30,43,.96) 80%),
+      url("../assets/images/galpoes.png") center/cover no-repeat;
+  }
+
+  .clean-hero-inner {
+    padding-top: 74px;
+    padding-bottom: 64px;
+  }
+
+  .clean-hero h1 {
+    font-size: clamp(2.2rem, 12vw, 3.3rem);
+  }
+
+  .clean-actions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .clean-actions .btn {
+    width: 100%;
+  }
+
+  .clean-proof-row {
+    display: grid;
+    gap: 10px;
+  }
+
+  .clean-section-heading {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .clean-services-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .clean-service-card,
+  .clean-service-card:nth-child(2) {
+    min-height: auto;
+    border-right: 0;
+    border-bottom: 1px solid var(--color-border-light);
+  }
+
+  .clean-service-card:last-child {
+    border-bottom: 0;
+  }
+
+  .clean-service-number {
+    margin-bottom: 26px;
+  }
+
+  .clean-service-card p {
+    min-height: 0;
+  }
+
+  .clean-split-media,
+  .clean-split-media img {
+    min-height: 300px;
+  }
+
+  .clean-metrics {
+    grid-template-columns: 1fr;
+  }
+
+  .clean-metrics > div {
+    border-right: 0;
+    border-bottom: 1px solid var(--color-border-light);
+  }
+
+  .clean-metrics > div:last-child {
+    border-bottom: 0;
+  }
+
+  .clean-cta-inner {
+    display: grid;
+    gap: 28px;
+  }
+}
