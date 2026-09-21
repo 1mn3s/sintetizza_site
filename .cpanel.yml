@@ -1,0 +1,17 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home1/sinte141/public_html/site/
+    - /bin/cp -R assets "$DEPLOYPATH"
+    - /bin/cp -R css "$DEPLOYPATH"
+    - /bin/cp -R Galeria "$DEPLOYPATH"
+    - /bin/cp -R js "$DEPLOYPATH"
+    - /bin/cp -f .htaccess "$DEPLOYPATH" 2>/dev/null || true
+    - /bin/cp -f _headers "$DEPLOYPATH" 2>/dev/null || true
+    - /bin/cp -f *.html "$DEPLOYPATH"
+    - /bin/cp -f *.txt "$DEPLOYPATH" 2>/dev/null || true
+    - /bin/cp -f *.xml "$DEPLOYPATH" 2>/dev/null || true
+    - /bin/cp -f *.webmanifest "$DEPLOYPATH" 2>/dev/null || true
+    - /bin/cp -f *.ico "$DEPLOYPATH" 2>/dev/null || true
+    - /bin/cp -f *.png "$DEPLOYPATH" 2>/dev/null || true
+    - /bin/cp -f *.pdf "$DEPLOYPATH" 2>/dev/null || true
