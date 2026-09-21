@@ -28,7 +28,7 @@ function renderHeader(activePage = "home") {
       <div class="container top-trust-container">
         <div class="top-trust-left">
           <span><strong>Plantão 24h & ART Inclusa</strong> | Sorocaba e Região SP</span>
-          <span class="top-trust-rating">★ 4.9 no Google (+128 avaliações)</span>
+          <span class="top-trust-rating">4,9/5 no Google (+128 avaliações)</span>
         </div>
         <div class="top-trust-right">
           <a href="tel:${SINTETIZZA_CONFIG.phoneRaw}" class="top-trust-link" title="Ligar para a Sintetizza">
@@ -69,7 +69,7 @@ function renderHeader(activePage = "home") {
           </a>
 
           <a href="https://wa.me/${SINTETIZZA_CONFIG.whatsappNumber}?text=${encodeURIComponent(SINTETIZZA_CONFIG.whatsappDefaultMsg)}" target="_blank" rel="noopener" class="btn btn-whatsapp btn-sm hide-mobile" title="Falar no WhatsApp">
-            <span>WhatsApp ➔</span>
+            <span>WhatsApp</span>
           </a>
 
           <button class="mobile-toggle" id="mobile-menu-toggle" aria-label="Abrir Menu de Navegação" aria-expanded="false">
@@ -89,19 +89,19 @@ function renderHeader(activePage = "home") {
 
         <nav class="mobile-nav-links">
           <a href="index.html" class="mobile-nav-item ${activePage === 'home' ? 'active' : ''}">
-            <span>Início</span> ➔
+            <span>Início</span>
           </a>
           <a href="produtos.html" class="mobile-nav-item ${activePage === 'produtos' ? 'active' : ''}">
-            <span>Catálogo de Equipamentos</span> ➔
+            <span>Catálogo de Equipamentos</span>
           </a>
           <a href="orcamento.html" class="mobile-nav-item ${activePage === 'orcamento' ? 'active' : ''}">
             <span>Solicitar Orçamento</span> <span class="badge badge-brand">${count}</span>
           </a>
           <a href="quem-somos.html" class="mobile-nav-item ${activePage === 'quem-somos' ? 'active' : ''}">
-            <span>Quem Somos & Laudos ART</span> ➔
+            <span>Quem Somos & Laudos ART</span>
           </a>
           <a href="contato.html" class="mobile-nav-item ${activePage === 'contato' ? 'active' : ''}">
-            <span>Contato & Localização</span> ➔
+            <span>Contato & Localização</span>
           </a>
         </nav>
         
