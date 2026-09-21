@@ -230,7 +230,7 @@ function renderFooter() {
             <span class="trust-icon-box">★</span>
             <div>
               <strong>Nota 4.9 no Google Reviews</strong>
-              <p>Mais de 500 eventos atendidos com pontualidade.</p>
+              <p>Mais de 10.000 eventos realizados com experiência e pontualidade.</p>
             </div>
           </div>
           <div class="trust-strip-item">
@@ -253,7 +253,7 @@ function renderFooter() {
           <div class="footer-col">
             <div class="brand-name" style="margin-bottom: 12px;">SINTETIZZA <span>EVENTOS</span></div>
             <p style="color: var(--color-text-secondary); font-size: 0.9rem; line-height: 1.6; margin-bottom: 14px;">
-              Locação e montagem de palcos, tendas, som line array, iluminação cênica, painéis de LED, climatizadores e geradores de energia.
+              Locação e montagem de palcos, tendas, painéis de LED, climatizadores, geradores de energia e infraestrutura para eventos.
             </p>
             <div class="google-badge-card">
               <div class="google-stars">★★★★★</div>
@@ -282,8 +282,6 @@ function renderFooter() {
             <div class="footer-links">
               <a href="produtos.html?cat=estruturas">Palcos & Box Truss Q30/Q50</a>
               <a href="produtos.html?cat=coberturas">Tendas & Galpões Modulares</a>
-              <a href="produtos.html?cat=audio">Sonorização Line Array</a>
-              <a href="produtos.html?cat=iluminacao">Iluminação Cênica & Moving</a>
               <a href="produtos.html?cat=audiovisual">Painéis de LED P3.9 HD</a>
               <a href="produtos.html?cat=climatizacao">Climatizadores & Ventiladores</a>
               <a href="produtos.html?cat=energia">Geradores & Elétrica Pro</a>
