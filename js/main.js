@@ -42,11 +42,6 @@ function initHeroImageRotation() {
 
 // 1. Página Inicial (Home)
 function initHomePage() {
-  if (document.body.classList.contains("home-page")) {
-    document.documentElement.classList.add("screen-scroll");
-  }
-
-
   const strategicGrid = document.getElementById("home-strategic-groups-grid");
   if (strategicGrid) {
     strategicGrid.innerHTML = HOME_STRATEGIC_GROUPS.map(group => createStrategicGroupCardHTML(group)).join("");
