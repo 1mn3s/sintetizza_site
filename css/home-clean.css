@@ -99,7 +99,7 @@
 }
 
 .clean-section {
-  padding: clamp(72px, 8vw, 112px) 0;
+  padding: clamp(58px, 7vw, 92px) 0;
   background: #fff;
 }
 
@@ -113,6 +113,11 @@
   gap: 56px;
   align-items: end;
   margin-bottom: 44px;
+}
+
+.clean-section-heading-simple {
+  grid-template-columns: 1fr;
+  max-width: 760px;
 }
 
 .clean-section-heading-compact {
@@ -145,7 +150,7 @@
 }
 
 .clean-service-card {
-  min-height: 310px;
+  min-height: 255px;
   padding: 34px 28px;
   border-right: 1px solid var(--color-border-light);
   background: #fff;
@@ -163,7 +168,7 @@
 
 .clean-service-number {
   display: block;
-  margin-bottom: 56px;
+  margin-bottom: 34px;
   color: var(--color-brand-dark);
   font-size: 0.78rem;
   font-weight: 800;
@@ -176,7 +181,7 @@
 }
 
 .clean-service-card p {
-  min-height: 92px;
+  min-height: 66px;
   color: var(--color-slate-600);
   font-size: 0.92rem;
   line-height: 1.7;
@@ -252,7 +257,7 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 0;
-  margin: 18px 0 58px;
+  margin: 10px 0 42px;
   border-top: 1px solid var(--color-border-light);
   border-bottom: 1px solid var(--color-border-light);
 }
@@ -312,7 +317,7 @@
 }
 
 .clean-cta {
-  padding: 78px 0;
+  padding: 62px 0;
   background: var(--color-slate-950);
   color: #fff;
 }
