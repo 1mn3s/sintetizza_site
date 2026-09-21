@@ -16,10 +16,10 @@ Website institucional e catálogo interativo de orçamentos para a **Sintetizza 
 
 ### 2. Primeira Dobra (Above The Fold) Otimizada para Conversão
 - **Quem é Você?**: Nome e logotipo da Sintetizza em destaque com selo de qualidade e segurança.
-- **O que Você Faz?**: H1 forte e focado em SEO: *"Estrutura Completa de Palcos, Som, Luz e LED para o seu Evento"*.
+- **O que Você Faz?**: H1 forte e focado em SEO: *"Estrutura Completa de Palcos, Tendas e LED para o seu Evento"*.
 - **Por que Escolher a Sintetizza?**: Badges de confiança imediatos na dobra:
   - `★ Nota 4.9 no Google (+128 avaliações)`
-  - `✓ +500 Eventos Realizados`
+  - `✓ +10.000 Eventos Realizados`
   - `✓ 100% com Laudo ART / CREA`
   - `⚡ Plantão 24h & Montagem Pontual`
 - **O que Fazer Agora? (CTAs Imediatos)**:
