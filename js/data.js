@@ -9,19 +9,19 @@ const SINTETIZZA_CONFIG = {
   companyShortName: "Sintetizza",
   legalName: "Sintetizza Locações e Infraestrutura para Eventos Ltda",
   cnpj: "33.273.080/0001-08",
-  tagline: "Locação de Palcos, Tendas, Som, Iluminação, Painéis de LED e Climatização",
+  tagline: "Locação de Palcos, Tendas, Painéis de LED, Climatização e Infraestrutura para Eventos",
   email: "sintetizzalocacoes@gmail.com",
   emailQuotes: "sintetizzalocacoes@gmail.com",
-  phone: "(15) 99835-3108",
-  phoneRaw: "+5515998353108",
-  whatsappNumber: "5515998353108",
-  whatsappDisplay: "(15) 99835-3108",
+  phone: "(15) 99733-9422",
+  phoneRaw: "+5515997339422",
+  whatsappNumber: "5515997339422",
+  whatsappDisplay: "(15) 99733-9422",
   whatsappDefaultMsg: "Olá! Gostaria de solicitar um orçamento para o meu evento com a Sintetizza.",
   address: "Sorocaba e Região Metropolitana - SP",
   serviceHours: "Seg a Sex: 08h às 18h | Sáb: 08h às 12h | Plantão Operacional 24h",
   googleRating: 4.9,
   googleReviewsCount: 128,
-  eventsCompleted: "+500",
+  eventsCompleted: "+10.000",
   experienceYears: "15 anos",
   responseTime: "Até 15 minutos",
   instagram: "@sintetizza_locacoes",
@@ -58,12 +58,12 @@ const HOME_STRATEGIC_GROUPS = [
   },
   {
     id: "audiovisual-climatizacao",
-    title: "Audiovisual, Climatização e Energia",
-    description: "Som, iluminação, painéis de LED, projetores, climatizadores, aquecedores, geradores e elétrica para eventos de todos os portes.",
+    title: "Vídeo, Climatização e Energia",
+    description: "Painéis de LED, projetores, climatizadores, aquecedores, geradores e elétrica para eventos de todos os portes.",
     href: "produtos.html?cat=audiovisual",
     accent: "Operação",
-    bullets: ["Som e painel de LED", "Climatização e aquecimento", "Geradores e elétrica"],
-    icon: "🔊"
+    bullets: ["Painéis de LED e vídeo", "Climatização e aquecimento", "Geradores e elétrica"],
+    icon: "⚙️"
   },
   {
     id: "mobiliario-apoio",
@@ -399,26 +399,6 @@ const EXTRA_PRODUCTS = [
     badge: "Fluxo"
   },
   {
-    id: "varal-luzes-neon-pulpito",
-    name: "Varal de Luzes, LED/Neon e Púlpito Acrílico",
-    category: "iluminacao",
-    categoryLabel: "Iluminação & Cênica",
-    image: "assets/images/som-e-luz.png",
-    shortDesc: "Elementos cênicos para palco, cerimonial, fotos e ambientação.",
-    fullDesc: "Soluções decorativas e cênicas com varal de luzes, peças em LED ou neon e púlpito em acrílico para eventos sociais, corporativos e religiosos.",
-    specs: [
-      { label: "Itens", value: "Varal de luzes, neon e púlpito" },
-      { label: "Aplicação", value: "Cerimonial, palco, fotos e decoração" }
-    ],
-    features: [
-      "Valoriza a cenografia e o impacto visual",
-      "Boa integração com palco e lounge",
-      "Montagem conforme o conceito do evento"
-    ],
-    isFeatured: false,
-    badge: "Cenografia"
-  },
-  {
     id: "sofa-pallet-estante-ombrelones",
     name: "Sofá de Pallet, Estante Industrial e Ombrelones",
     category: "mobiliario",
@@ -469,7 +449,7 @@ const GOOGLE_REVIEWS = [
     event: "Convenção Anual de Vendas - 800 pessoas",
     rating: 5,
     date: "Há 2 semanas",
-    text: "A Sintetizza nos entregou o palco com estrutura Box Truss Q30, painel de LED impecável e sonorização perfeitamente calibrada. Montagem concluída 4 horas antes do prazo e com ART assinada por engenheiro. Nota 10!",
+    text: "A Sintetizza nos entregou o palco com estrutura Box Truss Q30 e painel de LED impecável. Montagem concluída 4 horas antes do prazo e com ART assinada por engenheiro. Nota 10!",
     city: "Sorocaba/SP",
     verified: true
   },
@@ -480,7 +460,7 @@ const GOOGLE_REVIEWS = [
     event: "Casamento no Campo - 350 convidados",
     rating: 5,
     date: "Há 1 mês",
-    text: "Contratamos tendas com fechamentos, iluminação cênica e climatizadores para o casamento. Ficou deslumbrante! Os climatizadores mantiveram a temperatura perfeita e o som estava cristalino sem nenhuma microfonia.",
+    text: "Contratamos tendas com fechamentos e climatizadores para o casamento. Ficou deslumbrante! Os climatizadores mantiveram a temperatura perfeita durante todo o evento.",
     city: "Itu/SP",
     verified: true
   },
@@ -523,15 +503,15 @@ const FAQ_ITEMS = [
   },
   {
     question: "Os equipamentos acompanham operadores técnicos durante o evento?",
-    answer: "Sim! Para sistemas de som Line Array, mesas digitais, painéis de LED, iluminação cênica e geradores de energia, disponibilizamos técnicos e operadores especializados durante toda a duração do seu evento para garantir máxima segurança operacional."
+    answer: "Sim! Para painéis de LED, geradores de energia e demais soluções técnicas contratadas, disponibilizamos equipe especializada durante toda a duração do seu evento para garantir máxima segurança operacional."
   },
   {
     question: "O que acontece em caso de falta de energia no local do evento?",
-    answer: "Oferecemos grupos geradores cabinados super silenciados (55kVA a 350kVA) com quadro de transferência automática (QTA) ou operação contínua, garantindo que o som, iluminação, telões e climatização não parem em nenhum momento."
+    answer: "Oferecemos grupos geradores cabinados super silenciados (55kVA a 350kVA) com quadro de transferência automática (QTA) ou operação contínua, garantindo que telões, climatização e demais equipamentos essenciais não parem em nenhum momento."
   },
   {
     question: "Como posso receber um orçamento detalhado com rapidez?",
-    answer: "Você pode adicionar os itens desejados pelo nosso construtor de orçamento no site e enviar via WhatsApp em 1 clique, ou entrar em contato direto pelo telefone (15) 99835-3108. Nosso time comercial retorna em até 15 minutos em horário comercial."
+    answer: "Você pode adicionar os itens desejados pelo nosso construtor de orçamento no site e enviar via WhatsApp em 1 clique, ou entrar em contato direto pelo telefone (15) 99733-9422. Nosso time comercial retorna em até 15 minutos em horário comercial."
   }
 ];
 
@@ -539,8 +519,6 @@ const CATEGORIES = [
   { id: "all", name: "Todos os Itens" },
   { id: "estruturas", name: "Palcos & Box Truss" },
   { id: "coberturas", name: "Tendas & Galpões" },
-  { id: "audio", name: "Sonorização & Áudio" },
-  { id: "iluminacao", name: "Iluminação & Cênica" },
   { id: "audiovisual", name: "Painéis de LED & Vídeo" },
   { id: "climatizacao", name: "Climatização & Ventiladores" },
   { id: "energia", name: "Geradores & Elétrica" },
@@ -633,48 +611,6 @@ const PRODUCTS = [
     ],
     isFeatured: false,
     badge: "Grandes Áreas"
-  },
-  {
-    id: "som-line-array-profissional",
-    name: "Sistema de Som Line Array",
-    category: "audio",
-    categoryLabel: "Sonorização & Áudio",
-    image: "Galeria/Galery/WhatsApp Image 2026-08-31 at 11.41.58(19).jpeg",
-    shortDesc: "Sonorização de alta fidelidade e pressão acústica homogênea.",
-    fullDesc: "Sistemas de som Line Array compactos e de grande porte, subwoofers ativos, mesas digitais 32 canais e microfonia sem fio UHF digital.",
-    specs: [
-      { label: "Capacidade", value: "Eventos de 50 a 10.000 pessoas" },
-      { label: "Mesa de Som", value: "Digital com DSP e gravação multipista" },
-      { label: "Microfones", value: "Sem fio UHF com scan anti-interferência" }
-    ],
-    features: [
-      "Técnico e operador de áudio dedicados",
-      "Calibração acústica com analisador de espectro",
-      "Passagem de som antecipada"
-    ],
-    isFeatured: true,
-    badge: "Áudio Pro"
-  },
-  {
-    id: "iluminacao-cenica-moving-led",
-    name: "Iluminação Cênica & Moving Heads",
-    category: "iluminacao",
-    categoryLabel: "Iluminação & Cênica",
-    image: "assets/images/som-e-luz.png",
-    shortDesc: "Refletores LED, moving heads Beam/Spot e efeitos visuais.",
-    fullDesc: "Kits de iluminação DMX com refletores PAR LED RGBW, moving lights Beam 230W/Spot, luz focal para palestrantes e máquinas de fumaça haze.",
-    specs: [
-      { label: "Equipamentos", value: "Moving Beam 230W, PAR LED 18x18W" },
-      { label: "Controle", value: "Mesa DMX / Avolites / GrandMA" },
-      { label: "Efeitos", value: "Haze cênico, Sparkular e Strobo" }
-    ],
-    features: [
-      "Iluminação focal para palestrantes e noivos",
-      "Criação de cenários de luz dinâmicos e elegantes",
-      "Operador técnico durante todo o evento"
-    ],
-    isFeatured: true,
-    badge: "Visual"
   },
   {
     id: "painel-led-p39-outdoor-indoor",
