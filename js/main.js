@@ -56,7 +56,6 @@ function initHomePage() {
     const featuredPriority = [
       "porticos-backdrops-estruturas-visuais",
       "painel-led-p39-outdoor-indoor",
-      "som-line-array-profissional",
       "tenda-piramidal-reforcada"
     ];
     const featured = [
