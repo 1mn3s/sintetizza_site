@@ -107,23 +107,8 @@ ul, ol {
   padding: var(--space-xl) 0;
 }
 
-/* Home navigation follows a screen-by-screen rhythm on larger displays. */
-@media (min-width: 769px) and (prefers-reduced-motion: no-preference) {
-  html.screen-scroll {
-    scroll-snap-type: y mandatory;
-  }
-
-  .home-page > section {
-    min-height: calc(100svh - var(--header-height));
-    scroll-snap-align: start;
-    scroll-snap-stop: always;
-    scroll-margin-top: var(--header-height);
-  }
-
-  .home-page > .hero-section {
-    min-height: 100svh;
-  }
-}
+/* Home navigation uses normal document scrolling so every section,
+   including the footer, remains naturally reachable. */
 
 .section-dark {
   background-color: var(--color-slate-950);
