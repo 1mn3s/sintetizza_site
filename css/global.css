@@ -107,8 +107,27 @@ ul, ol {
   padding: var(--space-xl) 0;
 }
 
-/* Home navigation uses normal document scrolling so every section,
-   including the footer, remains naturally reachable. */
+/* Home navigation keeps a gentle section-by-section rhythm without
+   trapping the user before the footer. */
+@media (min-width: 769px) and (prefers-reduced-motion: no-preference) {
+  html.screen-scroll {
+    scroll-snap-type: y proximity;
+  }
+
+  .home-page > section,
+  .home-page > #site-footer-container {
+    scroll-snap-align: start;
+    scroll-margin-top: var(--header-height);
+  }
+
+  .home-page > section {
+    min-height: calc(100svh - var(--header-height));
+  }
+
+  .home-page > .hero-section {
+    min-height: 100svh;
+  }
+}
 
 .section-dark {
   background-color: var(--color-slate-950);
