@@ -1363,11 +1363,10 @@
     padding-right: 20px;
   }
   body {
-    padding-bottom: 60px; /* Espaço para a barra fixa mobile */
+    padding-bottom: 0;
   }
   .nav-menu, .header-actions .hide-mobile { display: none; }
   .mobile-toggle { display: flex; }
-  .mobile-sticky-actions { display: grid; }
   .footer-grid { grid-template-columns: 1fr; }
   .trust-strip-grid { grid-template-columns: 1fr; }
   .footer-bottom { flex-direction: column; gap: var(--space-xs); text-align: center; }
