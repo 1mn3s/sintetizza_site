@@ -1586,3 +1586,61 @@ body.gallery-lightbox-open {
     flex-direction: column;
   }
 }
+
+
+/* Quem Somos: história institucional */
+.company-history {
+  max-width: 920px;
+  margin: 0 auto;
+}
+
+.company-history .section-title {
+  max-width: 720px;
+  margin-bottom: var(--space-xl);
+}
+
+.company-history-copy {
+  color: var(--color-text-secondary);
+  font-size: 0.98rem;
+  line-height: 1.78;
+}
+
+.company-history-copy p {
+  margin: 0 0 16px;
+}
+
+.company-history-copy p:last-child {
+  margin-bottom: 0;
+}
+
+.company-history-signature {
+  display: grid;
+  gap: 4px;
+  margin-top: var(--space-xl);
+  padding: 18px 20px;
+  border-left: 4px solid var(--color-brand-primary);
+  background: rgba(255, 255, 255, 0.72);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+}
+
+.company-history-signature strong {
+  color: var(--color-text-primary);
+  font-size: 1rem;
+}
+
+.company-history-signature span {
+  color: var(--color-text-secondary);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+@media (max-width: 640px) {
+  .company-history-copy {
+    font-size: 0.94rem;
+    line-height: 1.7;
+  }
+
+  .company-history-signature {
+    padding: 16px;
+  }
+}
