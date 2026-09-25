@@ -375,32 +375,10 @@ function renderFooter() {
 function renderMobileStickyBar() {
   const existing = document.getElementById("mobile-sticky-actions");
   if (existing) existing.remove();
-
-  const count = QuoteCart.getItemCount();
-
-  const bar = document.createElement("div");
-  bar.id = "mobile-sticky-actions";
-  bar.className = "mobile-sticky-actions";
-  bar.innerHTML = `
-    <a href="tel:${SINTETIZZA_CONFIG.phoneRaw}" class="mobile-sticky-btn btn-call" title="Ligar para Sintetizza">
-      <span class="icon">📞</span>
-      <span>Ligar</span>
-    </a>
-    <a href="https://wa.me/${SINTETIZZA_CONFIG.whatsappNumber}?text=${encodeURIComponent(SINTETIZZA_CONFIG.whatsappDefaultMsg)}" target="_blank" rel="noopener" class="mobile-sticky-btn btn-wa" title="WhatsApp Rápido">
-      <span class="icon">💬</span>
-      <span>WhatsApp</span>
-    </a>
-    <a href="orcamento.html" class="mobile-sticky-btn btn-quote" title="Ver Orçamento">
-      <span class="icon">📋</span>
-      <span>Orçamento</span>
-      <span class="mobile-sticky-badge" id="mobile-bar-quote-badge">${count}</span>
-    </a>
-  `;
-
-  document.body.appendChild(bar);
 }
 
 // 4. Botão Flutuante de WhatsApp (Desktop)
+
 function renderFloatingQuoteButton() {
   const existing = document.getElementById("floating-action-group");
   if (existing) existing.remove();
