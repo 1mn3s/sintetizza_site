@@ -24,7 +24,8 @@ jobs:
 
       - name: Replace repository contents
         run: |
-          rsync -a --delete --exclude='.git' /tmp/source/ ./
+          rsync -a --delete --exclude='.git' --exclude='.github/workflows' /tmp/source/ ./
+          rm -rf .github/workflows
 
       - name: Commit swapped content
         run: |
