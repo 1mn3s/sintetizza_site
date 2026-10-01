@@ -9,7 +9,6 @@ permissions:
 
 jobs:
   swap:
-    if: ${{ github.event.head_commit.message == 'chore: execute content swap' }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout target repository
