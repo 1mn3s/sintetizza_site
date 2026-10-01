@@ -1,0 +1,56 @@
+name: Optimize LP images
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/optimize-images.yml"
+      - "assets/images/original/eventos-corporativos.png"
+      - "assets/images/original/tendas.png"
+      - "assets/images/original/climatizadores.png"
+      - "assets/images/original/boxtruss.png"
+      - "assets/images/original/locacao-de-painel-de-led.png"
+      - "assets/images/original/gradil-metal.png"
+
+permissions:
+  contents: write
+
+jobs:
+  optimize:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install WebP tools
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y webp
+
+      - name: Generate responsive WebP assets
+        run: |
+          set -e
+          SRC="assets/images/original"
+          OUT="assets/images/optimized"
+          mkdir -p "$OUT"
+
+          cwebp -quiet -m 6 -q 74 -metadata none -resize 960 0  "$SRC/eventos-corporativos.png" -o "$OUT/eventos-corporativos-960.webp"
+          cwebp -quiet -m 6 -q 76 -metadata none -resize 1600 0 "$SRC/eventos-corporativos.png" -o "$OUT/eventos-corporativos-1600.webp"
+
+          cwebp -quiet -m 6 -q 76 -metadata none -resize 800 0 "$SRC/tendas.png" -o "$OUT/tendas-800.webp"
+          cwebp -quiet -m 6 -q 76 -metadata none -resize 800 0 "$SRC/climatizadores.png" -o "$OUT/climatizadores-800.webp"
+          cwebp -quiet -m 6 -q 76 -metadata none -resize 800 0 "$SRC/boxtruss.png" -o "$OUT/boxtruss-800.webp"
+          cwebp -quiet -m 6 -q 76 -metadata none -resize 800 0 "$SRC/locacao-de-painel-de-led.png" -o "$OUT/painel-led-800.webp"
+          cwebp -quiet -m 6 -q 76 -metadata none -resize 800 0 "$SRC/gradil-metal.png" -o "$OUT/gradil-metal-800.webp"
+
+      - name: Commit optimized images
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/images/optimized
+          if git diff --cached --quiet; then
+            echo "No image changes to commit."
+          else
+            git commit -m "perf: generate optimized WebP images"
+            git push
+          fi
