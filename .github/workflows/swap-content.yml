@@ -1,0 +1,38 @@
+name: Swap repository content
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  swap:
+    if: github.event.head_commit.message == 'chore: execute content swap'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout target repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Fetch LP snapshot
+        run: |
+          git clone https://github.com/1mn3s/sintetizza-site-pages.git /tmp/source
+          cd /tmp/source
+          git checkout a256fd8b3bc84d6c9380776fac830044dcc94c27
+
+      - name: Replace repository contents
+        run: |
+          find . -mindepth 1 -maxdepth 1 ! -name .git -exec rm -rf {} +
+          cp -a /tmp/source/. .
+          rm -rf .git
+          git checkout -- .git 2>/dev/null || true
+
+      - name: Commit swapped content
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "chore: replace antigo site with LP snapshot"
+          git push origin main
