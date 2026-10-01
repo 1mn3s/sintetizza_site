@@ -330,19 +330,24 @@
   overflow: hidden;
   padding: 14px 0;
   mask-image: linear-gradient(to right, transparent, #000 7%, #000 93%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 7%, #000 93%, transparent);
 }
 
 .client-logo-track {
   display: flex;
   width: max-content;
-  animation: client-logo-scroll 42s linear infinite;
+  gap: 0;
+  animation: client-logo-scroll 32s linear infinite;
+  will-change: transform;
+  backface-visibility: hidden;
+  transform: translate3d(0, 0, 0);
 }
 
 .client-logo-set {
   display: flex;
   align-items: center;
   gap: clamp(28px, 4vw, 64px);
-  flex: none;
+  flex: 0 0 auto;
   padding-right: clamp(28px, 4vw, 64px);
 }
 
@@ -350,7 +355,7 @@
   width: clamp(104px, 11vw, 150px);
   height: 66px;
   object-fit: contain;
-  flex: none;
+  flex: 0 0 auto;
   filter: grayscale(1);
   opacity: 0.72;
   transition: filter var(--transition-base), opacity var(--transition-base), transform var(--transition-base);
@@ -363,11 +368,20 @@
 }
 
 @keyframes client-logo-scroll {
-  to { transform: translateX(-50%); }
+  from { transform: translate3d(0, 0, 0); }
+  to { transform: translate3d(-50%, 0, 0); }
+}
+
+@media (max-width: 768px) {
+  .client-logo-track {
+    animation-duration: 26s;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .client-logo-track { animation-duration: 84s; }
+  .client-logo-track {
+    animation-duration: 64s;
+  }
 }
 
 .gallery-viewer {
@@ -533,8 +547,6 @@
   justify-content: center;
   padding: 24px;
   background: rgba(2, 6, 23, 0.88);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
   opacity: 0;
   pointer-events: none;
   transition: opacity var(--transition-fast);
@@ -855,25 +867,18 @@ body.gallery-lightbox-open {
 
 /* CTA Banner Section */
 .cta-banner {
-  background: linear-gradient(135deg, var(--color-slate-950) 0%, var(--color-slate-900) 100%);
-  border: 1.5px solid var(--color-border-dark-strong);
-  border-radius: var(--radius-xl);
+  background: #303647;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
   padding: var(--space-3xl) var(--space-2xl);
   position: relative;
   overflow: hidden;
-  box-shadow: var(--shadow-dark-card);
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.14);
   text-align: center;
 }
 
 .cta-banner::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: radial-gradient(circle at 50% 50%, rgba(250, 90, 0, 0.15), transparent 75%);
-  pointer-events: none;
+  content: none;
 }
 
 .cta-banner h2 {
@@ -1642,5 +1647,308 @@ body.gallery-lightbox-open {
 
   .company-history-signature {
     padding: 16px;
+  }
+}
+
+
+/* Refinamento visual institucional: menos cor, mais leitura */
+.company-history {
+  max-width: 920px;
+  margin: 0 auto;
+}
+
+.company-history-copy {
+  display: grid;
+  gap: 1rem;
+}
+
+.company-history-copy p {
+  margin: 0;
+  color: var(--color-slate-700);
+  font-size: 1rem;
+  line-height: 1.85;
+}
+
+.company-history-signature {
+  display: grid;
+  gap: 6px;
+  margin-top: 30px;
+  padding-top: 22px;
+  border-top: 1px solid var(--color-border-light);
+  color: var(--color-slate-700);
+}
+
+.company-history-signature strong {
+  color: var(--color-slate-950);
+  font-size: 1.1rem;
+}
+
+.about-hero-grid .grid > div,
+.section .grid > div {
+  box-shadow: none;
+}
+
+.section-light {
+  background: #f7f8fa;
+}
+
+.feature-card {
+  box-shadow: none;
+}
+
+.feature-icon-badge {
+  display: none;
+}
+
+.catalog-download-panel {
+  box-shadow: none;
+  border: 1px solid var(--color-border-light);
+}
+
+.page-banner {
+  box-shadow: none;
+}
+
+
+/* CTA mais sóbrio: sem glow e sem botões neon */
+.cta-banner .btn {
+  box-shadow: none !important;
+}
+
+.cta-banner .btn-primary {
+  background: #E85300;
+  border-color: #E85300;
+}
+
+.cta-banner .btn-primary:hover {
+  background: #C94700;
+  border-color: #C94700;
+}
+
+.cta-banner .btn-whatsapp {
+  background: #1F9D55;
+  border-color: #1F9D55;
+}
+
+.cta-banner .btn-whatsapp:hover {
+  background: #188447;
+  border-color: #188447;
+}
+
+
+/* Quem Somos: mais respiro entre texto, missão/visão, ações e imagem */
+.about-hero-grid {
+  display: block;
+}
+
+.about-values-row {
+  gap: 18px !important;
+  margin-top: 34px;
+  margin-bottom: 0 !important;
+}
+
+.about-values-row > div {
+  padding: 22px !important;
+  background: #f7f8fa !important;
+  border-left: 3px solid var(--color-brand) !important;
+  box-shadow: none !important;
+}
+
+.about-actions {
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 30px;
+  margin-bottom: 42px;
+}
+
+.about-actions .btn {
+  box-shadow: none;
+}
+
+.about-image-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0;
+  padding-top: 0;
+}
+
+.about-image-card .about-real-img {
+  width: 100%;
+  max-height: 440px;
+  border-radius: 12px;
+  box-shadow: none;
+}
+
+@media (max-width: 768px) {
+  .about-values-row {
+    grid-template-columns: 1fr !important;
+    margin-top: 26px;
+  }
+
+  .about-actions {
+    margin-top: 24px;
+    margin-bottom: 32px;
+  }
+
+  .about-actions .btn {
+    width: 100%;
+  }
+}
+
+
+/* Contato: SEO local + apresentação mais limpa */
+.contact-seo-intro {
+  max-width: 620px;
+  margin: 0 0 24px;
+  color: var(--color-slate-600);
+  font-size: .94rem;
+  line-height: 1.7;
+}
+
+.contact-icon-text {
+  width: 46px;
+  min-width: 46px;
+  height: 38px;
+  padding: 0 6px;
+  border-radius: 6px;
+  font-size: .68rem;
+  font-weight: 800;
+  letter-spacing: .02em;
+  color: var(--color-slate-700);
+  background: #f7f8fa;
+  border-color: var(--color-border-light);
+}
+
+.contact-services-seo {
+  border-top: 1px solid var(--color-border-light);
+}
+
+.contact-services-heading {
+  max-width: 760px;
+  margin-bottom: 28px;
+}
+
+.contact-service-links {
+  display: grid;
+  grid-template-columns: repeat(4,minmax(0,1fr));
+  border-top: 1px solid var(--color-border-light);
+  border-bottom: 1px solid var(--color-border-light);
+}
+
+.contact-service-links a {
+  display: grid;
+  gap: 6px;
+  padding: 22px;
+  border-right: 1px solid var(--color-border-light);
+  text-decoration: none;
+  background: #fff;
+}
+
+.contact-service-links a:last-child {
+  border-right: 0;
+}
+
+.contact-service-links strong {
+  color: var(--color-slate-950);
+  font-size: .96rem;
+}
+
+.contact-service-links span {
+  color: var(--color-slate-600);
+  font-size: .82rem;
+  line-height: 1.55;
+}
+
+.contact-service-links a:hover {
+  background: #f7f8fa;
+}
+
+@media(max-width:900px){
+  .contact-service-links{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+  .contact-service-links a:nth-child(2){
+    border-right:0;
+  }
+  .contact-service-links a:nth-child(-n+2){
+    border-bottom:1px solid var(--color-border-light);
+  }
+}
+@media(max-width:560px){
+  .contact-service-links{
+    grid-template-columns:1fr;
+  }
+  .contact-service-links a{
+    border-right:0;
+    border-bottom:1px solid var(--color-border-light);
+  }
+  .contact-service-links a:last-child{
+    border-bottom:0;
+  }
+}
+
+
+/* Catálogo: barra de busca mais limpa e alinhada */
+.catalog-toolbar {
+  display: grid;
+  grid-template-columns: minmax(320px, 560px) auto;
+  align-items: center;
+  gap: 24px;
+  margin-bottom: 22px;
+}
+
+.search-box {
+  position: relative;
+  min-width: 0;
+  max-width: none;
+  width: 100%;
+}
+
+.search-box::before {
+  content: none;
+}
+
+.search-box input {
+  width: 100%;
+  min-height: 46px;
+  padding: 0 16px;
+  border-radius: 10px;
+  border: 1px solid var(--color-border-strong);
+  background: #fff;
+  color: var(--color-slate-950);
+  font-size: .94rem;
+  box-shadow: none;
+}
+
+.search-box input::placeholder {
+  color: var(--color-slate-500);
+}
+
+.search-box input:focus {
+  border-color: var(--color-slate-600);
+  box-shadow: 0 0 0 3px rgba(45, 51, 69, .08);
+}
+
+#catalog-results-count {
+  justify-self: end;
+  white-space: nowrap;
+  font-size: .9rem !important;
+  color: var(--color-slate-600) !important;
+}
+
+.category-filter-bar {
+  margin-top: 4px;
+  padding-bottom: 10px;
+}
+
+@media (max-width: 760px) {
+  .catalog-toolbar {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  #catalog-results-count {
+    justify-self: start;
   }
 }

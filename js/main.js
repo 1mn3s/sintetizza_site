@@ -26,7 +26,114 @@ document.addEventListener("DOMContentLoaded", () => {
   initContactPage();
   initScrollReveal();
   initHeroImageRotation();
+  initSectionScrollPause();
 });
+
+
+function initSectionScrollPause() {
+  if (!document.body.classList.contains("home-page")) return;
+  if (window.innerWidth < 769) return;
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+  const sections = [...document.querySelectorAll("main > section")];
+  if (sections.length < 2) return;
+
+  let locked = false;
+  let wheelAccumulator = 0;
+  let resetAccumulatorTimer = null;
+  let unlockTimer = null;
+
+  const header = document.querySelector(".site-header, header");
+
+  const getHeaderOffset = () =>
+    header ? Math.ceil(header.getBoundingClientRect().height) : 0;
+
+  const getCurrentIndex = () => {
+    const viewportCenter = window.scrollY + (window.innerHeight * 0.5);
+    let bestIndex = 0;
+    let bestDistance = Infinity;
+
+    sections.forEach((section, index) => {
+      const sectionCenter = section.offsetTop + (section.offsetHeight * 0.5);
+      const distance = Math.abs(sectionCenter - viewportCenter);
+
+      if (distance < bestDistance) {
+        bestDistance = distance;
+        bestIndex = index;
+      }
+    });
+
+    return bestIndex;
+  };
+
+  const goToSection = (index) => {
+    if (index < 0 || index >= sections.length) return false;
+
+    locked = true;
+    wheelAccumulator = 0;
+
+    const section = sections[index];
+    const headerOffset = getHeaderOffset();
+    const availableHeight = Math.max(1, window.innerHeight - headerOffset);
+
+    let targetTop = section.offsetTop - headerOffset;
+
+    // Short sections, such as the client-brand strip, are centered briefly
+    // instead of being skipped between two full-screen blocks.
+    if (section.offsetHeight < availableHeight * 0.72) {
+      targetTop = section.offsetTop - headerOffset -
+        Math.max(0, (availableHeight - section.offsetHeight) / 2);
+    }
+
+    window.scrollTo({
+      top: Math.max(0, targetTop),
+      behavior: "smooth"
+    });
+
+    clearTimeout(unlockTimer);
+    unlockTimer = window.setTimeout(() => {
+      locked = false;
+    }, 900);
+
+    return true;
+  };
+
+  window.addEventListener("wheel", (event) => {
+    const interactive = event.target.closest(
+      "input, textarea, select, [contenteditable='true'], .gallery-lightbox"
+    );
+    if (interactive) return;
+
+    if (locked) {
+      event.preventDefault();
+      return;
+    }
+
+    wheelAccumulator += event.deltaY;
+    clearTimeout(resetAccumulatorTimer);
+    resetAccumulatorTimer = window.setTimeout(() => {
+      wheelAccumulator = 0;
+    }, 140);
+
+    if (Math.abs(wheelAccumulator) < 34) {
+      event.preventDefault();
+      return;
+    }
+
+    const current = getCurrentIndex();
+    const direction = wheelAccumulator > 0 ? 1 : -1;
+    const target = current + direction;
+
+    wheelAccumulator = 0;
+
+    // At the beginning/end, release native scrolling so the page never traps
+    // the visitor away from the footer or top.
+    if (target < 0 || target >= sections.length) return;
+
+    event.preventDefault();
+    goToSection(target);
+  }, { passive: false });
+}
 
 function initHeroImageRotation() {
   const slides = [...document.querySelectorAll(".hero-background-slide")];
@@ -42,6 +149,10 @@ function initHeroImageRotation() {
 
 // 1. Página Inicial (Home)
 function initHomePage() {
+  if (document.body.classList.contains("home-page")) {
+    document.documentElement.classList.add("screen-scroll");
+  }
+
   const strategicGrid = document.getElementById("home-strategic-groups-grid");
   if (strategicGrid) {
     strategicGrid.innerHTML = HOME_STRATEGIC_GROUPS.map(group => createStrategicGroupCardHTML(group)).join("");

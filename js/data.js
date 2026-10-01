@@ -82,7 +82,7 @@ const EXTRA_PRODUCTS = [
     name: "Aquecedores, Lareiras e Pirâmides a Gás",
     category: "aquecimento",
     categoryLabel: "Aquecedores & Lareiras",
-    image: "Galeria/Galery/WhatsApp Image 2026-08-31 at 11.45.38(2).jpeg",
+    image: "https://raw.githubusercontent.com/1mn3s/sintetizza_site/main/Galeria/Galery/WhatsApp Image 2026-08-31 at 11.45.38(2).jpeg",
     shortDesc: "Soluções para aquecimento confortável em eventos ao ar livre e ambientes amplos.",
     fullDesc: "Locação de aquecedor tipo chapéu, aquecedor pirâmide e lareira externa com acendimento elétrico e sensores de segurança para recepções, casamentos e áreas VIP.",
     specs: [
@@ -103,7 +103,7 @@ const EXTRA_PRODUCTS = [
     name: "Bistrôs, Poltronas, Sofás e Banquetas",
     category: "mobiliario",
     categoryLabel: "Bistrôs, Mesas & Lounge",
-    image: "assets/images/moveis-e-utensilios.png",
+    image: "https://raw.githubusercontent.com/1mn3s/sintetizza_site/main/assets/images/moveis-e-utensilios.png",
     shortDesc: "Linha lounge para recepção, área VIP, feiras e eventos corporativos.",
     fullDesc: "Catálogo com bistrô dobrável, bistrô artesanal, bistrô industrial, poltronas, sofá, banquetas e composições para ambientação de eventos com alto padrão visual.",
     specs: [
@@ -123,7 +123,7 @@ const EXTRA_PRODUCTS = [
     name: "Mesas, Cadeiras Tiffany e Puffs",
     category: "mobiliario",
     categoryLabel: "Bistrôs, Mesas & Lounge",
-    image: "assets/images/moveis-e-utensilios.png",
+    image: "https://raw.githubusercontent.com/1mn3s/sintetizza_site/main/assets/images/moveis-e-utensilios.png",
     shortDesc: "Opções para jantar, credenciamento, área kids e composições sociais.",
     fullDesc: "Mesas em madeira, PVC, pé palito, redondas e infantis, além de cadeiras Tiffany e puffs decorativos para diversas configurações de eventos.",
     specs: [
@@ -143,7 +143,7 @@ const EXTRA_PRODUCTS = [
     name: "Balcões de Atendimento e Credenciamento",
     category: "recepcao",
     categoryLabel: "Balcões, Totens & Filas",
-    image: "assets/images/bancadas.png",
+    image: "https://raw.githubusercontent.com/1mn3s/sintetizza_site/main/assets/images/bancadas.png",
     shortDesc: "Balcões em madeira ou MDF para recepção, bar e ativações.",
     fullDesc: "Balcões de apoio e atendimento com opções personalizáveis para credenciamento, recepção de convidados, operação de bar e áreas promocionais.",
     specs: [
@@ -163,7 +163,7 @@ const EXTRA_PRODUCTS = [
     name: "Camarim Completo com Arara, Espelho e Frigobar",
     category: "camarim",
     categoryLabel: "Camarim & Backstage",
-    image: "assets/images/container.png",
+    image: "https://raw.githubusercontent.com/1mn3s/sintetizza_site/main/assets/images/container.png",
     shortDesc: "Estrutura de apoio para artistas, palestrantes e equipes de produção.",
     fullDesc: "Itens para montagem de camarim e backstage com araras, espelhos, frigobar e módulos de apoio para eventos, shows, convenções e produções itinerantes.",
     specs: [
@@ -183,7 +183,7 @@ const EXTRA_PRODUCTS = [
     name: "Lixeiras Plásticas, Aramadas e Coleta Seletiva",
     category: "limpeza",
     categoryLabel: "Lixeiras & Coleta",
-    image: "Galeria/Galery/WhatsApp Image 2026-08-31 at 11.42.29.jpeg",
+    image: "https://raw.githubusercontent.com/1mn3s/sintetizza_site/main/Galeria/Galery/WhatsApp Image 2026-08-31 at 11.42.29.jpeg",
     shortDesc: "Soluções para limpeza, organização e descarte em eventos.",
     fullDesc: "Disponibilidade de lixeiras plásticas, aramadas e conjuntos de coleta seletiva para eventos corporativos, feiras, áreas de alimentação e grandes públicos.",
     specs: [
@@ -203,7 +203,7 @@ const EXTRA_PRODUCTS = [
     name: "Toalhas, Carpetes, Tecidos Tensionados e Grama Sintética",
     category: "decoracao",
     categoryLabel: "Tecidos, Pisos & Plantas",
-    image: "Galeria/Galery/WhatsApp Image 2026-08-31 at 11.45.38(1).jpeg",
+    image: "https://raw.githubusercontent.com/1mn3s/sintetizza_site/main/Galeria/Galery/WhatsApp Image 2026-08-31 at 11.45.38(1).jpeg",
     shortDesc: "Acabamentos para ambientação, circulação e composição cenográfica.",
     fullDesc: "Linhas de toalhas, carpetes, tecido tensionado e grama sintética para cenografia, cobertura de piso, decoração de stands e acabamento premium em eventos.",
     specs: [
@@ -223,7 +223,7 @@ const EXTRA_PRODUCTS = [
     name: "Plantas Ornamentais para Decoração",
     category: "decoracao",
     categoryLabel: "Tecidos, Pisos & Plantas",
-    image: "Galeria/Galery/WhatsApp Image 2026-08-31 at 11.44.04.jpeg",
+    image: "https://raw.githubusercontent.com/1mn3s/sintetizza_site/main/Galeria/Galery/WhatsApp Image 2026-08-31 at 11.44.04.jpeg",
     shortDesc: "Composições verdes para recepção, lounge e cenografia.",
     fullDesc: "Plantas ornamentais como Ficus Lyrata, Dracena Massangeana e outros modelos para dar acabamento natural a feiras, recepções e ambientes corporativos.",
     specs: [
@@ -243,7 +243,7 @@ const EXTRA_PRODUCTS = [
     name: "Podium, Praticáveis, Barricadas e Fechamentos",
     category: "estruturas",
     categoryLabel: "Palcos & Box Truss",
-    image: "assets/images/gradil-metal.png",
+    image: "https://raw.githubusercontent.com/1mn3s/sintetizza_site/main/assets/images/gradil-metal.png",
     shortDesc: "Itens estruturais complementares para palco, circulação e segurança.",
     fullDesc: "Catálogo com podium, piso praticável, barricada, gradil com capa, gradil metálico e fechamento galvanizado para montagem técnica e controle de público.",
     specs: [
@@ -263,7 +263,7 @@ const EXTRA_PRODUCTS = [
     name: "Tenda Chapéu de Bruxa e Tenda Cristal",
     category: "coberturas",
     categoryLabel: "Tendas & Galpões",
-    image: "assets/images/tendas.png",
+    image: "https://raw.githubusercontent.com/1mn3s/sintetizza_site/main/assets/images/tendas.png",
     shortDesc: "Coberturas elegantes para recepção, alimentação, ativações e eventos sociais.",
     fullDesc: "Locação de tendas chapéu de bruxa e tendas cristal em diferentes medidas, com estrutura em alumínio e lona adequada ao projeto para eventos corporativos, sociais e promocionais.",
     specs: [
@@ -283,7 +283,7 @@ const EXTRA_PRODUCTS = [
     name: "Coberturas em Box Truss Q15, Q20 e Q30",
     category: "coberturas",
     categoryLabel: "Tendas & Galpões",
-    image: "assets/images/boxtruss.png",
+    image: "https://raw.githubusercontent.com/1mn3s/sintetizza_site/main/assets/images/boxtruss.png",
     shortDesc: "Estruturas personalizadas com uma ou duas quedas para eventos de diferentes portes.",
     fullDesc: "Coberturas em Box Truss desenvolvidas conforme o projeto, com treliças Q15, Q20 e Q30 para áreas técnicas, palcos, ativações, feiras e espaços de circulação coberta.",
     specs: [
@@ -303,7 +303,7 @@ const EXTRA_PRODUCTS = [
     name: "Pórticos, Backdrops e Estruturas para Comunicação Visual",
     category: "estruturas",
     categoryLabel: "Palcos & Box Truss",
-    image: "assets/images/boxtruss.png",
+    image: "https://raw.githubusercontent.com/1mn3s/sintetizza_site/main/assets/images/boxtruss.png",
     shortDesc: "Estruturas para entrada, sinalização, cenografia e presença de marca no evento.",
     fullDesc: "Projetos com pórticos, backdrops, treliças e estruturas especiais para comunicação visual, largadas esportivas, recepções, feiras, congressos e ativações de marca.",
     specs: [
@@ -323,7 +323,7 @@ const EXTRA_PRODUCTS = [
     name: "Passa-Cabos para Áreas Técnicas e Público",
     category: "energia",
     categoryLabel: "Geradores & Elétrica",
-    image: "assets/images/servicos-de-eletrica.png",
+    image: "https://raw.githubusercontent.com/1mn3s/sintetizza_site/main/assets/images/servicos-de-eletrica.png",
     shortDesc: "Proteção para cabos de energia, áudio e dados em áreas de circulação.",
     fullDesc: "Passa-cabos de alta resistência para proteger cabos e garantir segurança de pessoas, veículos, empilhadeiras e operação técnica em eventos.",
     specs: [
@@ -343,7 +343,7 @@ const EXTRA_PRODUCTS = [
     name: "TV com Suporte, Notebook e Rádio Comunicador",
     category: "apoio",
     categoryLabel: "Apoio Operacional",
-    image: "assets/images/projetores.jpg",
+    image: "https://raw.githubusercontent.com/1mn3s/sintetizza_site/main/assets/images/projetores.jpg",
     shortDesc: "Itens de apoio para credenciamento, operação, apresentações e coordenação.",
     fullDesc: "Equipamentos de apoio como televisores com suporte, notebooks e rádios comunicadores para operação técnica, sala de controle, recepção e produção.",
     specs: [
@@ -363,7 +363,7 @@ const EXTRA_PRODUCTS = [
     name: "Cafeteiras, Refresqueiras e Fogão Industrial",
     category: "apoio",
     categoryLabel: "Apoio Operacional",
-    image: "assets/images/bartender.png",
+    image: "https://raw.githubusercontent.com/1mn3s/sintetizza_site/main/assets/images/bartender.png",
     shortDesc: "Equipamentos para apoio de cozinha, recepção e área de alimentos.",
     fullDesc: "Linha de apoio com cafeteiras de cápsula, refresqueiras e fogão industrial para áreas de staff, camarim, cozinha de apoio e atendimento ao público.",
     specs: [
@@ -383,7 +383,7 @@ const EXTRA_PRODUCTS = [
     name: "Totens, Unifilas e Catracas",
     category: "recepcao",
     categoryLabel: "Balcões, Totens & Filas",
-    image: "assets/images/stands-para-feiras.png",
+    image: "https://raw.githubusercontent.com/1mn3s/sintetizza_site/main/assets/images/stands-para-feiras.png",
     shortDesc: "Controle de acesso e organização de fluxo para entradas e ativações.",
     fullDesc: "Estruturas para organização de recepção e filas com totens em MDF, unifilas, unifilas realeza e catracas para eventos, feiras e controle de credenciamento.",
     specs: [
@@ -403,7 +403,7 @@ const EXTRA_PRODUCTS = [
     name: "Sofá de Pallet, Estante Industrial e Ombrelones",
     category: "mobiliario",
     categoryLabel: "Bistrôs, Mesas & Lounge",
-    image: "assets/images/moveis-e-utensilios.png",
+    image: "https://raw.githubusercontent.com/1mn3s/sintetizza_site/main/assets/images/moveis-e-utensilios.png",
     shortDesc: "Composições para áreas externas, descanso e ativações de marca.",
     fullDesc: "Mobiliário de apoio com sofá de pallet, estante industrial, ombrelones, banco industrial, pia inox móvel e armário baixo com chaves para operações e lounges.",
     specs: [
@@ -423,7 +423,7 @@ const EXTRA_PRODUCTS = [
     name: "Staff em Geral, Serviços de Elétrica e Engenharia",
     category: "servicos",
     categoryLabel: "Serviços Técnicos",
-    image: "assets/images/alvara-para-eventos.png",
+    image: "https://raw.githubusercontent.com/1mn3s/sintetizza_site/main/assets/images/alvara-para-eventos.png",
     shortDesc: "Equipe operacional e suporte técnico para execução completa do evento.",
     fullDesc: "Serviços especializados de staff, elétrica e engenharia para montagem, acompanhamento, ART, AVCB, adequações técnicas e operação durante todas as etapas do evento.",
     specs: [
@@ -533,7 +533,7 @@ const PRODUCTS = [
     name: "Palco Box Truss Q30 / Q50",
     category: "estruturas",
     categoryLabel: "Palcos & Box Truss",
-    image: "assets/images/boxtruss.png",
+    image: "https://raw.githubusercontent.com/1mn3s/sintetizza_site/main/assets/images/boxtruss.png",
     shortDesc: "Estrutura modular de alta resistência para palcos, feiras e coberturas.",
     fullDesc: "Palcos modulares em alumínio naval estrutural Q30 e Q50, com piso de compensado naval antiderrapante, escadas, guarda-corpos e ART inclusa.",
     specs: [
@@ -554,7 +554,7 @@ const PRODUCTS = [
     name: "Gradil de Metal & Fechamentos",
     category: "estruturas",
     categoryLabel: "Palcos & Box Truss",
-    image: "assets/images/gradil-metal.png",
+    image: "https://raw.githubusercontent.com/1mn3s/sintetizza_site/main/assets/images/gradil-metal.png",
     shortDesc: "Módulos de contenção, organização de filas e áreas VIP.",
     fullDesc: "Grades de contenção em aço galvanizado para controle de fluxo de público, isolamento de áreas técnicas e segurança perimetral.",
     specs: [
@@ -575,7 +575,7 @@ const PRODUCTS = [
     name: "Tenda Piramidal 10x10m / 5x5m",
     category: "coberturas",
     categoryLabel: "Tendas & Galpões",
-    image: "assets/images/tendas.png",
+    image: "https://raw.githubusercontent.com/1mn3s/sintetizza_site/main/assets/images/tendas.png",
     shortDesc: "Cobertura modular em lona PVC blackout impermeável e antichamas.",
     fullDesc: "Tendas piramidais estruturadas em aço zincado com lona de alta resistência, proteção UV e sistema modular de calhas para união de múltiplos módulos.",
     specs: [
@@ -596,7 +596,7 @@ const PRODUCTS = [
     name: "Galpão Estruturado Duas Águas",
     category: "coberturas",
     categoryLabel: "Tendas & Galpões",
-    image: "assets/images/galpoes.png",
+    image: "https://raw.githubusercontent.com/1mn3s/sintetizza_site/main/assets/images/galpoes.png",
     shortDesc: "Galpão temporário de grande vão livre sem colunas centrais.",
     fullDesc: "Estruturas de grande porte para feiras, convenções empresariais e armazenagem temporária com vão livre de 10m a 30m e pé direito alto.",
     specs: [
@@ -617,7 +617,7 @@ const PRODUCTS = [
     name: "Painel de LED P3.9 Alta Resolução",
     category: "audiovisual",
     categoryLabel: "Painéis de LED & Vídeo",
-    image: "assets/images/locacao-de-painel-de-led.png",
+    image: "https://raw.githubusercontent.com/1mn3s/sintetizza_site/main/assets/images/locacao-de-painel-de-led.png",
     shortDesc: "Telas de altíssimo brilho para ambientes externos e internos.",
     fullDesc: "Módulos de painel de LED P3.9 com processadora de vídeo 4K, switcher de cortes rápidos e suporte para transmissão de slides, vídeos e câmeras ao vivo.",
     specs: [
@@ -638,7 +638,7 @@ const PRODUCTS = [
     name: "Projetores & Telas de Projeção",
     category: "audiovisual",
     categoryLabel: "Painéis de LED & Vídeo",
-    image: "assets/images/projetores.jpg",
+    image: "https://raw.githubusercontent.com/1mn3s/sintetizza_site/main/assets/images/projetores.jpg",
     shortDesc: "Projetores laser multimídia e telas tensionadas para conferências.",
     fullDesc: "Equipamentos de projeção de alta luminosidade para auditórios, hotéis e salas corporativas, com telas tensionadas de 100\" a 300\".",
     specs: [
@@ -658,7 +658,7 @@ const PRODUCTS = [
     name: "Climatizadores Evaporativos Ecológicos",
     category: "climatizacao",
     categoryLabel: "Climatização & Ventiladores",
-    image: "assets/images/climatizadores.png",
+    image: "https://raw.githubusercontent.com/1mn3s/sintetizza_site/main/assets/images/climatizadores.png",
     shortDesc: "Redução de até 10°C na temperatura e renovação contínua de ar fresco.",
     fullDesc: "Climatizadores ecológicos portáteis de alta vazão para tendas, galpões e áreas abertas. Reduzem o calor com baixíssimo consumo de energia.",
     specs: [
@@ -679,7 +679,7 @@ const PRODUCTS = [
     name: "Ventiladores Industriais de Alta Vazão",
     category: "climatizacao",
     categoryLabel: "Climatização & Ventiladores",
-    image: "assets/images/locacao-de-ventiladores.png",
+    image: "https://raw.githubusercontent.com/1mn3s/sintetizza_site/main/assets/images/locacao-de-ventiladores.png",
     shortDesc: "Circulação de ar de alta potência para galpões e pavilhões.",
     fullDesc: "Ventiladores industriais de pedestal e parede para circulação eficiente de ar em grandes eventos, áreas de montagem e estandes.",
     specs: [
@@ -700,7 +700,7 @@ const PRODUCTS = [
     name: "Grupos Geradores Silenciados (55kVA a 350kVA)",
     category: "energia",
     categoryLabel: "Geradores & Elétrica",
-    image: "assets/images/geradores-1.png",
+    image: "https://raw.githubusercontent.com/1mn3s/sintetizza_site/main/assets/images/geradores-1.png",
     shortDesc: "Fornecimento de energia contínua e segura com operador técnico.",
     fullDesc: "Grupos geradores cabinados super silenciados de 55kVA a 350kVA com cabos blindados, passa-cabos e quadros de distribuição normatizados.",
     specs: [
@@ -721,7 +721,7 @@ const PRODUCTS = [
     name: "Instalações Elétricas & Quadros QTA",
     category: "energia",
     categoryLabel: "Geradores & Elétrica",
-    image: "assets/images/servicos-de-eletrica.png",
+    image: "https://raw.githubusercontent.com/1mn3s/sintetizza_site/main/assets/images/servicos-de-eletrica.png",
     shortDesc: "Infraestrutura elétrica segura, quadros de distribuição e laudos.",
     fullDesc: "Dimensionamento elétrico temporário para eventos com quadros de transferência automática (QTA), disjuntores DR e conformidade total com a norma NR-10.",
     specs: [
@@ -742,7 +742,7 @@ const PRODUCTS = [
     name: "Stands para Feiras & Mobiliário",
     category: "stands",
     categoryLabel: "Stands & Mobiliário",
-    image: "assets/images/stands-para-feiras.png",
+    image: "https://raw.githubusercontent.com/1mn3s/sintetizza_site/main/assets/images/stands-para-feiras.png",
     shortDesc: "Montagem de estandes modulares, balcões e pisos elevados.",
     fullDesc: "Divisórias modulares tipo Octanorm ou Box Truss, testeiras personalizadas, piso tablado elevado com carpete e mobiliário básico de apoio.",
     specs: [
@@ -762,7 +762,7 @@ const PRODUCTS = [
     name: "Bancadas, Balcões & Mobiliário",
     category: "stands",
     categoryLabel: "Stands & Mobiliário",
-    image: "assets/images/bancadas.png",
+    image: "https://raw.githubusercontent.com/1mn3s/sintetizza_site/main/assets/images/bancadas.png",
     shortDesc: "Balcões de credenciamento, bancadas de buffet e mobiliário.",
     fullDesc: "Mobiliário funcional para eventos corporativos, feiras, recepções e áreas de atendimento ao público com acabamento impecável.",
     specs: [
@@ -782,7 +782,7 @@ const PRODUCTS = [
     name: "Arquibancadas Modulares",
     category: "seguranca",
     categoryLabel: "Arquibancadas & Estruturas",
-    image: "assets/images/arquibancadas.png",
+    image: "https://raw.githubusercontent.com/1mn3s/sintetizza_site/main/assets/images/arquibancadas.png",
     shortDesc: "Arquibancadas seguras com assentos normatizados e guarda-corpo.",
     fullDesc: "Estruturas de arquibancadas modulares tubulares em aço galvanizado com piso antiderrapante, escadas de acesso e laudo ART para rodeios, esportes e shows.",
     specs: [
@@ -803,7 +803,7 @@ const PRODUCTS = [
     name: "Ambulância Médica & UTI para Eventos",
     category: "seguranca",
     categoryLabel: "Arquibancadas & Estruturas",
-    image: "assets/images/ambulancia-medica---uti-1000x713.png",
+    image: "https://raw.githubusercontent.com/1mn3s/sintetizza_site/main/assets/images/ambulancia-medica---uti-1000x713.png",
     shortDesc: "Cobertura médica de emergência com UTI móvel e equipe de saúde.",
     fullDesc: "Posto médico móvel e ambulância UTI com enfermeiro/médico para atendimento de urgência e conformidade com alvará sanitário e de bombeiros.",
     specs: [
@@ -824,7 +824,7 @@ const PRODUCTS = [
     name: "Containers & Módulos Habitacionais",
     category: "seguranca",
     categoryLabel: "Arquibancadas & Estruturas",
-    image: "assets/images/container.png",
+    image: "https://raw.githubusercontent.com/1mn3s/sintetizza_site/main/assets/images/container.png",
     shortDesc: "Módulos climatizados para camarim, bilheteria e produção.",
     fullDesc: "Containers habitacionais de 20 e 40 pés equipados com ar-condicionado, tomadas, iluminação LED e fechadura de segurança para camarins e equipes técnicas.",
     specs: [
@@ -845,7 +845,7 @@ const PRODUCTS = [
     name: "Brinquedos Infláveis & Área Kids",
     category: "seguranca",
     categoryLabel: "Arquibancadas & Estruturas",
-    image: "assets/images/brinquedos-infllaveis.png",
+    image: "https://raw.githubusercontent.com/1mn3s/sintetizza_site/main/assets/images/brinquedos-infllaveis.png",
     shortDesc: "Espaço kids completo para feiras, festivais e confraternizações.",
     fullDesc: "Tobogãs infláveis, castelos pula-pula, futebol de sabão e camas elásticas com monitores treinados para entretenimento seguro infantil em eventos.",
     specs: [
@@ -866,7 +866,7 @@ const PRODUCTS = [
     name: "Estruturas de Bar & Atendimento",
     category: "stands",
     categoryLabel: "Stands & Mobiliário",
-    image: "assets/images/bartender.png",
+    image: "https://raw.githubusercontent.com/1mn3s/sintetizza_site/main/assets/images/bartender.png",
     shortDesc: "Bares modulares iluminados e estações completas de drinks.",
     fullDesc: "Balcões modulares para operação de bar, chopeiras, cuba de gelo e atendimento rápido em festas, festivais e casamentos.",
     specs: [

@@ -3,7 +3,7 @@
   "short_name": "Sintetizza",
   "icons": [
     {
-      "src": "logoAuzl.png",
+      "src": "https://raw.githubusercontent.com/1mn3s/sintetizza_site/main/logoAuzl.png",
       "type": "image/png"
     }
   ],

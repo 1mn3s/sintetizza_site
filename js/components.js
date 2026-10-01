@@ -167,203 +167,37 @@ function renderFooter() {
   const footerElem = document.getElementById("site-footer-container");
   if (!footerElem) return;
 
-  const clientLogos = [
-    { src: "Galeria/Clientes/WhatsApp Image 2026-08-31 at 12.20.27.jpeg", alt: "Cliente atendido pela Sintetizza" },
-    { src: "Galeria/Clientes/WhatsApp Image 2026-08-31 at 12.20.56(1).jpeg", alt: "Logo de cliente da Sintetizza" },
-    { src: "Galeria/Clientes/WhatsApp Image 2026-08-31 at 12.20.56(10).jpeg", alt: "Logo de cliente atendido em eventos" },
-    { src: "Galeria/Clientes/WhatsApp Image 2026-08-31 at 12.20.56(12).jpeg", alt: "Marca cliente da Sintetizza" },
-    { src: "Galeria/Clientes/WhatsApp Image 2026-08-31 at 12.20.56(14).jpeg", alt: "Cliente corporativo atendido pela Sintetizza" },
-    { src: "Galeria/Clientes/WhatsApp Image 2026-08-31 at 12.20.56(17).jpeg", alt: "Cliente de infraestrutura para eventos" },
-    { src: "Galeria/Clientes/WhatsApp Image 2026-08-31 at 12.20.56(20).jpeg", alt: "Logo de cliente parceiro da Sintetizza" },
-    { src: "Galeria/Clientes/WhatsApp Image 2026-08-31 at 12.20.56(23).jpeg", alt: "Cliente parceiro em eventos e ativações" },
-    { src: "Galeria/Clientes/WhatsApp Image 2026-08-31 at 12.20.56(24).jpeg", alt: "Cliente institucional da Sintetizza" },
-    { src: "Galeria/Clientes/WhatsApp Image 2026-08-31 at 12.20.56(25).jpeg", alt: "Marca já atendida em eventos" },
-    { src: "Galeria/Clientes/WhatsApp Image 2026-08-31 at 12.20.56(27).jpeg", alt: "Cliente com eventos realizados pela Sintetizza" },
-    { src: "Galeria/Clientes/WhatsApp Image 2026-08-31 at 12.20.56(29).jpeg", alt: "Parceiro de eventos atendido pela Sintetizza" }
-  ];
-  const footerLogos = clientLogos.map(({ src, alt }) => `<img src="${src}" alt="${alt}" loading="lazy">`).join("");
-  const footerLogosDuplicate = clientLogos.map(({ src }) => `<img src="${src}" alt="" loading="lazy">`).join("");
-
   footerElem.innerHTML = `
-    <!-- Barra de Confiança Pré-Footer -->
-    <div class="footer-trust-strip">
+    <footer class="site-footer site-footer-compact">
       <div class="container">
-        <div class="trust-strip-grid">
-          <div class="trust-strip-item">
-            <span class="trust-icon-box">✓</span>
-            <div>
-              <strong>Montagem Segura & ART Inclusa</strong>
-              <p>Normas NR-10 e NR-35 com responsabilidade técnica.</p>
-            </div>
+        <div class="footer-compact-grid">
+          <div class="footer-compact-brand">
+            <a href="index.html" class="brand-logo-link" aria-label="Sintetizza Eventos - Início">
+              <img src="assets/images/logo.png" alt="Sintetizza Eventos" class="brand-logo-img" width="170" height="48" loading="lazy" decoding="async">
+            </a>
+            <p>Estruturas e infraestrutura para eventos em Sorocaba e região.</p>
           </div>
-          <div class="trust-strip-item">
-            <span class="trust-icon-box">⚡</span>
-            <div>
-              <strong>Plantão Operacional 24h</strong>
-              <p>Suporte e técnicos presentes em todo o evento.</p>
-            </div>
-          </div>
-          <div class="trust-strip-item">
-            <span class="trust-icon-box">★</span>
-            <div>
-              <strong>Nota 4.9 no Google Reviews</strong>
-              <p>Mais de 10.000 eventos realizados com experiência e pontualidade.</p>
-            </div>
-          </div>
-          <div class="trust-strip-item">
-            <span class="trust-icon-box">🚚</span>
-            <div>
-              <strong>Frota Própria & Montagem Rápida</strong>
-              <p>Sorocaba, Itu, Campinas, São Paulo e todo o interior.</p>
-            </div>
+
+          <nav class="footer-compact-nav" aria-label="Navegação do rodapé">
+            <a href="produtos.html">Soluções</a>
+            <a href="quem-somos.html">Quem Somos</a>
+            <a href="contato.html">Contato</a>
+            <a href="orcamento.html">Orçamento</a>
+          </nav>
+
+          <div class="footer-compact-contact">
+            <a href="https://wa.me/${SINTETIZZA_CONFIG.whatsappNumber}?text=${encodeURIComponent(SINTETIZZA_CONFIG.whatsappDefaultMsg)}" target="_blank" rel="noopener" class="btn btn-whatsapp btn-sm">
+              Falar no WhatsApp
+            </a>
+            <a href="mailto:${SINTETIZZA_CONFIG.emailQuotes}">${SINTETIZZA_CONFIG.emailQuotes}</a>
           </div>
         </div>
-      </div>
-    </div>
 
-    <!-- Footer Principal -->
-    <footer class="site-footer">
-      <div class="container">
-        <div class="footer-grid">
-          
-          <!-- Coluna 1: Sobre & Google Rating -->
-          <div class="footer-col">
-            <div class="brand-name" style="margin-bottom: 12px;">SINTETIZZA <span>EVENTOS</span></div>
-            <p style="color: var(--color-text-secondary); font-size: 0.9rem; line-height: 1.6; margin-bottom: 14px;">
-              Locação e montagem de palcos, tendas, painéis de LED, climatizadores, geradores de energia e infraestrutura para eventos.
-            </p>
-            <div class="google-badge-card">
-              <div class="google-stars">★★★★★</div>
-              <div style="font-weight: 800; color: var(--color-text-primary); font-size: 0.95rem;">Nota 4.9 no Google</div>
-              <div style="font-size: 0.8rem; color: var(--color-text-secondary);">(+128 avaliações reais de clientes)</div>
-            </div>
-          </div>
-
-          <!-- Coluna 2: Navegação -->
-          <div class="footer-col">
-            <h4>Navegação</h4>
-            <div class="footer-links">
-              <a href="index.html">Página Inicial</a>
-              <a href="produtos.html">Catálogo de Equipamentos</a>
-              <a href="orcamento.html">Solicitar Orçamento Online</a>
-              <a href="quem-somos.html">Quem Somos & Infraestrutura</a>
-              <a href="contato.html">Fale Conosco</a>
-              <a href="politica-de-privacidade.html">Política de Privacidade</a>
-              <a href="termos-de-uso.html">Termos de Uso</a>
-            </div>
-          </div>
-
-          <!-- Coluna 3: Soluções por Categoria -->
-          <div class="footer-col">
-            <h4>Soluções Técnicas</h4>
-            <div class="footer-links">
-              <a href="produtos.html?cat=estruturas">Palcos & Box Truss Q30/Q50</a>
-              <a href="produtos.html?cat=coberturas">Tendas & Galpões Modulares</a>
-              <a href="produtos.html?cat=audiovisual">Painéis de LED P3.9 HD</a>
-              <a href="produtos.html?cat=climatizacao">Climatizadores & Ventiladores</a>
-              <a href="produtos.html?cat=energia">Geradores & Elétrica Pro</a>
-              <a href="produtos.html?cat=seguranca">Arquibancadas & Estruturas</a>
-            </div>
-          </div>
-
-          <!-- Coluna 4: Informações de Confiança & Contato -->
-          <div class="footer-col">
-            <h4>Atendimento & Empresa</h4>
-            <div class="footer-contact-list">
-              <div class="footer-contact-item">
-                <span class="footer-contact-bullet">•</span>
-                <div>
-                  <strong>Razão Social:</strong><br>
-                  <span>${SINTETIZZA_CONFIG.legalName}</span>
-                </div>
-              </div>
-              <div class="footer-contact-item">
-                <span class="footer-contact-bullet">•</span>
-                <div>
-                  <strong>CNPJ:</strong> <span>${SINTETIZZA_CONFIG.cnpj}</span>
-                </div>
-              </div>
-              <div class="footer-contact-item">
-                <span class="footer-contact-bullet">•</span>
-                <div>
-                  <strong>WhatsApp Comercial:</strong><br>
-                  <a href="https://wa.me/${SINTETIZZA_CONFIG.whatsappNumber}?text=${encodeURIComponent(SINTETIZZA_CONFIG.whatsappDefaultMsg)}" target="_blank" rel="noopener" style="color: var(--color-success); font-weight: 700;">
-                    ${SINTETIZZA_CONFIG.whatsappDisplay} (Clique p/ conversar)
-                  </a>
-                </div>
-              </div>
-              <div class="footer-contact-item">
-                <span class="footer-contact-bullet">•</span>
-                <div>
-                  <strong>Instagram Oficial:</strong><br>
-                  <a href="${SINTETIZZA_CONFIG.instagramUrl}" target="_blank" rel="noopener" style="color: #E1306C; font-weight: 700;">
-                    ${SINTETIZZA_CONFIG.instagram} ➔
-                  </a>
-                </div>
-              </div>
-              <div class="footer-contact-item">
-                <span class="footer-contact-bullet">•</span>
-                <div>
-                  <strong>Telefone Fixo / Celular:</strong><br>
-                  <a href="tel:${SINTETIZZA_CONFIG.phoneRaw}" style="font-weight: 700;">
-                    ${SINTETIZZA_CONFIG.phone}
-                  </a>
-                </div>
-              </div>
-              <div class="footer-contact-item">
-                <span class="footer-contact-bullet">•</span>
-                <div>
-                  <strong>E-mail:</strong><br>
-                  <a href="mailto:${SINTETIZZA_CONFIG.emailQuotes}">
-                    ${SINTETIZZA_CONFIG.emailQuotes}
-                  </a>
-                </div>
-              </div>
-              <div class="footer-contact-item">
-                <span class="footer-contact-bullet">•</span>
-                <div>
-                  <strong>Localização:</strong> <span>${SINTETIZZA_CONFIG.address}</span>
-                </div>
-              </div>
-              <div class="footer-contact-item">
-                <span class="footer-contact-icon">🕒</span>
-                <span>${SINTETIZZA_CONFIG.serviceHours}</span>
-              </div>
-            </div>
-
-            <div style="margin-top: 18px;">
-              <a href="https://wa.me/${SINTETIZZA_CONFIG.whatsappNumber}?text=Ol%C3%A1%2C+gostaria+de+um+or%C3%A7amento+para+meu+evento" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp btn-sm btn-block">
-                Falar com Especialista
-              </a>
-            </div>
-          </div>
-
-        </div>
-
-        <section class="footer-client-marquee" aria-label="Marcas atendidas pela Sintetizza">
-          <span class="footer-client-label">Marcas atendidas</span>
-          <div class="footer-client-viewport">
-            <div class="footer-client-track">
-              <div class="footer-client-set">
-                ${footerLogos}
-              </div>
-              <div class="footer-client-set" aria-hidden="true">
-                ${footerLogosDuplicate}
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <div class="footer-bottom">
+        <div class="footer-compact-bottom">
+          <span>&copy; ${new Date().getFullYear()} Sintetizza Estruturas. Todos os direitos reservados.</span>
           <div>
-            &copy; ${new Date().getFullYear()} ${SINTETIZZA_CONFIG.legalName} - CNPJ: ${SINTETIZZA_CONFIG.cnpj}. Todos os direitos reservados.
-          </div>
-          <div class="footer-bottom-links">
-            <a href="politica-de-privacidade.html">Privacidade (LGPD)</a>
-            <span>•</span>
+            <a href="politica-de-privacidade.html">Privacidade</a>
             <a href="termos-de-uso.html">Termos de Uso</a>
-            <span>•</span>
-            <a href="orcamento.html" style="color: #0F172A; font-weight: 800;">Solicitar Orçamento ➔</a>
           </div>
         </div>
       </div>
@@ -443,7 +277,7 @@ function createProductCardHTML(product) {
           <button class="btn btn-sm btn-primary btn-add-quote ${isAdded ? 'added' : ''}" 
                   onclick="handleToggleQuote('${product.id}', this)"
                   aria-label="${isAdded ? 'Item já adicionado' : 'Adicionar ao orçamento'}">
-            ${isAdded ? '✓ No Orçamento' : '+ Adicionar'}
+            ${isAdded ? ' No Orçamento' : '+ Adicionar'}
           </button>
           <a href="produto-detalhe.html?id=${product.id}" class="btn btn-sm btn-dark" title="Ver Ficha Técnica">
             Detalhes ➔
@@ -485,13 +319,13 @@ function renderGoogleReviewsGrid(containerId) {
         <div class="review-meta">
           <div class="review-author">
             ${r.author}
-            ${r.verified ? '<span class="review-badge-verified" title="Cliente Verificado">✓ Verificado</span>' : ''}
+            ${r.verified ? '<span class="review-badge-verified" title="Cliente Verificado"> Verificado</span>' : ''}
           </div>
           <div class="review-role">${r.role} • ${r.city}</div>
         </div>
       </div>
       <div class="review-rating">
-        <div class="review-stars">★★★★★</div>
+        <div class="review-stars"></div>
         <span class="review-date">${r.date}</span>
       </div>
       <p class="review-text">"${r.text}"</p>
@@ -597,7 +431,7 @@ window.handleToggleQuote = function(productId, btnElem) {
     QuoteCart.addItem(productId, 1);
     if (btnElem) {
       btnElem.classList.add("added");
-      btnElem.innerHTML = "✓ Adicionado";
+      btnElem.innerHTML = " Adicionado";
     }
     showToast(`"${product.name}" adicionado ao orçamento!`, "success");
   }

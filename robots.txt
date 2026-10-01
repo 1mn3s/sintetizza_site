@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.sintetizza.com.br/sitemap.xml
+Sitemap: https://sintetizzalocacoes.com.br/sitemap.xml

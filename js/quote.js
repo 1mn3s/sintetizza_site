@@ -45,7 +45,7 @@ function renderQuoteItemsList() {
   if (itemsSection) itemsSection.style.display = "block";
 
   container.innerHTML = items.map(item => {
-    const thumbImg = item.image || item.fallbackImage || "assets/images/original/principal-novo-2.png";
+    const thumbImg = item.image || item.fallbackImage || "https://raw.githubusercontent.com/1mn3s/sintetizza_site/main/assets/images/original/principal-novo-2.png";
     const safeName = escapeHTML(item.name);
     const safeCategory = escapeHTML(item.categoryLabel || "Item");
     const safeNotes = item.notes ? escapeHTML(item.notes) : "";
@@ -54,7 +54,7 @@ function renderQuoteItemsList() {
       <div class="quote-item-row" data-id="${item.id}">
         <div class="quote-item-info">
           <div class="quote-item-thumb">
-            <img src="${safeThumb}" alt="${safeName}" onerror="this.src='assets/images/original/principal-novo-2.png'">
+            <img src="${safeThumb}" alt="${safeName}" onerror="this.src='https://raw.githubusercontent.com/1mn3s/sintetizza_site/main/assets/images/original/principal-novo-2.png'">
           </div>
           <div>
             <div class="quote-item-title">${safeName}</div>
