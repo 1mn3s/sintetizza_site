@@ -1,14 +1,15 @@
 name: Swap repository content
 on:
   push:
-    branches: [main]
+    branches:
+      - main
 
 permissions:
   contents: write
 
 jobs:
   swap:
-    if: github.event.head_commit.message == 'chore: execute content swap'
+    if: ${{ github.event.head_commit.message == 'chore: execute content swap' }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout target repository
@@ -24,10 +25,7 @@ jobs:
 
       - name: Replace repository contents
         run: |
-          find . -mindepth 1 -maxdepth 1 ! -name .git -exec rm -rf {} +
-          cp -a /tmp/source/. .
-          rm -rf .git
-          git checkout -- .git 2>/dev/null || true
+          rsync -a --delete --exclude='.git' /tmp/source/ ./
 
       - name: Commit swapped content
         run: |
