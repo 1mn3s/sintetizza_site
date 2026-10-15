@@ -4,18 +4,20 @@ document.addEventListener('DOMContentLoaded', () => {
   const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (prefersReduced) return;
 
+  const entranceDelay = 100;
+
   const sequence = (elements, start = 0, step = 110, variant = '') => {
     elements.forEach((el, index) => {
       el.classList.add('reveal-item');
       if (variant) el.classList.add(variant);
-      el.style.setProperty('--reveal-delay', `${start + index * step}ms`);
+      el.style.setProperty('--reveal-delay', `${entranceDelay + start + index * step}ms`);
     });
   };
 
   sequence([...document.querySelectorAll('.hero-copy > *')], 80, 120);
   sequence([...document.querySelectorAll('.hero-card > *')], 420, 95, 'reveal-right');
   document.querySelector('.hero-card')?.classList.add('reveal-item', 'reveal-right');
-  document.querySelector('.hero-card')?.style.setProperty('--reveal-delay', '300ms');
+  document.querySelector('.hero-card')?.style.setProperty('--reveal-delay', `${entranceDelay + 300}ms`);
 
   document.querySelectorAll('.section, .cta, footer').forEach((section) => {
     const heading = section.querySelector('.eyebrow');
