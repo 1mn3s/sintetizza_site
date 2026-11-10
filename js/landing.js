@@ -5,7 +5,7 @@
 
   const service = document.body.dataset.service || "evento";
   const serviceLabel = document.body.dataset.serviceLabel || service;
-  const whatsapp = "5515997339422";
+  const whatsapp = "5515998353108";
 
   form.addEventListener("submit", (event) => {
     event.preventDefault();
