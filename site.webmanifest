@@ -3,13 +3,18 @@
   "short_name": "Sintetizza",
   "icons": [
     {
-      "src": "https://raw.githubusercontent.com/1mn3s/sintetizza_site/main/logoAuzl.png",
+      "src": "assets/images/favicon.png",
       "type": "image/png"
+    },
+    {
+      "src": "assets/images/icon.png",
+      "type": "image/png",
+      "purpose": "any maskable"
     }
   ],
-  "theme_color": "#F1CF00",
+  "theme_color": "#101214",
   "background_color": "#FFFFFF",
   "display": "standalone",
-  "start_url": "/index.html",
+  "start_url": "./",
   "lang": "pt-BR"
 }
